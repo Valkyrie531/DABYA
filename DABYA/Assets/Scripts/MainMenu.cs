@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class MainMenu : MonoBehaviour
 
     public void openCredits()
     {
-        Debug.Log("Open credits");
+        Debug.Log("Open Credits");
+        SceneManager.LoadScene("Credits");
     }
 
     public void closeGame()
