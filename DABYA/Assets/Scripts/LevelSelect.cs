@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Credits : MonoBehaviour
+public class LevelSelect : MonoBehaviour
 {
-    public void returnToMainMenu()
+    public void returnToMainMeun()
     {
-        Debug.Log("return");
         SceneManager.LoadScene("MainMenu");
     }
 }
