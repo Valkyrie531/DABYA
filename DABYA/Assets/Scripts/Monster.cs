@@ -1,16 +1,58 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Monster : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float startSpeed = 10f;
+
+    [HideInInspector]
+    public float speed;
+
+    public float startHealth = 100;
+    private float health;
+
+    //Future-proofing for when health bars are to be added.
+    [Header("Unity Stuff")]
+    public Image healthBar;
+
+    private bool isDead = false;
+
+    //As monster is spawned set health and speed to our pre-set values
     void Start()
     {
-        
+        speed = startSpeed;
+        health = startHealth;
     }
 
-    // Update is called once per frame
+    /*
+     * Input: float damage: the amount of damage the monster will take.
+     * 
+     * Inflicts damage upon the monster and if enough damage is inflicted
+     * kills the monster.
+     */
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+
+        healthBar.fillAmount = health / startHealth;
+
+        if (health <= 0 && !isDead)
+        {
+            Die();
+        }
+    }
+
+    //Destroys the monster game object, killing the monster.
+    void Die()
+    {
+        isDead = true;
+
+        Destroy(gameObject);
+    }
+
+    //Left in in case update is needed for some reason in the future.
     void Update()
     {
         
