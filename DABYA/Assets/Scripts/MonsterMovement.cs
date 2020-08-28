@@ -15,16 +15,16 @@ public class MonsterMovement : MonoBehaviour
     {
         monster = GetComponent<Monster>();
 
-        target = Waypoints.points[0];
+        target = Waypoints.points[waypointIndex];
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 dir = target.position - transform.position;
+        Vector2 dir = target.position - transform.position;
         transform.Translate(dir.normalized * monster.speed * Time.deltaTime, Space.World);
 
-        if(Vector3.Distance(transform.position, target.position) <= 0.2f)
+        if(Vector2.Distance(transform.position, target.position) <= 0.2f)
         {
             GetNextWaypoint();
         }
