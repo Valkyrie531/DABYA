@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Waypoints class, on commencement of a game/level will initialise a list of waypoints for units to move through.
 public class Waypoints : MonoBehaviour
 {
     public static Transform[] points;

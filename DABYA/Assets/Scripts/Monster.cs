@@ -13,17 +13,25 @@ public class Monster : MonoBehaviour
     public float startHealth = 100;
     private float health;
 
+    //Future-proofing for when health bars are to be added.
     [Header("Unity Stuff")]
     public Image healthBar;
 
     private bool isDead = false;
 
+    //As monster is spawned set health and speed to our pre-set values
     void Start()
     {
         speed = startSpeed;
         health = startHealth;
     }
 
+    /*
+     * Input: float damage: the amount of damage the monster will take.
+     * 
+     * Inflicts damage upon the monster and if enough damage is inflicted
+     * kills the monster.
+     */
     public void TakeDamage(float amount)
     {
         health -= amount;
@@ -36,6 +44,7 @@ public class Monster : MonoBehaviour
         }
     }
 
+    //Destroys the monster game object, killing the monster.
     void Die()
     {
         isDead = true;
@@ -43,7 +52,7 @@ public class Monster : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // Update is called once per frame
+    //Left in in case update is needed for some reason in the future.
     void Update()
     {
         

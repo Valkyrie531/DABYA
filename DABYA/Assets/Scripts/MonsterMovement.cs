@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Script used for monster movement. Has been placed in a separate
+ * script to the monster class to increase modularity.
+ */
+
 [RequireComponent(typeof(Monster))]
 public class MonsterMovement : MonoBehaviour
 {
@@ -10,7 +15,9 @@ public class MonsterMovement : MonoBehaviour
 
     private Monster monster;
 
-    // Start is called before the first frame update
+    /*  Initialises monster as the monster this script is controlling
+     *  and target as the first waypoint in the list.
+     */
     void Start()
     {
         monster = GetComponent<Monster>();
@@ -18,7 +25,11 @@ public class MonsterMovement : MonoBehaviour
         target = Waypoints.points[waypointIndex];
     }
 
-    // Update is called once per frame
+    /* Main driver for monster movement. 
+     * Moves the monster - hopefully smoothly and once it gets close
+     * enough to a waypoint (0.2 in this case) it will attempt to find
+     * the next waypoint to move to.
+     */
     void Update()
     {
         Vector2 dir = target.position - transform.position;
@@ -32,6 +43,9 @@ public class MonsterMovement : MonoBehaviour
         monster.speed = monster.startSpeed;
     }
 
+    /*Locates next waypoint and sets it as movement target, will also
+     * identify if final waypoint has been reached.
+     */
     void GetNextWaypoint()
     {
         if (waypointIndex >= Waypoints.points.Length - 1)
@@ -44,6 +58,10 @@ public class MonsterMovement : MonoBehaviour
         target = Waypoints.points[waypointIndex];
     }
 
+    /*Destroys monster game object once it reaches the final way-point. 
+     * Will need to be updated in the future once throne/win condition 
+     * is introduced.
+     */
     void EndPath()
     {
         Destroy(gameObject);
