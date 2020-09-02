@@ -13,6 +13,8 @@ public class Monster : MonoBehaviour
     public float startHealth = 100;
     private float health;
 
+    private int monsterValue = 10;
+
     //Future-proofing for when health bars are to be added.
     [Header("Unity Stuff")]
     public Image healthBar;
@@ -47,6 +49,8 @@ public class Monster : MonoBehaviour
     //Destroys the monster game object, killing the monster.
     void Die()
     {
+        Player.Money += monsterValue;
+
         isDead = true;
 
         Destroy(gameObject);
