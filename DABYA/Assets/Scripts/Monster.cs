@@ -52,6 +52,12 @@ public class Monster : MonoBehaviour
         Destroy(gameObject);
     }
 
+
+    public void DamageBase()
+    {
+
+    }
+
     //Left in in case update is needed for some reason in the future.
     void Update()
     {

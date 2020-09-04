@@ -1,18 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Throne : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Damaged(int damage)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    void BaseDestroyed()
     {
-        
+
     }
 }
