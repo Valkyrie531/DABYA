@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
-public class Level : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
+    private Base levelBase;
 
     public void LevelSuccess()
     {

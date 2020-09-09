@@ -13,6 +13,8 @@ public class Monster : MonoBehaviour
     public float startHealth = 100;
     private float health;
 
+    public int baseDamage = 1;
+
     //Future-proofing for when health bars are to be added.
     [Header("Unity Stuff")]
     public Image healthBar;
