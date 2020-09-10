@@ -64,6 +64,7 @@ public class MonsterMovement : MonoBehaviour
      */
     void EndPath()
     {
+        monster.DamageBase();
         Destroy(gameObject);
     }
 }

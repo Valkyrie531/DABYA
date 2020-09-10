@@ -1,23 +1,24 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    private Base levelBase;
+    public Base levelBase;
+    public GameObject levelCanvas;
+    public Text baseHealth;
 
     public void LevelSuccess()
     {
-
+        levelCanvas.SetActive(true);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void BaseHitFor(int damage)
     {
-        
+        levelBase.BaseDamaged(damage);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        baseHealth.text = levelBase.health.ToString() + " Health";
     }
 }

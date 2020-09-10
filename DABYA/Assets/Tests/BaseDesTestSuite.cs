@@ -3,7 +3,6 @@ using UnityEngine.TestTools;
 using NUnit.Framework;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using UnityEditor;
 
 public class TestSuite
 {
@@ -41,22 +40,20 @@ public class TestSuite
     [UnityTest]
     public IEnumerator BaseTakesDamage()
     {
+        int damage = 3;
+        int expected = levelBase.health - damage;
 
         levelBase = Transform.FindObjectOfType<Base>();
 
-        levelBase.Damaged(3);
+        levelBase.BaseDamaged(damage);
 
-        Assert.AreEqual(17, levelBase.health, 0.1);
+        Assert.AreEqual(expected, levelBase.health, 0.1);
         yield return null;
     }
 
     [UnityTest]
     public IEnumerator MonsterDamagesBase()
     {
-        var monsterPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Monster.prefab");
-
-        GameObject.Instantiate(monsterPrefab, new Vector3(0, 0, -1), Waypoints.points[0].rotation);
-
         levelBase = Transform.FindObjectOfType<Base>();
         monster = Transform.FindObjectOfType<Monster>();
 

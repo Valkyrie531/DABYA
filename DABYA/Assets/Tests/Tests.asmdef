@@ -2,7 +2,7 @@
     "name": "Tests",
     "references": [
         "UnityEngine.TestRunner",
-        "NewAssembly"
+        "BaseDestructionAssembly"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Monster : MonoBehaviour
 {
     public float startSpeed = 10f;
+    public LevelManager levelManager;
 
     [HideInInspector]
     public float speed;
@@ -57,7 +58,8 @@ public class Monster : MonoBehaviour
 
     public void DamageBase()
     {
-
+        levelManager.BaseHitFor(baseDamage);
+        Destroy(gameObject);
     }
 
     //Left in in case update is needed for some reason in the future.
