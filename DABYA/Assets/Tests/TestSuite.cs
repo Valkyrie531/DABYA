@@ -3,6 +3,7 @@ using UnityEngine.TestTools;
 using NUnit.Framework;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class TestSuite
 {
@@ -52,6 +53,9 @@ public class TestSuite
     [UnityTest]
     public IEnumerator MonsterDamagesBase()
     {
+        var monsterPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Monster.prefab");
+
+        GameObject.Instantiate(monsterPrefab, new Vector3(0, 0, -1), Waypoints.points[0].rotation);
 
         levelBase = Transform.FindObjectOfType<Base>();
         monster = Transform.FindObjectOfType<Monster>();
@@ -68,11 +72,11 @@ public class TestSuite
     public IEnumerator LevelCompletedPopsUp()
     {
         level = Transform.FindObjectOfType<LevelManager>();
-        levelCompletion = Transform.FindObjectOfType<Canvas>();
 
         level.LevelSuccess();
         yield return new WaitForSeconds(0.2f);
 
+        Assert.IsNotNull(levelCompletion = Transform.FindObjectOfType<Canvas>());
         Assert.IsTrue(levelCompletion.enabled);
     }
     
@@ -81,12 +85,12 @@ public class TestSuite
     {
         levelBase = Transform.FindObjectOfType<Base>();
         level = Transform.FindObjectOfType<LevelManager>();
-        levelCompletion = Transform.FindObjectOfType<Canvas>();
 
         levelBase.BaseDestroyed();
 
         yield return new WaitForSeconds(0.2f);
 
+        Assert.IsNotNull(levelCompletion = Transform.FindObjectOfType<Canvas>());
         Assert.IsTrue(levelCompletion.enabled);
     }
 
