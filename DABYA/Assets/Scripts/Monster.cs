@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class Monster : MonoBehaviour
 {
-    public float startSpeed = 10f;
+    private float startSpeed = 10f;
 
     [HideInInspector]
     public float speed;
 
-    public float startHealth = 100;
-    private float health;
+    private float startHealth = 100;
+    public float health;
 
     //Future-proofing for when health bars are to be added.
     [Header("Unity Stuff")]
