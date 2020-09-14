@@ -12,11 +12,13 @@ public class Tower : MonoBehaviour
 
     [Header("Tower Setting")]
     public float range = 5f;
-    private float timeBtwShots;
-    public float startTimeBtwShots;
+    private float fireRate= 1f;
+    public float fireCountdown= 0f;
     [Header("Unity Stuff")]
     public string enemyTag = "Enemy";
     public GameObject bullet;
+    public GameObject bulletPrefab;
+    public Transform firePoint;
 
     /* start game with updating target after each 0.1s.
      * 
@@ -26,7 +28,7 @@ public class Tower : MonoBehaviour
     {
         InvokeRepeating("UpdateTarget", 0f, 0.1f);
 
-        timeBtwShots = startTimeBtwShots;
+        
     }
 
     /* locate the nearest monster as the target.
@@ -40,7 +42,7 @@ public class Tower : MonoBehaviour
 
         //looping each monster as tag enemy for distance.
 
-        foreach(GameObject enemy in enemies)
+        foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
 
@@ -60,11 +62,9 @@ public class Tower : MonoBehaviour
         {
             target = null;
         }
-        
+
 
     }
-
-
 
     /* 
     *  
@@ -75,17 +75,22 @@ public class Tower : MonoBehaviour
         {
             return;
         }
-        if (timeBtwShots <= 0)
+        if (fireCountdown <= 0)
         {
-            Instantiate(bullet, transform.position, Quaternion.identity);
-  
-            timeBtwShots = startTimeBtwShots;
+            Shoot();
+            fireCountdown = 1f / fireRate;
         }
-        else
-        {
-            timeBtwShots -= Time.deltaTime;
-        }
-    } 
+        fireCountdown -= Time.deltaTime;
+    }
+
+    void Shoot()
+    {
+       GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+       Bullet bullet = bulletGo.GetComponent<Bullet>();
+
+        if (bullet != null)
+            bullet.Seek(target);
+    }
 
     void OnDrawGizmos()
     {

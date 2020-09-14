@@ -2,25 +2,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Script for Bullet of Tower.
+ * Setup movement to the target and destory the monster.
+ * 
+ */
 public class Bullet : MonoBehaviour
 {
-    public float speed;
+    private Transform target;
 
-    private Transform bullet;
-    private Vector2 bulletMovement;
-    private GameObject enemy;
+    public float speed = 60f;
 
-
-    void Start()
+    public void Seek(Transform _target)
     {
-        bullet = GameObject.FindGameObjectWithTag("Enemy").transform;
-        bulletMovement = new Vector2(bullet.position.x, bullet.position.y);
-       
+        target = _target;
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+    void Update ()
     {
-        transform.position = Vector2.MoveTowards(transform.position, bullet.position, speed * Time.deltaTime);
+        if (target == null)
+        {
+           
+            return;
+        }
+
+        Vector3 dir = target.position - transform.position;
+        float distanceThisFrame = speed * Time.deltaTime;
+
+        if (dir.magnitude <= distanceThisFrame)
+        {
+            HitTarget();
+            return;
+        }
+
+        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+
     }
+
+    void HitTarget()
+    {
+        Debug.Log("We Hit something!"); 
+    }
+
+
 }
