@@ -9,6 +9,8 @@ public class TankMonster : Monster
 
     private readonly float startHealth = 200; // changes the starting health from the default 100 to 200
 
+    private readonly int startDamage = 3;
+
     //Future-proofing for when health bars are to be added.
     //   [Header("Unity Stuff")]
     //   public Image healthBar;
@@ -19,6 +21,7 @@ public class TankMonster : Monster
     {
         speed = startSpeed;
         health = startHealth;
+        baseDamage = startDamage;
     }
 
     //Left in in case update is needed for some reason in the future.
