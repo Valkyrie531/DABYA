@@ -18,50 +18,33 @@ public class TestSuite
         SceneManager.LoadScene("LevelOne");
     }
 
-    [TearDown]
-    public void TearDown()
-    {
-        if (levelBase != null)
-        {
-            Object.Destroy(levelBase.gameObject);
-        }
-
-        if (monster != null)
-        {
-            Object.Destroy(monster.gameObject);
-        }
-
-        if (level != null)
-        {
-            Object.Destroy(level.gameObject);
-        }
-    }
-
     [UnityTest]
     public IEnumerator BaseTakesDamage()
     {
         int damage = 3;
-        int expected = levelBase.health - damage;
+        int expected = levelBase.GetHealth() - damage;
 
         levelBase = Transform.FindObjectOfType<Base>();
 
         levelBase.BaseDamaged(damage);
 
-        Assert.AreEqual(expected, levelBase.health, 0.1);
+        Assert.AreEqual(expected, levelBase.GetHealth(), 0.1);
         yield return null;
     }
 
     [UnityTest]
     public IEnumerator MonsterDamagesBase()
     {
+        //spawn monster when monster spawn is completed
+
         levelBase = Transform.FindObjectOfType<Base>();
         monster = Transform.FindObjectOfType<Monster>();
 
-        int expectedHealth = levelBase.health - monster.baseDamage;
+        int expectedHealth = levelBase.GetHealth() - monster.baseDamage;
      
         monster.DamageBase();
 
-        Assert.AreEqual(expectedHealth, levelBase.health, 0.1);
+        Assert.AreEqual(expectedHealth, levelBase.GetHealth(), 0.1);
         yield return null;
     }
 
@@ -70,7 +53,7 @@ public class TestSuite
     {
         level = Transform.FindObjectOfType<LevelManager>();
 
-        level.LevelSuccess();
+        level.LevelCompleted();
         yield return new WaitForSeconds(0.2f);
 
         Assert.IsNotNull(levelCompletion = Transform.FindObjectOfType<Canvas>());

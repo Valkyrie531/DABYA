@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSpeed: 10
-  levelManager: {fileID: 8401938011106317500, guid: 1dfba074cd8508145a2f36f7da3d74db, type: 3}
+  levelManager: {fileID: 8401938011106317501, guid: 1dfba074cd8508145a2f36f7da3d74db, type: 3}
   speed: 0
   startHealth: 100
   baseDamage: 1
