@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class Monster : MonoBehaviour
 {
-    public float startSpeed = 10f;
     public LevelManager levelManager;
+    private float startSpeed = 10f;
 
     [HideInInspector]
     public float speed;
 
-    public float startHealth = 100;
-    private float health;
+    private float startHealth = 100;
+    public float health;
 
     public int baseDamage = 1;
 

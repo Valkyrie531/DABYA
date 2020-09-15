@@ -40,7 +40,7 @@ public class MonsterMovement : MonoBehaviour
             GetNextWaypoint();
         }
 
-        monster.speed = monster.startSpeed;
+        //monster.speed = monster.speed;
     }
 
     /*Locates next waypoint and sets it as movement target, will also
