@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
      */
     public void LevelCompleted()
     {
+        
         levelCanvas.SetActive(true);
 
         if (levelBase.IsDestroyed())
@@ -41,6 +42,14 @@ public class LevelManager : MonoBehaviour
 
     //when started
     void Start()
+    {
+        basicMonster.GetComponent<Monster>().Reset();
+        speedMonster.GetComponent<SpeedMonster>().Reset();
+        tankMonster.GetComponent<TankMonster>().Reset();
+        //StartCoroutine(TestSpawn());
+    }
+
+    public void starting()//waits until a it is called to run the co routine
     {
         StartCoroutine(TestSpawn());
     }
