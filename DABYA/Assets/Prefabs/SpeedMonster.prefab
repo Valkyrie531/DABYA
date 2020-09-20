@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3284404058049804537}
   m_Layer: 0
   m_Name: SpeedMonster
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   health: 0
+  baseDamage: 1
   healthBar: {fileID: 0}
 --- !u!114 &3284404058049804537
 MonoBehaviour:
