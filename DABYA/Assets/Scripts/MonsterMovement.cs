@@ -40,7 +40,7 @@ public class MonsterMovement : MonoBehaviour
             GetNextWaypoint();
         }
 
-        monster.speed = monster.startSpeed;
+        //monster.speed = monster.speed;
     }
 
     /*Locates next waypoint and sets it as movement target, will also
@@ -58,12 +58,13 @@ public class MonsterMovement : MonoBehaviour
         target = Waypoints.points[waypointIndex];
     }
 
-    /*Destroys monster game object once it reaches the final way-point. 
-     * Will need to be updated in the future once throne/win condition 
-     * is introduced.
+    /*Destroys monster game object once it reaches the final way-point
+     * and damages the base
+     * 
      */
     void EndPath()
     {
+        monster.DamageBase();
         Destroy(gameObject);
     }
 }
