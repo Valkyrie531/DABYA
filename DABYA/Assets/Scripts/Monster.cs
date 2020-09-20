@@ -52,7 +52,8 @@ public class Monster : MonoBehaviour
     void Die()
     {
         isDead = true;
-
+        //TODO: remove magic number
+        levelManager.GetComponent<LevelManager>().playerMoneyAdjustor(10);
         Destroy(gameObject);
     }
 
@@ -64,6 +65,8 @@ public class Monster : MonoBehaviour
     public void DamageBase()
     {
         levelManager.GetComponent<LevelManager>().BaseHitFor(baseDamage);
+        //TODO: remove magic number
+        levelManager.GetComponent<LevelManager>().playerMoneyAdjustor(10);
         Destroy(gameObject);
     }
 

@@ -5,11 +5,18 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     public Base levelBase;
+    public Player levelPlayer;
+    public WaveSpawner levelSpawner;
     public GameObject levelCanvas;
     public Text baseHealth;
+    public Text playerGold;
     public GameObject basicMonster;
     public GameObject speedMonster;
     public GameObject tankMonster;
+    int counter = 0;
+
+    private int totalWaves = 5;
+    private int wavesLeft;
 
     /*
      * completed the level
@@ -39,16 +46,33 @@ public class LevelManager : MonoBehaviour
         levelBase.BaseDamaged(damage);
     }
 
+    public void playerMoneyAdjustor(int adjustment)
+    {
+        levelPlayer.changeMoney(adjustment);
+    }
+
     //when started
     void Start()
     {
+        wavesLeft = totalWaves;
+        /*do (WaveSpawner things)
+            {
+
+        }
+            while wavesLeft > 0;*/
         StartCoroutine(TestSpawn());
     }
 
     //updates the text for the base health
     void Update()
     {
+        counter += 1;
+        if ((counter % 200) == 0)
+        {
+            playerMoneyAdjustor(5);
+        }
         baseHealth.text = levelBase.GetHealth().ToString() + " Health";
+        playerGold.text = levelPlayer.getMoney().ToString() + " Gold available.";
     }
 
     //placeholder monster spawn - to be remonved when proper spawner is done
@@ -80,18 +104,18 @@ public class LevelManager : MonoBehaviour
     //placeholder monster spawn - to be remonved when proper spawner is done
     public GameObject InstantiateBasic()
     {
-        return Instantiate(basicMonster, levelBase.transform.position, levelBase.transform.rotation);
+        return Instantiate(basicMonster, levelSpawner.transform.position, levelSpawner.transform.rotation);
     }
 
     //placeholder monster spawn - to be remonved when proper spawner is done
     public GameObject InstantiateSpeed()
     {
-        return Instantiate(speedMonster, levelBase.transform.position, levelBase.transform.rotation);
+        return Instantiate(speedMonster, levelSpawner.transform.position, levelSpawner.transform.rotation);
     }
 
     //placeholder monster spawn - to be remonved when proper spawner is done
     public GameObject InstantiateTank()
     {
-        return Instantiate(tankMonster, levelBase.transform.position, levelBase.transform.rotation);
+        return Instantiate(tankMonster, levelSpawner.transform.position, levelSpawner.transform.rotation);
     }
 }

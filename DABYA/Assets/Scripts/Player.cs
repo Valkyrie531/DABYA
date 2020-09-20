@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,16 @@ public class Player : MonoBehaviour
     void Start()
     {
         Money = startMoney;
+    }
+
+    public int getMoney()
+    {
+        return Money;
+    }
+
+    public void changeMoney(int goldToAdd)
+    {
+        Money += goldToAdd;
     }
 
     // Update is called once per frame

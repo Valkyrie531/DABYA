@@ -1,20 +1,12 @@
-<<<<<<< HEAD
 ﻿{
     "name": "Tests",
-    "optionalUnityReferences": [
-        "TestAssemblies"
-    ],
     "includePlatforms": [
         "Editor"
-    ]
-=======
-{
-    "name": "Tests",
+    ],
     "references": [
         "UnityEngine.TestRunner",
         "BaseDestructionAssembly"
     ],
-    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,
@@ -28,5 +20,4 @@
     ],
     "versionDefines": [],
     "noEngineReferences": false
->>>>>>> master
 }
