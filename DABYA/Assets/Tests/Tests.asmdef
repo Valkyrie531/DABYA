@@ -3,6 +3,7 @@
     "references": [
         "UnityEngine.TestRunner",
         "BaseDestructionAssembly"
+       
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
