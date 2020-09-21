@@ -19,10 +19,13 @@ public class WaveSpawner : MonoBehaviour
     private float countdownFloat = 20;
 
     /*
-     * Initiates amount of waves in current level.
+     * Initiates amount of waves in current level and resets monster upgrades.
      */
     void Start()
     {
+        basicMonster.GetComponent<Monster>().Reset();
+        speedMonster.GetComponent<SpeedMonster>().Reset();
+        tankMonster.GetComponent<TankMonster>().Reset();
         wavesLeft = totalWaves;
     }
 

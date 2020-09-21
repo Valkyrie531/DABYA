@@ -12,9 +12,11 @@ public class Monster : MonoBehaviour
         
     private float startSpeed = 10f;
     public float speed;
+    public float speedUpgrade = 0f;
 
     private float startHealth = 100;
     public float health;
+    public float healthUpgrade = 0f;
 
     private int startDamage = 2;
     public int baseDamage;
@@ -26,10 +28,12 @@ public class Monster : MonoBehaviour
     private bool isDead = false;
 
     //As monster is spawned set health and speed to our pre-set values
+    //the speed and health upgrades are for when clones are made, they enable the upgrading of monsters by adding how much the stat was
+    //upgraded by to the starting speed/health
     void Start()
     {
-        speed = startSpeed;
-        health = startHealth;
+        speed = startSpeed + speedUpgrade;
+        health = startHealth + healthUpgrade;
         baseDamage = startDamage;
     }
 
@@ -77,9 +81,29 @@ public class Monster : MonoBehaviour
         levelManager = manager;
     }
 
-    //Left in in case update is needed for some reason in the future.
-    void Update()
+    public void UpgradeSpeed()//upgrades the health of the monster by increasing the value of the speedUpgrade variable
     {
-        
+        speedUpgrade = speedUpgrade + 0.1f;
+    }
+
+    public void UpgradeHealth()//upgrades the health of the monster by increasing the value of the healthUpgrade variable
+    {
+        healthUpgrade = healthUpgrade + 10;
+    }
+
+    public void DowngradeHealth()//downgrades the health of the monster by decreasing the value of the healthUpgrade variable
+    {
+        healthUpgrade = healthUpgrade - 10;
+    }
+
+    public void DowngradeSpeed()//downgrades the speed of the monster by decreasing the value of the speedUpgrade variable
+    {
+        speedUpgrade = speedUpgrade - 0.1f;
+    }
+
+    public void Reset()//since the prefab is altered, the values for the upgrad evariables need to be reset to default (0)
+    {
+        speedUpgrade = 0f;
+        healthUpgrade = 0f;
     }
 }
