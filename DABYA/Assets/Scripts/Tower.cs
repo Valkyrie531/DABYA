@@ -14,7 +14,6 @@ public class Tower : MonoBehaviour
     public float range = 5f;
     private float fireRate= 1f;
     public float fireCountdown= 0f;
-    public float fireDamage = 40f;
     [Header("Unity Stuff")]
     public string enemyTag = "Enemy";
     public GameObject bullet;
@@ -90,7 +89,6 @@ public class Tower : MonoBehaviour
        Bullet bullet = bulletGo.GetComponent<Bullet>();
 
         if (bullet != null)
-            bullet.setDamage(fireDamage);
             bullet.Seek(target);
     }
 

@@ -1,12 +1,11 @@
-﻿{
+{
     "name": "Tests",
-    "includePlatforms": [
-        "Editor"
-    ],
     "references": [
         "UnityEngine.TestRunner",
         "BaseDestructionAssembly"
+       
     ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,

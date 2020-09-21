@@ -12,7 +12,6 @@ public class Bullet : MonoBehaviour
     private Transform target;
 
     public float speed = 60f;
-    private float damage;
 
     public void Seek(Transform _target)
     {
@@ -20,11 +19,12 @@ public class Bullet : MonoBehaviour
     }
 
 
+
     void Update ()
     {
         if (target == null)
         {
-            Destroy(gameObject);
+           
             return;
         }
 
@@ -43,24 +43,7 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        Damage(target);
-        Destroy(gameObject);
-    }
-
-    void Damage(Transform monster)
-    {
-        Monster m = monster.GetComponent<Monster>();
-
-        if (m != null)
-        {
-            m.TakeDamage(damage);
-        }
-
-    }
-
-    public void setDamage(float damage)
-    {
-        this.damage = damage;
+        Debug.Log("We Hit something!"); 
     }
 
 
