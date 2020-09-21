@@ -6,17 +6,20 @@ using UnityEngine.UI;
 public class Monster : MonoBehaviour
 {
     [HideInInspector]
-    private readonly float startSpeed = 10f;
+    private LevelManager levelManager;
+
+    private int monsterValue = 10;
+        
+    private float startSpeed = 10f;
     public float speed;
     public float speedUpgrade = 0f;
 
-    private readonly float startHealth = 100;
+    private float startHealth = 100;
     public float health;
     public float healthUpgrade = 0f;
 
-    private readonly int startDamage = 2;
+    private int startDamage = 2;
     public int baseDamage;
-    private GameObject levelManager;
 
     //Future-proofing for when health bars are to be added.
     [Header("Unity Stuff")]
@@ -25,12 +28,10 @@ public class Monster : MonoBehaviour
     private bool isDead = false;
 
     //As monster is spawned set health and speed to our pre-set values
-    //the speed and health upgrades are for when clones are made, they enable the upgrading of monsters by adding how much the stat was
-    //upgraded by to the starting speed/health
     void Start()
     {
-        speed = startSpeed + speedUpgrade;
-        health = startHealth + healthUpgrade;
+        speed = startSpeed;
+        health = startHealth;
         baseDamage = startDamage;
     }
 
@@ -44,7 +45,7 @@ public class Monster : MonoBehaviour
     {
         health -= amount;
 
-        healthBar.fillAmount = health / startHealth;
+        //healthBar.fillAmount = health / startHealth;
 
         if (health <= 0 && !isDead)
         {
@@ -56,7 +57,7 @@ public class Monster : MonoBehaviour
     void Die()
     {
         isDead = true;
-
+        levelManager.playerMoneyAdjustor(monsterValue);
         Destroy(gameObject);
     }
 
@@ -67,12 +68,13 @@ public class Monster : MonoBehaviour
      */
     public void DamageBase()
     {
-        levelManager.GetComponent<LevelManager>().BaseHitFor(baseDamage);
+        levelManager.levelSpawner.BaseHitFor(baseDamage);
+        levelManager.playerMoneyAdjustor(monsterValue);
         Destroy(gameObject);
     }
 
     //Allows for the level manager to be set for the monster for when it is spawned
-    public void SetLevelManager(GameObject manager)
+    public void SetLevelManager(LevelManager manager)
     {
         levelManager = manager;
     }
@@ -86,7 +88,7 @@ public class Monster : MonoBehaviour
     {
         healthUpgrade = healthUpgrade + 10;
     }
-    
+
     public void DowngradeHealth()//downgrades the health of the monster by decreasing the value of the healthUpgrade variable
     {
         healthUpgrade = healthUpgrade - 10;
@@ -95,11 +97,6 @@ public class Monster : MonoBehaviour
     public void DowngradeSpeed()//downgrades the speed of the monster by decreasing the value of the speedUpgrade variable
     {
         speedUpgrade = speedUpgrade - 0.1f;
-    }
-
-    //Left in in case update is needed for some reason in the future.
-    void Update()
-    {
     }
 
     public void Reset()//since the prefab is altered, the values for the upgrad evariables need to be reset to default (0)
