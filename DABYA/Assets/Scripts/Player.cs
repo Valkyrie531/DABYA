@@ -14,11 +14,17 @@ public class Player : MonoBehaviour
         Money = startMoney;
     }
 
+    /*
+     * Returns player money value as an int.
+     */
     public int getMoney()
     {
         return Money;
     }
 
+    /*
+     * Changes player money value, only accepts int.
+     */
     public void changeMoney(int goldToAdd)
     {
         Money += goldToAdd;

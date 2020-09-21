@@ -32,6 +32,9 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    /*
+     * Adjusts money for player object in level
+     */
     public void playerMoneyAdjustor(int adjustment)
     {
         levelPlayer.changeMoney(adjustment);
@@ -43,7 +46,7 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    //updates the text for the base health
+    //updates the text for the base health and player money
     void Update()
     {
         counter += 1;

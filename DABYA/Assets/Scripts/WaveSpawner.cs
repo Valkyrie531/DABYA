@@ -18,6 +18,9 @@ public class WaveSpawner : MonoBehaviour
 
     private float countdownFloat = 20;
 
+    /*
+     * Initiates amount of waves in current level.
+     */
     void Start()
     {
         wavesLeft = totalWaves;
@@ -29,6 +32,13 @@ public class WaveSpawner : MonoBehaviour
         countdownFloat -= Time.deltaTime;
         countdownText.text = string.Format("{0:00.00}", countdownFloat);
 
+        /*
+         * Checks to see if there are waves needing to be sent (wavesLeft > 0)
+         * and checks if there is an active wave on the board.
+         * 
+         * If waves are still needed and there is not an active wave then gives
+         * money to the player and spawns a wave.
+         */
         if(wavesLeft > 0 && !activeWave)
         {
             Debug.Log("Wave" + wavesLeft);
@@ -37,11 +47,17 @@ public class WaveSpawner : MonoBehaviour
             waveToggle();
         }
 
+        /*
+         * If waves reaches 0 then player has failed the level and level fail screen appears.
+         */
         if(wavesLeft == 0)
         {
             levelManager.LevelCompleted();
         }
 
+        /*
+         * Functionality for timer at top of screen to show time left in the wave.
+         */
         if(countdownFloat <= 0f)
         {
             Debug.Log("Wave over - upgrade screen shows up here");
@@ -51,6 +67,9 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
+    /*
+     * Boolean toggle to determine if there is currently a wave on the board.
+     */
     void waveToggle()
     {
         if (activeWave)
