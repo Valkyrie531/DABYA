@@ -19,7 +19,7 @@ public class Base : MonoBehaviour
     {
         health -= damage;
 
-        if (health <= 0)
+        if(health <= 0)
         {
             health = 0;
             BaseDestroyed();

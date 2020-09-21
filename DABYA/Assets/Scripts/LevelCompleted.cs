@@ -16,6 +16,6 @@ public class LevelCompleted : MonoBehaviour
     //set the fail panel to active
     public void LevelFail()
     {
-        failPanel.SetActive(true);
+
     }
 }
