@@ -6,6 +6,7 @@
     "references": [
         "UnityEngine.TestRunner",
         "BaseDestructionAssembly"
+       
     ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
