@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class Monster : MonoBehaviour
 {
     [HideInInspector]
+    private LevelManager levelManager;
+
+    private int monsterValue = 10;
+        
     private float startSpeed = 10f;
     public float speed;
 
@@ -14,7 +18,6 @@ public class Monster : MonoBehaviour
 
     private int startDamage = 2;
     public int baseDamage;
-    private GameObject levelManager;
 
     //Future-proofing for when health bars are to be added.
     [Header("Unity Stuff")]
@@ -40,7 +43,7 @@ public class Monster : MonoBehaviour
     {
         health -= amount;
 
-        healthBar.fillAmount = health / startHealth;
+        //healthBar.fillAmount = health / startHealth;
 
         if (health <= 0 && !isDead)
         {
@@ -52,8 +55,7 @@ public class Monster : MonoBehaviour
     void Die()
     {
         isDead = true;
-        //TODO: remove magic number
-        levelManager.GetComponent<LevelManager>().playerMoneyAdjustor(10);
+        levelManager.playerMoneyAdjustor(monsterValue);
         Destroy(gameObject);
     }
 
@@ -64,14 +66,13 @@ public class Monster : MonoBehaviour
      */
     public void DamageBase()
     {
-        levelManager.GetComponent<LevelManager>().BaseHitFor(baseDamage);
-        //TODO: remove magic number
-        levelManager.GetComponent<LevelManager>().playerMoneyAdjustor(10);
+        levelManager.levelSpawner.BaseHitFor(baseDamage);
+        levelManager.playerMoneyAdjustor(monsterValue);
         Destroy(gameObject);
     }
 
     //Allows for the level manager to be set for the monster for when it is spawned
-    public void SetLevelManager(GameObject manager)
+    public void SetLevelManager(LevelManager manager)
     {
         levelManager = manager;
     }
