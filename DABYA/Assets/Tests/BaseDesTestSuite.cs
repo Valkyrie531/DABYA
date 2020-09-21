@@ -10,8 +10,7 @@ public class TestSuite
     private Monster monster;
     private LevelManager level;
     private Canvas levelCompletion;
-    private SummonMenu summonMenu;
-    
+
 
     [SetUp]
     public void SetUp()
@@ -75,74 +74,4 @@ public class TestSuite
         Assert.IsTrue(levelCompletion.enabled);
     }
 
-    [UnityTest]
-    public IEnumerator SummonMenuPopUp()
-    {
-        summonMenu = Transform.FindObjectOfType<SummonMenu>();
-      
-        Assert.IsTrue(summonMenu.summonMenuUI.activeSelf);
-        yield return null;     
-    }
-
-    [UnityTest]
-    public IEnumerator IncresedBy10()
-    {
-        summonMenu = Transform.FindObjectOfType<SummonMenu>();
-        summonMenu.IncreaseDefaultMonHealth();
-        Assert.AreEqual(summonMenu.defaultMonHealthTxt.text,"110");
-
-        summonMenu.IncreaseSpeedMonHealth();
-        Assert.AreEqual(summonMenu.speedMonHealthTxt.text, "60");
-
-        summonMenu.IncreaseTankMonHealth();
-        Assert.AreEqual(summonMenu.tankMonHealthTxt.text, "210");
-
-        yield return null;
-    }
-
-    [UnityTest]
-    public IEnumerator DecresedBy10()
-    {
-        summonMenu = Transform.FindObjectOfType<SummonMenu>();
-        summonMenu.DecreaseDefaultMonHealth();
-        Assert.AreEqual(summonMenu.defaultMonHealthTxt.text, "90");
-
-        summonMenu.DecreaseSpeedMonHealth();
-        Assert.AreEqual(summonMenu.speedMonHealthTxt.text, "40");
-
-        summonMenu.DecreaseTankMonHealth();
-        Assert.AreEqual(summonMenu.tankMonHealthTxt.text, "190");
-        yield return null;
-    }
-
-    [UnityTest]
-    public IEnumerator IncresedByDotOne()
-    {
-        summonMenu = Transform.FindObjectOfType<SummonMenu>();
-        summonMenu.IncreaseDefaultMonSpeed();
-        Assert.AreEqual(summonMenu.defaultMonSpeedTxt.text, "10.1");
-
-        summonMenu.IncreaseSpeedMonSpeed();
-        Assert.AreEqual(summonMenu.speedMonSpeedTxt.text, "15.1");
-
-        summonMenu.IncreaseTankMonSpeed();
-        Assert.AreEqual(summonMenu.tankMonSpeedTxt.text, "5.1");
-
-        yield return null;
-    }
-
-    [UnityTest]
-    public IEnumerator DecresedByDotOne()
-    {
-        summonMenu = Transform.FindObjectOfType<SummonMenu>();
-        summonMenu.DecreaseDefaultMonSpeed();
-        Assert.AreEqual(summonMenu.defaultMonSpeedTxt.text, "9.9");
-
-        summonMenu.DecreaseSpeedMonSpeed();
-        Assert.AreEqual(summonMenu.speedMonSpeedTxt.text, "14.9");
-
-        summonMenu.DecreaseTankMonSpeed();
-        Assert.AreEqual(summonMenu.tankMonSpeedTxt.text, "4.9");
-        yield return null;
-    }
 }

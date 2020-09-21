@@ -19,8 +19,8 @@ public class SpeedMonster : Monster
     //As monster is spawned set health and speed to our pre-set values
     void Start()
     {
-        speed = startSpeed + speedUpgrade;
-        health = startHealth + healthUpgrade;
+        speed = startSpeed;
+        health = startHealth;
         baseDamage = startDamage;
     }
 
