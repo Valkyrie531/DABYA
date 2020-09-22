@@ -8,4 +8,9 @@ public class LevelSelect : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void ToLevelOne()
+    {
+        SceneManager.LoadScene("LevelOne");
+    }
 }
