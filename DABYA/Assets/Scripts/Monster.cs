@@ -9,16 +9,16 @@ public class Monster : MonoBehaviour
     private LevelManager levelManager;
 
     private int monsterValue = 10;
-        
-    private float startSpeed = 10f;
+
+    private readonly float startSpeed = 10f;
     public float speed;
     public float speedUpgrade = 0f;
 
-    private float startHealth = 100;
+    private readonly float startHealth = 100;
     public float health;
     public float healthUpgrade = 0f;
 
-    private int startDamage = 2;
+    private readonly int startDamage = 2;
     public int baseDamage;
 
     //Future-proofing for when health bars are to be added.
@@ -28,10 +28,12 @@ public class Monster : MonoBehaviour
     private bool isDead = false;
 
     //As monster is spawned set health and speed to our pre-set values
+    //the speed and health upgrades are for when clones are made, they enable the upgrading of monsters by adding how much the stat was
+    //upgraded by to the starting speed/health
     void Start()
     {
-        speed = startSpeed;
-        health = startHealth;
+        speed = startSpeed + speedUpgrade;
+        health = startHealth + healthUpgrade;
         baseDamage = startDamage;
     }
 
