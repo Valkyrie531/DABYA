@@ -8,7 +8,8 @@ public class Monster : MonoBehaviour
     [HideInInspector]
     private LevelManager levelManager;
 
-    private int monsterValue = 10;
+    private int monsterDeathValue = 10;
+    private readonly int monsterSpawnValue = 20;
 
     private readonly float startSpeed = 10f;
     public float speed;
@@ -59,7 +60,7 @@ public class Monster : MonoBehaviour
     void Die()
     {
         isDead = true;
-        levelManager.playerMoneyAdjustor(monsterValue);
+        levelManager.playerMoneyAdjustor(monsterDeathValue);
         Destroy(gameObject);
     }
 
@@ -71,7 +72,7 @@ public class Monster : MonoBehaviour
     public void DamageBase()
     {
         levelManager.levelSpawner.BaseHitFor(baseDamage);
-        levelManager.playerMoneyAdjustor(monsterValue);
+        levelManager.playerMoneyAdjustor(monsterDeathValue);
         Destroy(gameObject);
     }
 
@@ -99,6 +100,11 @@ public class Monster : MonoBehaviour
     public void DowngradeSpeed()//downgrades the speed of the monster by decreasing the value of the speedUpgrade variable
     {
         speedUpgrade = speedUpgrade - 0.1f;
+    }
+
+    public int getSpawnValue()
+    {
+        return monsterSpawnValue;
     }
 
     public void Reset()//since the prefab is altered, the values for the upgrad evariables need to be reset to default (0)

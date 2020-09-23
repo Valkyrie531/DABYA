@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SummonMenu : MonoBehaviour
+public class UpgradeMenu : MonoBehaviour
 {
+<<<<<<< Updated upstream:DABYA/Assets/Scripts/SummonMenu.cs
     public GameObject summonMenuUI;
     public Text defaultMonNumTxt;
+=======
+    public GameObject upgradeMenuUI;
+    //public Text defaultMonNumTxt;
+>>>>>>> Stashed changes:DABYA/Assets/Scripts/UpgradeMenu.cs
     private decimal defaultMonSpeed = 10;
     public Text defaultMonSpeedTxt;
     private int defaultMonHealth= 100;
@@ -19,6 +24,7 @@ public class SummonMenu : MonoBehaviour
     public Text tankMonSpeedTxt;
     private int tankMonHealth = 200;
     public Text tankMonHealthTxt;
+<<<<<<< Updated upstream:DABYA/Assets/Scripts/SummonMenu.cs
     void Summon ()
     {
         summonMenuUI.SetActive(true);
@@ -30,6 +36,21 @@ public class SummonMenu : MonoBehaviour
     {
         summonMenuUI.SetActive(false);
    //     Time.timeScale = 1f;
+=======
+    
+    public bool OpenUpgrades ()
+    {
+        Debug.Log("TEST");
+        upgradeMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        return true;
+    }
+
+    public void Play()
+    {
+        upgradeMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+>>>>>>> Stashed changes:DABYA/Assets/Scripts/UpgradeMenu.cs
     }
 
    /* public void AddDefaultMonster()
@@ -116,18 +137,18 @@ public class SummonMenu : MonoBehaviour
         tankMonHealth -= 10;
         tankMonHealthTxt.text = tankMonHealth.ToString();
     }
-
+    /*
     // Update is called once per frame
     void Update()
     {
         if(Monster.FindObjectOfType(typeof(Monster)) == null)
         {
-            Summon();
+            OpenUpgrades();
         }
         else
         {
             Play();
         }
-    }
+    }*/
 }
 

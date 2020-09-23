@@ -10,7 +10,7 @@ public class TestSuite
     private Monster monster;
     private LevelManager level;
     private Canvas levelCompletion;
-    private SummonMenu summonMenu;
+    private UpgradeMenu summonMenu;
     
 
     [SetUp]
@@ -78,16 +78,16 @@ public class TestSuite
     [UnityTest]
     public IEnumerator SummonMenuPopUp()
     {
-        summonMenu = Transform.FindObjectOfType<SummonMenu>();
+        summonMenu = Transform.FindObjectOfType<UpgradeMenu>();
       
-        Assert.IsTrue(summonMenu.summonMenuUI.activeSelf);
+        Assert.IsTrue(summonMenu.upgradeMenuUI.activeSelf);
         yield return null;     
     }
 
     [UnityTest]
     public IEnumerator IncresedBy10()
     {
-        summonMenu = Transform.FindObjectOfType<SummonMenu>();
+        summonMenu = Transform.FindObjectOfType<UpgradeMenu>();
         summonMenu.IncreaseDefaultMonHealth();
         Assert.AreEqual(summonMenu.defaultMonHealthTxt.text,"110");
 
@@ -103,7 +103,7 @@ public class TestSuite
     [UnityTest]
     public IEnumerator DecresedBy10()
     {
-        summonMenu = Transform.FindObjectOfType<SummonMenu>();
+        summonMenu = Transform.FindObjectOfType<UpgradeMenu>();
         summonMenu.DecreaseDefaultMonHealth();
         Assert.AreEqual(summonMenu.defaultMonHealthTxt.text, "90");
 
@@ -118,7 +118,7 @@ public class TestSuite
     [UnityTest]
     public IEnumerator IncresedByDotOne()
     {
-        summonMenu = Transform.FindObjectOfType<SummonMenu>();
+        summonMenu = Transform.FindObjectOfType<UpgradeMenu>();
         summonMenu.IncreaseDefaultMonSpeed();
         Assert.AreEqual(summonMenu.defaultMonSpeedTxt.text, "10.1");
 
@@ -134,7 +134,7 @@ public class TestSuite
     [UnityTest]
     public IEnumerator DecresedByDotOne()
     {
-        summonMenu = Transform.FindObjectOfType<SummonMenu>();
+        summonMenu = Transform.FindObjectOfType<UpgradeMenu>();
         summonMenu.DecreaseDefaultMonSpeed();
         Assert.AreEqual(summonMenu.defaultMonSpeedTxt.text, "9.9");
 
