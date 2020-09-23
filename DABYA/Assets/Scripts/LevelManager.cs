@@ -51,11 +51,15 @@ public class LevelManager : MonoBehaviour
     //updates the text for the base health and player money
     void Update()
     {
-        counter += 1;
-        if ((counter % 200) == 0)
+        if (!levelSpawner.upgradeMenuActive)
         {
-            playerMoneyAdjustor(5);
+            counter += 1;
+            if ((counter % 200) == 0)
+            {
+                playerMoneyAdjustor(5);
+            }
         }
+
         baseHealth.text = levelBase.GetHealth().ToString() + " Health";
         playerGold.text = levelPlayer.getMoney().ToString() + " Gold available.";
     }

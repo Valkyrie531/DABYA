@@ -29,19 +29,19 @@ public class UpgradeMenu : MonoBehaviour
     public int defaultSpeedUpgrade = 20;
     public Text defaultSpeedUpgradeTxt;
     [HideInInspector]
-    public int defaultSpeedDowngrade;
+    public int defaultSpeedDowngrade = 0;
     public Text defaultSpeedDowngradeTxt;
     [HideInInspector]
     public int speedSpeedUpgrade = 10;
     public Text speedSpeedUpgradeTxt;
     [HideInInspector]
-    public int speedSpeedDowngrade;
+    public int speedSpeedDowngrade = 0;
     public Text speedSpeedDowngradeTxt;
     [HideInInspector]
     public int tankSpeedUpgrade = 30;
     public Text tankSpeedUpgradeTxt;
     [HideInInspector]
-    public int tankSpeedDowngrade;
+    public int tankSpeedDowngrade = 0;
     public Text tankSpeedDowngradeTxt;
 
     //health upgrade values and text for all monsters
@@ -49,19 +49,19 @@ public class UpgradeMenu : MonoBehaviour
     public int defaultHealthUpgrade = 20;
     public Text defaultHealthUpgradeTxt;
     [HideInInspector]
-    public int defaultHealthDowngrade;
+    public int defaultHealthDowngrade = 0;
     public Text defaultHealthDowngradeTxt;
     [HideInInspector]
     public int speedHealthUpgrade = 30;
     public Text speedHealthUpgradeTxt;
     [HideInInspector]
-    public int speedHealthDowngrade;
+    public int speedHealthDowngrade = 0;
     public Text speedHealthDowngradeTxt;
     [HideInInspector]
     public int tankHealthUpgrade = 10;
     public Text tankHealthUpgradeTxt;
     [HideInInspector]
-    public int tankHealthDowngrade;
+    public int tankHealthDowngrade = 0;
     public Text tankHealthDowngradeTxt;
 
     private float upgradeCostFactor = 1.5f;
@@ -92,6 +92,21 @@ public class UpgradeMenu : MonoBehaviour
          defaultMonNumTxt.text = defaultMonNum.ToString();
      }*/
 
+    private void Start()
+    {
+        defaultSpeedUpgradeTxt.text = defaultSpeedUpgrade.ToString() + "g";
+        defaultSpeedDowngradeTxt.text = defaultSpeedDowngrade.ToString() + "g";
+        defaultHealthUpgradeTxt.text = defaultHealthUpgrade.ToString() + "g";
+        defaultHealthDowngradeTxt.text = defaultHealthDowngrade.ToString() + "g";
+        speedSpeedUpgradeTxt.text = speedSpeedUpgrade.ToString() + "g";
+        speedSpeedDowngradeTxt.text = speedSpeedDowngrade.ToString() + "g";
+        speedHealthUpgradeTxt.text = speedHealthUpgrade.ToString() + "g";
+        speedHealthDowngradeTxt.text = speedHealthDowngrade.ToString() + "g";
+        tankSpeedUpgradeTxt.text = tankSpeedUpgrade.ToString() + "g";
+        tankSpeedDowngradeTxt.text = tankSpeedDowngrade.ToString() + "g";
+        tankHealthUpgradeTxt.text = tankHealthUpgrade.ToString() + "g";
+        tankHealthDowngradeTxt.text = tankHealthDowngrade.ToString() + "g";
+    }
 
     // Update is called once per frame
     void Update()
@@ -104,8 +119,6 @@ public class UpgradeMenu : MonoBehaviour
         {
             Play();
         }*/
-
-        playerGold.text = levelPlayer.getMoney().ToString() + " Gold available.";
     }
 
     //the following similarly name functions change the text to be the same as the value of the stats
@@ -231,85 +244,85 @@ public class UpgradeMenu : MonoBehaviour
                 levelPlayer.spendMoney(defaultSpeedUpgrade);
                 defaultSpeedDowngrade = defaultSpeedUpgrade;
                 defaultSpeedUpgrade = (int)Math.Ceiling(defaultSpeedUpgrade * upgradeCostFactor);
-                defaultSpeedUpgradeTxt.text = defaultSpeedUpgrade.ToString();
-                defaultSpeedDowngradeTxt.text = defaultSpeedDowngrade.ToString();
+                defaultSpeedUpgradeTxt.text = defaultSpeedUpgrade.ToString() + "g";
+                defaultSpeedDowngradeTxt.text = defaultSpeedDowngrade.ToString() + "g";
                 break;
             case "DDMS":
                 levelPlayer.gainMoney(defaultSpeedDowngrade);
                 defaultSpeedUpgrade = defaultSpeedDowngrade;
                 defaultSpeedDowngrade = (int)Math.Ceiling(defaultSpeedDowngrade / upgradeCostFactor);
-                defaultSpeedUpgradeTxt.text = defaultSpeedUpgrade.ToString();
-                defaultSpeedDowngradeTxt.text = defaultSpeedDowngrade.ToString();
+                defaultSpeedUpgradeTxt.text = defaultSpeedUpgrade.ToString() + "g";
+                defaultSpeedDowngradeTxt.text = defaultSpeedDowngrade.ToString() + "g";
                 break;
             case "IDMH":
                 levelPlayer.spendMoney(defaultHealthUpgrade);
                 defaultHealthDowngrade = defaultHealthUpgrade;
                 defaultHealthUpgrade = (int)Math.Ceiling(defaultHealthUpgrade * upgradeCostFactor);
-                defaultHealthUpgradeTxt.text = defaultHealthUpgrade.ToString();
-                defaultHealthDowngradeTxt.text = defaultHealthDowngrade.ToString();
+                defaultHealthUpgradeTxt.text = defaultHealthUpgrade.ToString() + "g";
+                defaultHealthDowngradeTxt.text = defaultHealthDowngrade.ToString() + "g";
                 break;
             case "DDMH":
                 levelPlayer.gainMoney(defaultHealthDowngrade);
                 defaultHealthUpgrade = defaultHealthDowngrade;
                 defaultHealthDowngrade = (int)Math.Ceiling(defaultHealthDowngrade / upgradeCostFactor);
-                defaultHealthUpgradeTxt.text = defaultHealthUpgrade.ToString();
-                defaultHealthDowngradeTxt.text = defaultHealthDowngrade.ToString();
+                defaultHealthUpgradeTxt.text = defaultHealthUpgrade.ToString() + "g";
+                defaultHealthDowngradeTxt.text = defaultHealthDowngrade.ToString() + "g";
                 break;
             case "ISMS":
                 levelPlayer.spendMoney(speedSpeedUpgrade);
                 speedSpeedDowngrade = speedSpeedUpgrade;
                 speedSpeedUpgrade = (int)Math.Ceiling(speedSpeedUpgrade * upgradeCostFactor);
-                speedSpeedUpgradeTxt.text = speedSpeedUpgrade.ToString();
-                speedSpeedDowngradeTxt.text = speedSpeedDowngrade.ToString();
+                speedSpeedUpgradeTxt.text = speedSpeedUpgrade.ToString() + "g";
+                speedSpeedDowngradeTxt.text = speedSpeedDowngrade.ToString() + "g";
                 break;
             case "DSMS":
                 levelPlayer.gainMoney(speedSpeedDowngrade);
                 speedSpeedUpgrade = speedSpeedDowngrade;
                 speedSpeedDowngrade = (int)Math.Ceiling(speedSpeedDowngrade / upgradeCostFactor);
-                speedSpeedUpgradeTxt.text = speedSpeedUpgrade.ToString();
-                speedSpeedDowngradeTxt.text = speedSpeedDowngrade.ToString();
+                speedSpeedUpgradeTxt.text = speedSpeedUpgrade.ToString() + "g";
+                speedSpeedDowngradeTxt.text = speedSpeedDowngrade.ToString() + "g";
                 break;
             case "ISMH":
                 levelPlayer.spendMoney(speedHealthUpgrade);
                 speedHealthDowngrade = speedHealthUpgrade;
                 speedHealthUpgrade = (int)Math.Ceiling(speedHealthUpgrade * upgradeCostFactor);
-                speedHealthUpgradeTxt.text = speedHealthUpgrade.ToString();
-                speedHealthDowngradeTxt.text = speedHealthDowngrade.ToString();
+                speedHealthUpgradeTxt.text = speedHealthUpgrade.ToString() + "g";
+                speedHealthDowngradeTxt.text = speedHealthDowngrade.ToString() + "g";
                 break;
             case "DSMH":
                 levelPlayer.gainMoney(speedHealthDowngrade);
                 speedHealthDowngrade = speedHealthUpgrade;
                 speedHealthUpgrade = (int)Math.Ceiling(speedHealthUpgrade / upgradeCostFactor);
-                speedHealthUpgradeTxt.text = speedHealthUpgrade.ToString();
-                speedHealthDowngradeTxt.text = speedHealthDowngrade.ToString();
+                speedHealthUpgradeTxt.text = speedHealthUpgrade.ToString() + "g";
+                speedHealthDowngradeTxt.text = speedHealthDowngrade.ToString() + "g";
                 break;
             case "ITMS":
                 levelPlayer.spendMoney(tankSpeedUpgrade);
                 tankSpeedDowngrade = tankSpeedUpgrade;
                 tankSpeedUpgrade = (int)Math.Ceiling(tankSpeedUpgrade * upgradeCostFactor);
-                tankSpeedUpgradeTxt.text = tankSpeedUpgrade.ToString();
-                tankSpeedDowngradeTxt.text = tankSpeedDowngrade.ToString();
+                tankSpeedUpgradeTxt.text = tankSpeedUpgrade.ToString() + "g";
+                tankSpeedDowngradeTxt.text = tankSpeedDowngrade.ToString() + "g";
                 break;
             case "DTMS":
                 levelPlayer.gainMoney(tankSpeedDowngrade);
                 tankSpeedUpgrade = tankSpeedDowngrade;
                 tankSpeedDowngrade = (int)Math.Ceiling(tankSpeedDowngrade / upgradeCostFactor);
-                tankSpeedUpgradeTxt.text = tankSpeedUpgrade.ToString();
-                tankSpeedDowngradeTxt.text = tankSpeedDowngrade.ToString();
+                tankSpeedUpgradeTxt.text = tankSpeedUpgrade.ToString() + "g";
+                tankSpeedDowngradeTxt.text = tankSpeedDowngrade.ToString() + "g";
                 break;
             case "ITMH":
                 levelPlayer.spendMoney(tankHealthUpgrade);
                 tankHealthDowngrade = tankHealthUpgrade;
                 tankHealthUpgrade = (int)Math.Ceiling(tankHealthUpgrade * upgradeCostFactor);
-                tankHealthUpgradeTxt.text = tankHealthUpgrade.ToString();
-                tankHealthDowngradeTxt.text = tankHealthDowngrade.ToString();
+                tankHealthUpgradeTxt.text = tankHealthUpgrade.ToString() + "g";
+                tankHealthDowngradeTxt.text = tankHealthDowngrade.ToString() + "g";
                 break;
             case "DTMH":
                 levelPlayer.gainMoney(tankHealthDowngrade);
                 tankHealthUpgrade = tankHealthDowngrade;
                 tankHealthDowngrade = (int)Math.Ceiling(tankHealthDowngrade / upgradeCostFactor);
-                tankHealthUpgradeTxt.text = tankHealthUpgrade.ToString();
-                tankHealthDowngradeTxt.text = tankHealthDowngrade.ToString();
+                tankHealthUpgradeTxt.text = tankHealthUpgrade.ToString() + "g";
+                tankHealthDowngradeTxt.text = tankHealthDowngrade.ToString() + "g";
                 break;
         }
     }
