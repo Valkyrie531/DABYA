@@ -7,26 +7,26 @@ public class WaveSpawner : MonoBehaviour
 {
     public LevelManager levelManager;
     public Text countdownText;
-    public GameObject basicMonster;
-    public GameObject speedMonster;
-    public GameObject tankMonster;
-    public GameObject spawnPoint;
+    public UpgradeMenu summonMenu;
+    public SpawnMonster spawnMonster;
 
     private int totalWaves = 2;
     private int wavesLeft;
     private bool activeWave = false;
 
-    private float countdownFloat = 20;
+    private float countdownLength = 10;
+    private float countdownFloat;
+
+    private bool upgradeMenuActive = true;
 
     /*
      * Initiates amount of waves in current level.
      */
     void Start()
     {
+        openUpgradeMenu();
         wavesLeft = totalWaves;
-        basicMonster.GetComponent<Monster>().Reset();
-        speedMonster.GetComponent<SpeedMonster>().Reset();
-        tankMonster.GetComponent<TankMonster>().Reset();
+        countdownFloat = countdownLength;
     }
 
     // Update is called once per frame
@@ -42,11 +42,10 @@ public class WaveSpawner : MonoBehaviour
          * If waves are still needed and there is not an active wave then gives
          * money to the player and spawns a wave.
          */
-        if(wavesLeft > 0 && !activeWave)
+        if(wavesLeft > 0 && !activeWave && !upgradeMenuActive)
         {
             Debug.Log("Wave" + wavesLeft);
             levelManager.playerMoneyAdjustor(100);
-            StartCoroutine(TestSpawn());
             waveToggle();
         }
 
@@ -63,11 +62,27 @@ public class WaveSpawner : MonoBehaviour
          */
         if(countdownFloat <= 0f)
         {
-            Debug.Log("Wave over - upgrade screen shows up here");
-            countdownFloat = 20;
             wavesLeft -= 1;
+            if (wavesLeft > 0)
+            {
+                spawnMonster.clearMonsters();
+                openUpgradeMenu();
+            }
+            countdownFloat = countdownLength;
             waveToggle();
         }
+    }
+
+    void openUpgradeMenu()
+    {
+        upgradeMenuActive = true;
+        summonMenu.OpenUpgrades();
+    }
+
+    public void closeUpgradeMenu()
+    {
+        upgradeMenuActive = false;
+        summonMenu.Play();
     }
 
     /*
@@ -90,47 +105,5 @@ public class WaveSpawner : MonoBehaviour
         levelManager.levelBase.BaseDamaged(damage);
     }
 
-    //placeholder monster spawn - to be remonved when proper spawner is done
-    public IEnumerator TestSpawn()
-    {
-        for (int i = 0; i < 6; i++)
-        {
-            GameObject spawned;
 
-            if (i % 3 == 0)
-            {
-                spawned = InstantiateBasic();
-            }
-            else if (i % 3 == 1)
-            {
-                spawned = InstantiateSpeed();
-            }
-            else
-            {
-                spawned = InstantiateTank();
-            }
-
-            spawned.GetComponent<Monster>().SetLevelManager(levelManager);
-
-            yield return new WaitForSeconds(0.5f);
-        }
-    }
-
-    //placeholder monster spawn - to be remonved when proper spawner is done
-    public GameObject InstantiateBasic()
-    {
-        return Instantiate(basicMonster, spawnPoint.transform.position, spawnPoint.transform.rotation);
-    }
-
-    //placeholder monster spawn - to be remonved when proper spawner is done
-    public GameObject InstantiateSpeed()
-    {
-        return Instantiate(speedMonster, spawnPoint.transform.position, spawnPoint.transform.rotation);
-    }
-
-    //placeholder monster spawn - to be remonved when proper spawner is done
-    public GameObject InstantiateTank()
-    {
-        return Instantiate(tankMonster, spawnPoint.transform.position, spawnPoint.transform.rotation);
-    }
 }

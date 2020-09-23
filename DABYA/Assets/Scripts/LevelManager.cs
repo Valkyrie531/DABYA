@@ -30,6 +30,7 @@ public class LevelManager : MonoBehaviour
         else
         {
             levelCanvas.GetComponent<LevelCompleted>().LevelFail();
+            levelSpawner.spawnMonster.clearMonsters();
         }
     }
 
