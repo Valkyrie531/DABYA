@@ -39,7 +39,7 @@ public class LevelManager : MonoBehaviour
       */
     public void playerMoneyAdjustor(int adjustment)
     {
-        levelPlayer.changeMoney(adjustment);
+        levelPlayer.gainMoney(adjustment);
     }
 
     //when started
