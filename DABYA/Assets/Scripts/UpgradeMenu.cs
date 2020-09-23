@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SummonMenu : MonoBehaviour
+public class UpgradeMenu : MonoBehaviour
 {
-    public GameObject summonMenuUI;
-    public Text defaultMonNumTxt;
+    public GameObject upgradeMenuUI;
+    //public Text defaultMonNumTxt;
     private decimal defaultMonSpeed = 10;
     public Text defaultMonSpeedTxt;
     private int defaultMonHealth= 100;
@@ -19,17 +19,19 @@ public class SummonMenu : MonoBehaviour
     public Text tankMonSpeedTxt;
     private int tankMonHealth = 200;
     public Text tankMonHealthTxt;
-    void Summon ()
+    
+    public bool OpenUpgrades ()
     {
-        summonMenuUI.SetActive(true);
-   //     Time.timeScale = 0f;
-
+        Debug.Log("TEST");
+        upgradeMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        return true;
     }
 
-    public void Play ()
+    public void Play()
     {
-        summonMenuUI.SetActive(false);
-   //     Time.timeScale = 1f;
+        upgradeMenuUI.SetActive(false);
+        Time.timeScale = 1f;
     }
 
    /* public void AddDefaultMonster()
@@ -116,18 +118,18 @@ public class SummonMenu : MonoBehaviour
         tankMonHealth -= 10;
         tankMonHealthTxt.text = tankMonHealth.ToString();
     }
-
+    /*
     // Update is called once per frame
     void Update()
     {
         if(Monster.FindObjectOfType(typeof(Monster)) == null)
         {
-            Summon();
+            OpenUpgrades();
         }
         else
         {
             Play();
         }
-    }
+    }*/
 }
 
