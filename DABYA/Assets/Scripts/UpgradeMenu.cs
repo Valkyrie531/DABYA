@@ -5,13 +5,8 @@ using UnityEngine.UI;
 
 public class UpgradeMenu : MonoBehaviour
 {
-<<<<<<< Updated upstream:DABYA/Assets/Scripts/SummonMenu.cs
-    public GameObject summonMenuUI;
-    public Text defaultMonNumTxt;
-=======
     public GameObject upgradeMenuUI;
     //public Text defaultMonNumTxt;
->>>>>>> Stashed changes:DABYA/Assets/Scripts/UpgradeMenu.cs
     private decimal defaultMonSpeed = 10;
     public Text defaultMonSpeedTxt;
     private int defaultMonHealth= 100;
@@ -24,19 +19,6 @@ public class UpgradeMenu : MonoBehaviour
     public Text tankMonSpeedTxt;
     private int tankMonHealth = 200;
     public Text tankMonHealthTxt;
-<<<<<<< Updated upstream:DABYA/Assets/Scripts/SummonMenu.cs
-    void Summon ()
-    {
-        summonMenuUI.SetActive(true);
-   //     Time.timeScale = 0f;
-
-    }
-
-    public void Play ()
-    {
-        summonMenuUI.SetActive(false);
-   //     Time.timeScale = 1f;
-=======
     
     public bool OpenUpgrades ()
     {
@@ -50,7 +32,6 @@ public class UpgradeMenu : MonoBehaviour
     {
         upgradeMenuUI.SetActive(false);
         Time.timeScale = 1f;
->>>>>>> Stashed changes:DABYA/Assets/Scripts/UpgradeMenu.cs
     }
 
    /* public void AddDefaultMonster()

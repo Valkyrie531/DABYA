@@ -7,15 +7,8 @@ public class WaveSpawner : MonoBehaviour
 {
     public LevelManager levelManager;
     public Text countdownText;
-<<<<<<< Updated upstream
-    public GameObject basicMonster;
-    public GameObject speedMonster;
-    public GameObject tankMonster;
-    public GameObject spawnPoint;
-=======
     public UpgradeMenu summonMenu;
     public SpawnMonster spawnMonster;
->>>>>>> Stashed changes
 
     private int totalWaves = 2;
     private int wavesLeft;
@@ -23,6 +16,8 @@ public class WaveSpawner : MonoBehaviour
 
     private float countdownLength = 10;
     private float countdownFloat;
+
+    private bool upgradeMenuActive = true;
 
     /*
      * Initiates amount of waves in current level.
@@ -77,8 +72,6 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-<<<<<<< Updated upstream
-=======
     void openUpgradeMenu()
     {
         upgradeMenuActive = true;
@@ -90,7 +83,7 @@ public class WaveSpawner : MonoBehaviour
         upgradeMenuActive = false;
         summonMenu.Play();
     }
->>>>>>> Stashed changes
+
     /*
      * Boolean toggle to determine if there is currently a wave on the board.
      */
