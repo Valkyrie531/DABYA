@@ -24,6 +24,9 @@ public class WaveSpawner : MonoBehaviour
     void Start()
     {
         wavesLeft = totalWaves;
+        basicMonster.GetComponent<Monster>().Reset();
+        speedMonster.GetComponent<SpeedMonster>().Reset();
+        tankMonster.GetComponent<TankMonster>().Reset();
     }
 
     // Update is called once per frame
