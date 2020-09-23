@@ -24,6 +24,7 @@ public class WaveSpawner : MonoBehaviour
      */
     void Start()
     {
+        openUpgradeMenu();
         wavesLeft = totalWaves;
         countdownFloat = countdownLength;
     }
