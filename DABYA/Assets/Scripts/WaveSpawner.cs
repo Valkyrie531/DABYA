@@ -14,7 +14,7 @@ public class WaveSpawner : MonoBehaviour
     private int wavesLeft;
     private bool activeWave = false;
 
-    private float countdownLength = 10;
+    private float countdownLength = 30;
     private float countdownFloat;
 
     private bool upgradeMenuActive = true;
