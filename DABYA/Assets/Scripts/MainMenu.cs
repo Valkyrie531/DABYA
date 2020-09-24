@@ -4,13 +4,13 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     //Changes the scene from the main menu to the level selection screen
-    public void openLevelSelect()
+    public void OpenLevelSelect()
     {
         SceneManager.LoadScene("LevelSelect");
     }
 
     //completely closes the game
-    public void closeGame()
+    public void CloseGame()
     {
         Application.Quit();
     }
