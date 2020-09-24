@@ -467,6 +467,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelPlayer: {fileID: 1741129368}
   playerGold: {fileID: 475228750}
+  monster: {fileID: -8177383791609306768, guid: f04b6cecfbae24342b8185067c57d0b0, type: 3}
+  speedMonster: {fileID: 3284404058049804536, guid: ba10f37cb89868641bac9191ca8bb309, type: 3}
+  tankMonster: {fileID: 660522741825098068, guid: 8073bfed81f4a0448b29f3bc5fd3fccf, type: 3}
   upgradeMenuUI: {fileID: 1465127375}
   defaultMonSpeedTxt: {fileID: 1852937415}
   defaultMonHealthTxt: {fileID: 1955069047}
@@ -1063,18 +1066,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3284404058049804536, guid: ba10f37cb89868641bac9191ca8bb309, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: UpgradeHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 123235729}
         m_TargetAssemblyTypeName: UpgradeMenu, BaseDestructionAssembly
         m_MethodName: IncreaseSpeedMonHealth
@@ -1971,18 +1962,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -8177383791609306768, guid: f04b6cecfbae24342b8185067c57d0b0, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: DowngradeSpeed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 123235729}
         m_TargetAssemblyTypeName: UpgradeMenu, BaseDestructionAssembly
         m_MethodName: DecreaseDefaultMonSpeed
@@ -2193,18 +2172,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3284404058049804536, guid: ba10f37cb89868641bac9191ca8bb309, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: DowngradeSpeed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 123235729}
         m_TargetAssemblyTypeName: UpgradeMenu, BaseDestructionAssembly
         m_MethodName: DecreaseSpeedMonSpeed
@@ -2338,18 +2305,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 660522741825098068, guid: 8073bfed81f4a0448b29f3bc5fd3fccf, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: UpgradeHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 123235729}
         m_TargetAssemblyTypeName: UpgradeMenu, BaseDestructionAssembly
         m_MethodName: IncreaseTankMonHealth
@@ -4374,18 +4329,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -8177383791609306768, guid: f04b6cecfbae24342b8185067c57d0b0, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: UpgradeHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 123235729}
         m_TargetAssemblyTypeName: UpgradeMenu, BaseDestructionAssembly
         m_MethodName: IncreaseDefaultMonHealth
@@ -5057,18 +5000,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 660522741825098068, guid: 8073bfed81f4a0448b29f3bc5fd3fccf, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: DowngradeSpeed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 123235729}
         m_TargetAssemblyTypeName: UpgradeMenu, BaseDestructionAssembly
         m_MethodName: DecreaseTankMonSpeed
@@ -5380,18 +5311,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3284404058049804536, guid: ba10f37cb89868641bac9191ca8bb309, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: UpgradeSpeed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 123235729}
         m_TargetAssemblyTypeName: UpgradeMenu, BaseDestructionAssembly
         m_MethodName: IncreaseSpeedMonSpeed
@@ -5525,18 +5444,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 660522741825098068, guid: 8073bfed81f4a0448b29f3bc5fd3fccf, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: UpgradeSpeed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 123235729}
         m_TargetAssemblyTypeName: UpgradeMenu, BaseDestructionAssembly
         m_MethodName: IncreaseTankMonSpeed
@@ -6188,18 +6095,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 660522741825098068, guid: 8073bfed81f4a0448b29f3bc5fd3fccf, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: DowngradeHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 123235729}
         m_TargetAssemblyTypeName: UpgradeMenu, BaseDestructionAssembly
         m_MethodName: DecreaseTankMonHealth
@@ -6590,18 +6485,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3284404058049804536, guid: ba10f37cb89868641bac9191ca8bb309, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: DowngradeHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 123235729}
         m_TargetAssemblyTypeName: UpgradeMenu, BaseDestructionAssembly
         m_MethodName: DecreaseSpeedMonHealth
@@ -7106,18 +6989,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -8177383791609306768, guid: f04b6cecfbae24342b8185067c57d0b0, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: DowngradeHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 123235729}
         m_TargetAssemblyTypeName: UpgradeMenu, BaseDestructionAssembly
         m_MethodName: DecreaseDefaultMonHealth
@@ -8213,6 +8084,7 @@ MonoBehaviour:
   countdownText: {fileID: 1729198492}
   summonMenu: {fileID: 123235729}
   spawnMonster: {fileID: 1230900728}
+  upgradeMenuActive: 1
 --- !u!1 &2037990212
 GameObject:
   m_ObjectHideFlags: 0
@@ -8296,18 +8168,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -8177383791609306768, guid: f04b6cecfbae24342b8185067c57d0b0, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: UpgradeSpeed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 123235729}
         m_TargetAssemblyTypeName: UpgradeMenu, BaseDestructionAssembly
         m_MethodName: IncreaseDefaultMonSpeed

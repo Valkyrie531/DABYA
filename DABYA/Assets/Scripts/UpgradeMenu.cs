@@ -8,6 +8,10 @@ public class UpgradeMenu : MonoBehaviour
 {
     public Player levelPlayer;
     public Text playerGold;
+    public Monster monster;
+    public SpeedMonster speedMonster;
+    public TankMonster tankMonster;
+    private bool minReached;
 
     public GameObject upgradeMenuUI;
     //public Text defaultMonNumTxt;
@@ -126,102 +130,192 @@ public class UpgradeMenu : MonoBehaviour
     {
         if (CheckMoney(defaultSpeedUpgrade))
         {
+            monster.UpgradeSpeed();
             defaultMonSpeed += 0.1m;
             defaultMonSpeedTxt.text = defaultMonSpeed.ToString();
-            UpdateCost("IDMS");
+            UpdateCost("IDMS", false);
         }
     }
 
     public void DecreaseDefaultMonSpeed()
     {
-        defaultMonSpeed -= 0.1m;
-        defaultMonSpeedTxt.text = defaultMonSpeed.ToString();
-        UpdateCost("DDMS");
+        if (!monster.minSpeed())
+        {
+            monster.DowngradeSpeed();
+            defaultMonSpeed -= 0.1m;
+            defaultMonSpeedTxt.text = defaultMonSpeed.ToString();
+
+            if (monster.minSpeed())
+            {
+                minReached = true;
+            }
+            else
+            {
+                minReached = false;
+            }
+            
+            UpdateCost("DDMS", minReached);
+        }
     }
 
     public void IncreaseDefaultMonHealth()
     {
         if (CheckMoney(defaultHealthUpgrade))
         {
+            monster.UpgradeHealth();
             defaultMonHealth += 10;
             defaultMonHealthTxt.text = defaultMonHealth.ToString();
-            UpdateCost("IDMH");
+            UpdateCost("IDMH", false);
         }
     }
 
     public void DecreaseDefaultMonHealth()
     {
-        defaultMonHealth -= 10;
-        defaultMonHealthTxt.text = defaultMonHealth.ToString();
-        UpdateCost("DDMH");
+        if (!monster.minHealth())
+        {
+            monster.DowngradeHealth();
+            defaultMonHealth -= 10;
+            defaultMonHealthTxt.text = defaultMonHealth.ToString();
+
+            if (monster.minHealth())
+            {
+                minReached = true;
+            }
+            else
+            {
+                minReached = false;
+            }
+
+            UpdateCost("DDMH", minReached);
+        }
     }
 
     public void IncreaseSpeedMonSpeed()
     {
         if (CheckMoney(speedSpeedUpgrade))
         {
+            speedMonster.UpgradeSpeed();
             speedMonSpeed += 0.1m;
             speedMonSpeedTxt.text = speedMonSpeed.ToString();
-            UpdateCost("ISMS");
+            UpdateCost("ISMS", false);
         }
     }
 
     public void DecreaseSpeedMonSpeed()
     {
-        speedMonSpeed -= 0.1m;
-        speedMonSpeedTxt.text = speedMonSpeed.ToString();
-        UpdateCost("DSMS");
+        if (!speedMonster.minSpeed())
+        {
+            speedMonster.DowngradeSpeed();
+            speedMonSpeed -= 0.1m;
+            speedMonSpeedTxt.text = speedMonSpeed.ToString();
+
+            if (speedMonster.minSpeed())
+            {
+                minReached = true;
+            }
+            else
+            {
+                minReached = false;
+            }
+
+            UpdateCost("DSMS", minReached);
+        }
     }
 
     public void IncreaseSpeedMonHealth()
     {
         if (CheckMoney(speedHealthUpgrade))
         {
+            speedMonster.UpgradeHealth();
             speedMonHealth += 10;
             speedMonHealthTxt.text = speedMonHealth.ToString();
-            UpdateCost("ISMH");
+            UpdateCost("ISMH", false);
         }
     }
 
     public void DecreaseSpeedMonHealth()
     {
-        speedMonHealth -= 10;
-        speedMonHealthTxt.text = speedMonHealth.ToString();
-        UpdateCost("DSMH");
+        if (!speedMonster.minHealth())
+        {
+            speedMonster.DowngradeHealth();
+            speedMonHealth -= 10;
+            speedMonHealthTxt.text = speedMonHealth.ToString();
+
+            if (speedMonster.minHealth())
+            {
+                minReached = true;
+            }
+            else
+            {
+                minReached = false;
+            }
+
+            UpdateCost("DSMH", minReached);
+        }
     }
 
     public void IncreaseTankMonSpeed()
     {
         if (CheckMoney(tankSpeedUpgrade))
         {
+            tankMonster.UpgradeSpeed();
             tankMonSpeed += 0.1m;
             tankMonSpeedTxt.text = tankMonSpeed.ToString();
-            UpdateCost("ITMS");
+            UpdateCost("ITMS", false);
         }
     }
 
     public void DecreaseTankMonSpeed()
     {
-        tankMonSpeed -= 0.1m;
-        tankMonSpeedTxt.text = tankMonSpeed.ToString();
-        UpdateCost("DTMS");
+        if (!tankMonster.minSpeed())
+        {
+            tankMonster.DowngradeSpeed();
+            tankMonSpeed -= 0.1m;
+            tankMonSpeedTxt.text = tankMonSpeed.ToString();
+
+            if (tankMonster.minSpeed())
+            {
+                minReached = true;
+            }
+            else
+            {
+                minReached = false;
+            }
+
+            UpdateCost("DTMS", minReached);
+        }
     }
 
     public void IncreaseTankMonHealth()
     {
         if (CheckMoney(tankHealthUpgrade))
         {
+            tankMonster.UpgradeHealth();
             tankMonHealth += 10;
             tankMonHealthTxt.text = tankMonHealth.ToString();
-            UpdateCost("ITMH");
+            UpdateCost("ITMH", false);
         }
     }
 
     public void DecreaseTankMonHealth()
     {
-        tankMonHealth -= 10;
-        tankMonHealthTxt.text = tankMonHealth.ToString();
-        UpdateCost("DTMH");
+        if (!tankMonster.minHealth())
+        {
+            tankMonster.DowngradeHealth();
+            tankMonHealth -= 10;
+            tankMonHealthTxt.text = tankMonHealth.ToString();
+
+            if (tankMonster.healthUpgrade <= 0)
+            {
+                minReached = true;
+            }
+            else
+            {
+                minReached = false;
+            }
+
+            UpdateCost("DTMH", minReached);
+        }
     }
 
     public bool CheckMoney(int cost)
@@ -236,7 +330,7 @@ public class UpgradeMenu : MonoBehaviour
         }
     }
 
-    void UpdateCost(string code)
+    void UpdateCost(string code, bool min)
     {
         switch (code)
         {
@@ -250,7 +344,17 @@ public class UpgradeMenu : MonoBehaviour
             case "DDMS":
                 levelPlayer.gainMoney(defaultSpeedDowngrade);
                 defaultSpeedUpgrade = defaultSpeedDowngrade;
-                defaultSpeedDowngrade = (int)Math.Ceiling(defaultSpeedDowngrade / upgradeCostFactor);
+
+                if (min)
+                {
+                    defaultSpeedDowngrade = 0;
+
+                }
+                else
+                {
+                    defaultSpeedDowngrade = (int)Math.Floor(defaultSpeedDowngrade / upgradeCostFactor);
+                }
+
                 defaultSpeedUpgradeTxt.text = defaultSpeedUpgrade.ToString() + "g";
                 defaultSpeedDowngradeTxt.text = defaultSpeedDowngrade.ToString() + "g";
                 break;
@@ -264,7 +368,16 @@ public class UpgradeMenu : MonoBehaviour
             case "DDMH":
                 levelPlayer.gainMoney(defaultHealthDowngrade);
                 defaultHealthUpgrade = defaultHealthDowngrade;
-                defaultHealthDowngrade = (int)Math.Ceiling(defaultHealthDowngrade / upgradeCostFactor);
+
+                if (min)
+                {
+                    defaultHealthDowngrade = 0;
+                }
+                else
+                {
+                    defaultHealthDowngrade = (int)Math.Floor(defaultHealthDowngrade / upgradeCostFactor);
+                }
+
                 defaultHealthUpgradeTxt.text = defaultHealthUpgrade.ToString() + "g";
                 defaultHealthDowngradeTxt.text = defaultHealthDowngrade.ToString() + "g";
                 break;
@@ -278,7 +391,16 @@ public class UpgradeMenu : MonoBehaviour
             case "DSMS":
                 levelPlayer.gainMoney(speedSpeedDowngrade);
                 speedSpeedUpgrade = speedSpeedDowngrade;
-                speedSpeedDowngrade = (int)Math.Ceiling(speedSpeedDowngrade / upgradeCostFactor);
+                
+                if (min)
+                {
+                    speedSpeedDowngrade = 0;
+                }
+                else
+                {
+                    speedSpeedDowngrade = (int)Math.Floor(speedSpeedDowngrade / upgradeCostFactor);
+                }
+
                 speedSpeedUpgradeTxt.text = speedSpeedUpgrade.ToString() + "g";
                 speedSpeedDowngradeTxt.text = speedSpeedDowngrade.ToString() + "g";
                 break;
@@ -291,8 +413,17 @@ public class UpgradeMenu : MonoBehaviour
                 break;
             case "DSMH":
                 levelPlayer.gainMoney(speedHealthDowngrade);
-                speedHealthDowngrade = speedHealthUpgrade;
-                speedHealthUpgrade = (int)Math.Ceiling(speedHealthUpgrade / upgradeCostFactor);
+                speedHealthUpgrade = speedHealthDowngrade;
+
+                if (min)
+                {
+                    speedHealthDowngrade = 0;
+                }
+                else
+                {
+                    speedHealthDowngrade = (int)Math.Floor(speedHealthUpgrade / upgradeCostFactor);
+                }
+
                 speedHealthUpgradeTxt.text = speedHealthUpgrade.ToString() + "g";
                 speedHealthDowngradeTxt.text = speedHealthDowngrade.ToString() + "g";
                 break;
@@ -306,7 +437,16 @@ public class UpgradeMenu : MonoBehaviour
             case "DTMS":
                 levelPlayer.gainMoney(tankSpeedDowngrade);
                 tankSpeedUpgrade = tankSpeedDowngrade;
-                tankSpeedDowngrade = (int)Math.Ceiling(tankSpeedDowngrade / upgradeCostFactor);
+
+                if (min)
+                {
+                    tankSpeedDowngrade = 0;
+                }
+                else
+                {
+                    tankSpeedDowngrade = (int)Math.Floor(tankSpeedDowngrade / upgradeCostFactor);
+                }
+
                 tankSpeedUpgradeTxt.text = tankSpeedUpgrade.ToString() + "g";
                 tankSpeedDowngradeTxt.text = tankSpeedDowngrade.ToString() + "g";
                 break;
@@ -320,7 +460,16 @@ public class UpgradeMenu : MonoBehaviour
             case "DTMH":
                 levelPlayer.gainMoney(tankHealthDowngrade);
                 tankHealthUpgrade = tankHealthDowngrade;
-                tankHealthDowngrade = (int)Math.Ceiling(tankHealthDowngrade / upgradeCostFactor);
+
+                if (min)
+                {
+                    tankHealthDowngrade = 0;
+                }
+                else
+                {
+                    tankHealthDowngrade = (int)Math.Floor(tankHealthDowngrade / upgradeCostFactor);
+                }
+
                 tankHealthUpgradeTxt.text = tankHealthUpgrade.ToString() + "g";
                 tankHealthDowngradeTxt.text = tankHealthDowngrade.ToString() + "g";
                 break;
