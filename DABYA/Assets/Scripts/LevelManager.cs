@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
@@ -23,15 +24,17 @@ public class LevelManager : MonoBehaviour
     {
         
         levelCanvas.SetActive(true);
-
+        Time.timeScale = 0f;
         if (levelBase.IsDestroyed())
         {
             levelCanvas.GetComponent<LevelCompleted>().LevelSuccess();
+            
         }
         else
         {
-            levelCanvas.GetComponent<LevelCompleted>().LevelFail();
+           levelCanvas.GetComponent<LevelCompleted>().LevelFail();
             levelSpawner.spawnMonster.clearMonsters();
+            
         }
     }
 
