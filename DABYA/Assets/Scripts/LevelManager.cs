@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     public Player levelPlayer;
     public WaveSpawner levelSpawner;
     public GameObject levelCanvas;
+    public PauseMenu pausedMenu;
     public Text baseHealth;
     public Text playerGold;
 
@@ -39,7 +40,10 @@ public class LevelManager : MonoBehaviour
       */
     public void playerMoneyAdjustor(int adjustment)
     {
-        levelPlayer.changeMoney(adjustment);
+        if (!pausedMenu.getPaused())
+        {
+            levelPlayer.changeMoney(adjustment);
+        }
     }
 
     //when started
