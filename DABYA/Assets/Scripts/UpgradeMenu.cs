@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class UpgradeMenu : MonoBehaviour
 {
     public Player levelPlayer;
-    public Text playerGold;
+    public GameObject goldErrorPosition;
+    public GameObject goldError;
     public Monster monster;
     public SpeedMonster speedMonster;
     public TankMonster tankMonster;
@@ -322,12 +323,21 @@ public class UpgradeMenu : MonoBehaviour
     {
         if (cost > levelPlayer.getMoney())
         {
+            NotEnoughGoldPopUp();
             return false;
         }
         else
         {
             return true;
         }
+    }
+
+    void NotEnoughGoldPopUp()
+    {
+        GameObject goldErrorPopup = Instantiate(goldError, goldErrorPosition.transform.position, goldErrorPosition.transform.rotation);
+        goldErrorPopup.transform.SetParent(goldErrorPosition.transform.parent);
+        goldErrorPopup.SetActive(true);
+        Destroy(goldErrorPopup, goldErrorPopup.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
     }
 
     void UpdateCost(string code, bool min)
