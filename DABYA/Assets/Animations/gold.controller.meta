@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:DABYA/Assets/Tileset.meta
+guid: fb37235b86f23b841b81044fb887b90d
+folderAsset: yes
+DefaultImporter:
+=======
 guid: 1cb6bb5f896bc9e4db2c7acd4a729e45
 NativeFormatImporter:
+>>>>>>> master:DABYA/Assets/Animations/gold.controller.meta
   externalObjects: {}
   mainObjectFileID: 0
   userData: 
