@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     //Changes the scene from the main menu to the level selection screen
-    public void openLevelSelect()
+    public void OpenLevelSelect()
     {
         SceneManager.LoadScene("LevelSelect");
     }
