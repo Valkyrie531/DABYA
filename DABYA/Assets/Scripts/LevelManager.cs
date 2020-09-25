@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     public Player levelPlayer;
     public WaveSpawner levelSpawner;
     public GameObject levelCanvas;
+    public PauseMenu pausedMenu;
     public Text baseHealth;
     public Text playerGold;
 
@@ -39,7 +40,10 @@ public class LevelManager : MonoBehaviour
       */
     public void playerMoneyAdjustor(int adjustment)
     {
-        levelPlayer.changeMoney(adjustment);
+        if (!pausedMenu.getPaused())
+        {
+			levelPlayer.gainMoney(adjustment);
+        }
     }
 
     //when started
@@ -51,11 +55,15 @@ public class LevelManager : MonoBehaviour
     //updates the text for the base health and player money
     void Update()
     {
-        counter += 1;
-        if ((counter % 200) == 0)
+        if (!levelSpawner.upgradeMenuActive)
         {
-            playerMoneyAdjustor(5);
+            counter += 1;
+            if ((counter % 200) == 0)
+            {
+                playerMoneyAdjustor(5);
+            }
         }
+
         baseHealth.text = levelBase.GetHealth().ToString() + " Health";
         playerGold.text = levelPlayer.getMoney().ToString() + " Gold available.";
     }
