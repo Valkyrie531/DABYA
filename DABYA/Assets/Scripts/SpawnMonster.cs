@@ -9,7 +9,7 @@ public class SpawnMonster : MonoBehaviour
     public GameObject speedMonster;
     public GameObject tankMonster;
     public GameObject spawnPoint;
-    List<GameObject> monstersSpawned = new List<GameObject>();
+    public List<GameObject> monstersSpawned = new List<GameObject>();
 
     private void Start()
     {
