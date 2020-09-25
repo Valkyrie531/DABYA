@@ -17,7 +17,7 @@ public class WaveSpawner : MonoBehaviour
     private float countdownLength = 30;
     private float countdownFloat;
 
-    private bool upgradeMenuActive = true;
+    public bool upgradeMenuActive = true;
 
     /*
      * Initiates amount of waves in current level.

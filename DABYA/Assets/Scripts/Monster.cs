@@ -94,12 +94,18 @@ public class Monster : MonoBehaviour
 
     public void DowngradeHealth()//downgrades the health of the monster by decreasing the value of the healthUpgrade variable
     {
-        healthUpgrade = healthUpgrade - 10;
+        if (!minHealth())
+        {
+            healthUpgrade = healthUpgrade - 10;
+        }
     }
 
     public void DowngradeSpeed()//downgrades the speed of the monster by decreasing the value of the speedUpgrade variable
     {
-        speedUpgrade = speedUpgrade - 0.1f;
+        if (!minSpeed())
+        {
+            speedUpgrade = speedUpgrade - 0.1f;
+        }
     }
 
     public int getSpawnValue()
@@ -111,5 +117,29 @@ public class Monster : MonoBehaviour
     {
         speedUpgrade = 0f;
         healthUpgrade = 0f;
+    }
+
+    public bool minHealth()
+    {
+        if (healthUpgrade > 0.0f)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public bool minSpeed()
+    {
+        if (speedUpgrade > 0.05f)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 }

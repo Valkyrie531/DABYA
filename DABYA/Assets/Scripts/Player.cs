@@ -25,9 +25,14 @@ public class Player : MonoBehaviour
     /*
      * Changes player money value, only accepts int.
      */
-    public void changeMoney(int moneyToAdd)
+    public void gainMoney(int moneyToAdd)
     {
         Money += moneyToAdd;
+    }
+
+    public void spendMoney(int moneyToSpend)
+    {
+        Money -= moneyToSpend;
     }
 
     // Update is called once per frame
