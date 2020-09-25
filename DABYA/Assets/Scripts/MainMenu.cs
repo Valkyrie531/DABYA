@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     }
 
     //completely closes the game
-    public void CloseGame()
+    public void closeGame()
     {
         Application.Quit();
     }
