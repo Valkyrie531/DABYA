@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
     public Text playerGold;
 
     int counter = 0;
-
+    float gameSpeed = 1;
     /*
      * completed the level
      * based on if the base has been destroyed or not, show the level
@@ -35,6 +35,22 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void FastFoward()
+    {
+        if (gameSpeed == 1)
+        {
+            gameSpeed = 4;
+        }
+        else if (pausedMenu.getPaused())
+        {
+            gameSpeed = 0;
+        }
+        else
+        {
+            gameSpeed = 1;
+        }
+        Time.timeScale = gameSpeed;
+    }
     /*
       * Adjusts money for player object in level
       */
@@ -64,6 +80,10 @@ public class LevelManager : MonoBehaviour
             }
         }
 
+        if (pausedMenu.getPaused())
+        {
+            gameSpeed = 1;
+        }
         baseHealth.text = levelBase.GetHealth().ToString() + " Health";
         playerGold.text = levelPlayer.getMoney().ToString() + " Gold available.";
     }
