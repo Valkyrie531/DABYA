@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
@@ -24,7 +25,11 @@ public class WaveSpawner : MonoBehaviour
      */
     void Start()
     {
-        openUpgradeMenu();
+
+        if (!SceneManager.GetActiveScene().name.Equals("Tutorial"))
+        {
+            openUpgradeMenu();
+        }
         wavesLeft = totalWaves;
         countdownFloat = countdownLength;
     }
@@ -32,7 +37,10 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        countdownFloat -= Time.deltaTime;
+        if (!SceneManager.GetActiveScene().name.Equals("Tutorial"))
+        {
+            countdownFloat -= Time.deltaTime;
+        }
         countdownText.text = string.Format("{0:00.00}", countdownFloat);
 
         /*
