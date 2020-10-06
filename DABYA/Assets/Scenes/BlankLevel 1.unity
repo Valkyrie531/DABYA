@@ -495,6 +495,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ea7e9f3828bd9478fbed117eb932ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelPlayer: {fileID: 0}
+  goldErrorPosition: {fileID: 0}
+  goldError: {fileID: 0}
+  monster: {fileID: 0}
+  speedMonster: {fileID: 0}
+  tankMonster: {fileID: 0}
   upgradeMenuUI: {fileID: 1465127375}
   defaultMonSpeedTxt: {fileID: 1852937415}
   defaultMonHealthTxt: {fileID: 1955069047}
@@ -502,6 +508,30 @@ MonoBehaviour:
   speedMonHealthTxt: {fileID: 1757529661}
   tankMonSpeedTxt: {fileID: 1062577721}
   tankMonHealthTxt: {fileID: 17785114}
+  defaultSpeedUpgrade: 20
+  defaultSpeedUpgradeTxt: {fileID: 0}
+  defaultSpeedDowngrade: 0
+  defaultSpeedDowngradeTxt: {fileID: 0}
+  speedSpeedUpgrade: 10
+  speedSpeedUpgradeTxt: {fileID: 0}
+  speedSpeedDowngrade: 0
+  speedSpeedDowngradeTxt: {fileID: 0}
+  tankSpeedUpgrade: 30
+  tankSpeedUpgradeTxt: {fileID: 0}
+  tankSpeedDowngrade: 0
+  tankSpeedDowngradeTxt: {fileID: 0}
+  defaultHealthUpgrade: 20
+  defaultHealthUpgradeTxt: {fileID: 0}
+  defaultHealthDowngrade: 0
+  defaultHealthDowngradeTxt: {fileID: 0}
+  speedHealthUpgrade: 30
+  speedHealthUpgradeTxt: {fileID: 0}
+  speedHealthDowngrade: 0
+  speedHealthDowngradeTxt: {fileID: 0}
+  tankHealthUpgrade: 10
+  tankHealthUpgradeTxt: {fileID: 0}
+  tankHealthDowngrade: 0
+  tankHealthDowngradeTxt: {fileID: 0}
 --- !u!114 &123235730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1722,6 +1752,7 @@ MonoBehaviour:
   levelPlayer: {fileID: 1741129368}
   levelSpawner: {fileID: 2024388983}
   levelCanvas: {fileID: 906345541}
+  pausedMenu: {fileID: 0}
   baseHealth: {fileID: 275072720}
   playerGold: {fileID: 475228750}
 --- !u!4 &387995074
@@ -3125,6 +3156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   successPanel: {fileID: 573989361}
   failPanel: {fileID: 966272666}
+  mainMenuButton: {fileID: 0}
+  quitGameButton: {fileID: 0}
+  nextLevelButton: {fileID: 0}
 --- !u!1 &935792950
 GameObject:
   m_ObjectHideFlags: 0
@@ -6871,6 +6905,8 @@ MonoBehaviour:
   levelManager: {fileID: 387995073}
   countdownText: {fileID: 1729198492}
   summonMenu: {fileID: 123235729}
+  spawnMonster: {fileID: 0}
+  upgradeMenuActive: 1
 --- !u!1 &2046172710
 GameObject:
   m_ObjectHideFlags: 0

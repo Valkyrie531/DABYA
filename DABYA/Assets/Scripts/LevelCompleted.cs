@@ -9,7 +9,7 @@ public class LevelCompleted : MonoBehaviour
     public GameObject failPanel;
     public GameObject mainMenuButton;
     public GameObject quitGameButton;
-    public GameObject nextLevelButton;
+    public GameObject LevelSelectButton;
 
     //set the success panel to active
     public void LevelSuccess()
@@ -20,7 +20,8 @@ public class LevelCompleted : MonoBehaviour
     //set the fail panel to active
     public void LevelFail()
     {
-        failPanel.SetActive(true);
+        //failPanel.SetActive(true);
+        SceneManager.LoadScene("GameOver");
     }
 
     public void ToMainMenu()
@@ -28,9 +29,9 @@ public class LevelCompleted : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void ToNextLevel()
+    public void ToLevelSelect()
     {
-        //leave this after make level two
+        SceneManager.LoadScene("LevelSelect");
     }
 
     public void QuitGame()
