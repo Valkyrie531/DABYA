@@ -73,7 +73,7 @@ public class WaveSpawner : MonoBehaviour
             wavesLeft -= 1;
             if (wavesLeft > 0)
             {
-                spawnMonster.clearMonsters();
+                spawnMonster.ClearMonsters();
                 openUpgradeMenu();
             }
             countdownFloat = countdownLength;
