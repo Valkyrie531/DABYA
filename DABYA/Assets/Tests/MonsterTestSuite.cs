@@ -27,9 +27,10 @@ public class MonsterTestSuite
 
         levelManager.levelSpawner.spawnMonster.InstantiateBasic();
 
-        Assert.NotZero(levelManager.levelSpawner.spawnMonster.monstersSpawned.Count);
+        Assert.NotZero(levelManager.levelSpawner.spawnMonster.GetMonstersSpawned().Count);
         yield return null;
     }
+
 
     [UnityTest]
     public IEnumerator MonstersCleared()
@@ -42,9 +43,9 @@ public class MonsterTestSuite
 
         levelManager.levelSpawner.spawnMonster.InstantiateBasic();
 
-        levelManager.levelSpawner.spawnMonster.clearMonsters();
+        levelManager.levelSpawner.spawnMonster.ClearMonsters();
 
-        Assert.Zero(levelManager.levelSpawner.spawnMonster.monstersSpawned.Count);
+        Assert.Zero(levelManager.levelSpawner.spawnMonster.GetMonstersSpawned().Count);
         yield return null;
     }
 
@@ -59,11 +60,11 @@ public class MonsterTestSuite
 
         levelManager.levelSpawner.spawnMonster.InstantiateBasic();
 
-        float initialXPos = levelManager.levelSpawner.spawnMonster.monstersSpawned[0].transform.position.x;
+        float initialXPos = levelManager.levelSpawner.spawnMonster.GetMonstersSpawned()[0].transform.position.x;
 
         yield return new WaitForSeconds(0.1f);
 
-        Assert.Greater(levelManager.levelSpawner.spawnMonster.monstersSpawned[0].transform.position.x, initialXPos);
+        Assert.Greater(levelManager.levelSpawner.spawnMonster.GetMonstersSpawned()[0].transform.position.x, initialXPos);
         yield return null;
     }
 }
