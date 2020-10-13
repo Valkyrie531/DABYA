@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnMonster : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class SpawnMonster : MonoBehaviour
     public GameObject speedMonster;
     public GameObject tankMonster;
     public GameObject spawnPoint;
+    public Text normalSpawnCostText;
+    public Text tankSpawnCostText;
+    public Text speedSpawnCostText;
 
     private List<GameObject> monstersSpawned = new List<GameObject>();
 
@@ -20,6 +24,15 @@ public class SpawnMonster : MonoBehaviour
         basicMonster.GetComponent<Monster>().Reset();
         speedMonster.GetComponent<SpeedMonster>().Reset();
         tankMonster.GetComponent<TankMonster>().Reset();
+
+        UpdateMonsterPrices();
+    }
+
+    private void UpdateMonsterPrices()
+    {
+        normalSpawnCostText.text = (basicMonster.GetComponent<Monster>().getSpawnValue().ToString() + "g");
+        tankSpawnCostText.text = (tankMonster.GetComponent<TankMonster>().getSpawnValue().ToString() + "g");
+        speedSpawnCostText.text = (speedMonster.GetComponent<SpeedMonster>().getSpawnValue().ToString() + "g");
     }
 
     /* Instantiating (spawning) of basic monster after checking

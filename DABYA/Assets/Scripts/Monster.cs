@@ -9,7 +9,7 @@ public class Monster : MonoBehaviour
     private LevelManager levelManager;
 
     private int monsterDeathValue = 10;
-    private readonly int monsterSpawnValue = 20;
+    private readonly int monsterSpawnValue = 40;
 
     private readonly float startSpeed = 10f;
     public float speed;

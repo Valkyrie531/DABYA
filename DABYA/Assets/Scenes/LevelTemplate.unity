@@ -3157,7 +3157,7 @@ GameObject:
   - component: {fileID: 260784833}
   - component: {fileID: 260784832}
   m_Layer: 5
-  m_Name: Button
+  m_Name: NormalSpawnButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5005,7 +5005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -15046,7 +15046,7 @@ GameObject:
   - component: {fileID: 1034090477}
   - component: {fileID: 1034090476}
   m_Layer: 5
-  m_Name: Text
+  m_Name: NormalSpawnCostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18331,7 +18331,7 @@ GameObject:
   - component: {fileID: 1230900726}
   - component: {fileID: 1230900728}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: SpawnerPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18414,7 +18414,9 @@ MonoBehaviour:
   speedMonster: {fileID: 3284404058049804538, guid: ba10f37cb89868641bac9191ca8bb309, type: 3}
   tankMonster: {fileID: 660522741825098074, guid: 8073bfed81f4a0448b29f3bc5fd3fccf, type: 3}
   spawnPoint: {fileID: 175265680}
-  monstersSpawned: []
+  normalSpawnCostText: {fileID: 1034090476}
+  tankSpawnCostText: {fileID: 1750738841}
+  speedSpawnCostText: {fileID: 1470317005}
 --- !u!213 &1234925689
 Sprite:
   m_ObjectHideFlags: 0
@@ -21661,7 +21663,7 @@ GameObject:
   - component: {fileID: 1470317006}
   - component: {fileID: 1470317005}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TankSpawnCostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23514,7 +23516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -24733,7 +24735,7 @@ GameObject:
   - component: {fileID: 1750738842}
   - component: {fileID: 1750738841}
   m_Layer: 5
-  m_Name: Text
+  m_Name: SpeedSpawnCostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28421,7 +28423,7 @@ GameObject:
   - component: {fileID: 1971917484}
   - component: {fileID: 1971917483}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: SpeedSpawnButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31392,7 +31394,7 @@ GameObject:
   - component: {fileID: 2145310236}
   - component: {fileID: 2145310235}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: TankSpawnButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
