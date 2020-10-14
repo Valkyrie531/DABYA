@@ -10,6 +10,7 @@ public class SpawnMonster : MonoBehaviour
     public GameObject speedMonster;
     public GameObject tankMonster;
     public GameObject spawnPoint;
+    public GoldNotice goldError;
     public Text normalSpawnCostText;
     public Text tankSpawnCostText;
     public Text speedSpawnCostText;
@@ -88,13 +89,17 @@ public class SpawnMonster : MonoBehaviour
     private bool CheckMoney(int cost)
     {
         if (cost > levelManager.levelPlayer.getMoney())
+        {
+            goldError.NotEnoughGoldPopUp();
             return false;
+        }
         else
         {
             levelManager.playerMoneyAdjustor(-cost);
             return true;
         }
     }
+
 
     /* Function will clear the list of monsters effectively removing
      * all instances of any type of monster within the level.
