@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GoldNotice : MonoBehaviour
 {
-    public GameObject goldErrorPosition;
     public GameObject goldError;
  
     public void RemoveNotEnoughGoldText()
@@ -14,8 +13,8 @@ public class GoldNotice : MonoBehaviour
 
     public void NotEnoughGoldPopUp()
     {
-        GameObject goldErrorPopup = Instantiate(goldError, goldErrorPosition.transform.position, goldErrorPosition.transform.rotation);
-        goldErrorPopup.transform.SetParent(goldErrorPosition.transform.parent);
+        GameObject goldErrorPopup = Instantiate(goldError, goldError.transform.position, goldError.transform.rotation);
+        goldErrorPopup.transform.SetParent(goldError.transform.parent);
         goldErrorPopup.SetActive(true);
         Destroy(goldErrorPopup, goldErrorPopup.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
     }
