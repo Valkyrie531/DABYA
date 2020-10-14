@@ -8,16 +8,15 @@ using UnityEngine;
  */
 public class Tower : MonoBehaviour
 {
-    private Transform target;
+    protected Transform target;
 
     [Header("Tower Setting")]
     public float range = 5f;
-    private float fireRate= 1f;
+    protected float fireRate= 1f;
     public float fireCountdown= 0f;
     public float fireDamage = 40f;
     [Header("Unity Stuff")]
     public string enemyTag = "Enemy";
-    public GameObject bullet;
     public GameObject bulletPrefab;
     public Transform firePoint;
 
@@ -72,6 +71,7 @@ public class Tower : MonoBehaviour
     */
     void Update()
     {
+        fireCountdown -= Time.deltaTime;
         if (target == null)
         {
             return;
@@ -79,12 +79,11 @@ public class Tower : MonoBehaviour
         if (fireCountdown <= 0)
         {
             Shoot();
-            fireCountdown = 1f / fireRate;
+            fireCountdown = fireRate/ 1f;
         }
-        fireCountdown -= Time.deltaTime;
     }
 
-    void Shoot()
+    public virtual void Shoot()
     {
        GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
        Bullet bullet = bulletGo.GetComponent<Bullet>();

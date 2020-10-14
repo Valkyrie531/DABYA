@@ -98,9 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 5
   fireCountdown: 0
-  fireDamage: 40
+  fireDamage: 25
   enemyTag: Enemy
-  bullet: {fileID: 0}
   bulletPrefab: {fileID: 4853288051378032041, guid: 2f055f9d35152424ca5deee74586e8df, type: 3}
   firePoint: {fileID: 2613377786265670194}
 --- !u!1 &2613377786265670195
