@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
@@ -14,7 +13,7 @@ public class LevelManager : MonoBehaviour
     public Text playerGold;
 
     int counter = 0;
-
+    float gameSpeed = 1;
     /*
      * completed the level
      * based on if the base has been destroyed or not, show the level
@@ -24,20 +23,34 @@ public class LevelManager : MonoBehaviour
     {
         
         levelCanvas.SetActive(true);
-        Time.timeScale = 0f;
+
         if (levelBase.IsDestroyed())
         {
             levelCanvas.GetComponent<LevelCompleted>().LevelSuccess();
-            
         }
         else
         {
-           levelCanvas.GetComponent<LevelCompleted>().LevelFail();
-            levelSpawner.spawnMonster.clearMonsters();
-            
+            levelCanvas.GetComponent<LevelCompleted>().LevelFail();
+            levelSpawner.spawnMonster.ClearMonsters();
         }
     }
 
+    public void FastFoward()
+    {
+        if (gameSpeed == 1)
+        {
+            gameSpeed = 4;
+        }
+        else if (pausedMenu.getPaused())
+        {
+            gameSpeed = 0;
+        }
+        else
+        {
+            gameSpeed = 1;
+        }
+        Time.timeScale = gameSpeed;
+    }
     /*
       * Adjusts money for player object in level
       */
@@ -67,6 +80,10 @@ public class LevelManager : MonoBehaviour
             }
         }
 
+        if (pausedMenu.getPaused())
+        {
+            gameSpeed = 1;
+        }
         baseHealth.text = levelBase.GetHealth().ToString() + " Health";
         playerGold.text = levelPlayer.getMoney().ToString() + " Gold available.";
     }

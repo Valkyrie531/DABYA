@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnMonster : MonoBehaviour
 {
@@ -9,46 +10,39 @@ public class SpawnMonster : MonoBehaviour
     public GameObject speedMonster;
     public GameObject tankMonster;
     public GameObject spawnPoint;
-    List<GameObject> monstersSpawned = new List<GameObject>();
+    public GoldNotice goldError;
+    public Text normalSpawnCostText;
+    public Text tankSpawnCostText;
+    public Text speedSpawnCostText;
 
+    private List<GameObject> monstersSpawned = new List<GameObject>();
+
+    /* Resets all attribute upgrades when level is started.
+     * 
+     */
     private void Start()
     {
         basicMonster.GetComponent<Monster>().Reset();
         speedMonster.GetComponent<SpeedMonster>().Reset();
         tankMonster.GetComponent<TankMonster>().Reset();
+
+        UpdateMonsterPrices();
     }
 
-    public void Test()
+    private void UpdateMonsterPrices()
     {
-        StartCoroutine(TestSpawn());
+        normalSpawnCostText.text = (basicMonster.GetComponent<Monster>().getSpawnValue().ToString() + "g");
+        tankSpawnCostText.text = (tankMonster.GetComponent<TankMonster>().getSpawnValue().ToString() + "g");
+        speedSpawnCostText.text = (speedMonster.GetComponent<SpeedMonster>().getSpawnValue().ToString() + "g");
     }
 
-    //placeholder monster spawn - to be remonved when proper spawner is done
-    public IEnumerator TestSpawn()
-    {
-        for (int i = 0; i < 6; i++)
-        {
-            if (i % 3 == 0)
-            {
-                InstantiateBasic();
-            }
-            else if (i % 3 == 1)
-            {
-                InstantiateSpeed();
-            }
-            else
-            {
-                InstantiateTank();
-            }
-
-            yield return new WaitForSeconds(0.5f);
-        }
-    }
-
-    //placeholder monster spawn - to be remonved when proper spawner is done
+    /* Instantiating (spawning) of basic monster after checking
+     * that player can afford it.
+     * 
+     */
     public void InstantiateBasic()
     {
-        if (checkMoney(basicMonster.GetComponent<Monster>().getSpawnValue()))
+        if (CheckMoney(basicMonster.GetComponent<Monster>().getSpawnValue()))
         {
             GameObject spawned;
             spawned = Instantiate(basicMonster, spawnPoint.transform.position, spawnPoint.transform.rotation);
@@ -57,10 +51,13 @@ public class SpawnMonster : MonoBehaviour
         }
     }
 
-    //placeholder monster spawn - to be remonved when proper spawner is done
+    /* Instantiating (spawning) of speed monster after checking
+     * that player can afford it.
+     * 
+     */
     public void InstantiateSpeed()
     {
-        if (checkMoney(speedMonster.GetComponent<SpeedMonster>().getSpawnValue()))
+        if (CheckMoney(speedMonster.GetComponent<SpeedMonster>().getSpawnValue()))
         {
             GameObject spawned;
             spawned = Instantiate(speedMonster, spawnPoint.transform.position, spawnPoint.transform.rotation);
@@ -69,10 +66,13 @@ public class SpawnMonster : MonoBehaviour
         }
     }
 
-    //placeholder monster spawn - to be remonved when proper spawner is done
+    /* Instantiating (spawning) of tank monster after checking
+     * that player can afford it.
+     * 
+     */
     public void InstantiateTank()
     {
-        if (checkMoney(tankMonster.GetComponent<TankMonster>().getSpawnValue()))
+        if (CheckMoney(tankMonster.GetComponent<TankMonster>().getSpawnValue()))
         {
             GameObject spawned;
             spawned = Instantiate(tankMonster, spawnPoint.transform.position, spawnPoint.transform.rotation);
@@ -81,10 +81,18 @@ public class SpawnMonster : MonoBehaviour
         }
     }
 
-    public bool checkMoney(int cost)
+    /* Paramater: int cost - the value you are attempting to check.
+     * 
+     * Function will check if player currently has more gold than
+     * the value passed into the function.
+     */
+    private bool CheckMoney(int cost)
     {
         if (cost > levelManager.levelPlayer.getMoney())
+        {
+            goldError.NotEnoughGoldPopUp();
             return false;
+        }
         else
         {
             levelManager.playerMoneyAdjustor(-cost);
@@ -92,7 +100,12 @@ public class SpawnMonster : MonoBehaviour
         }
     }
 
-    public void clearMonsters()
+
+    /* Function will clear the list of monsters effectively removing
+     * all instances of any type of monster within the level.
+     * 
+     */
+    public void ClearMonsters()
     {
         foreach(GameObject g in monstersSpawned)
         {
@@ -100,5 +113,13 @@ public class SpawnMonster : MonoBehaviour
         }
 
         monstersSpawned.Clear();
+    }
+
+    /* Getter function for monstersSpawned list.
+     * 
+     */
+    public List<GameObject> GetMonstersSpawned()
+    {
+        return monstersSpawned;
     }
 }

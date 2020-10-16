@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour
@@ -7,5 +8,24 @@ public class LevelSelect : MonoBehaviour
     public void returnToMainMeun()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void levelSelector()
+    {
+        switch (EventSystem.current.currentSelectedGameObject.name)
+        {
+            case "LevelOne":
+                SceneManager.LoadScene("LevelOne");
+                break;
+            case "LevelTwo":
+                SceneManager.LoadScene("LevelTwo");
+                break;
+            case "LevelThree":
+                SceneManager.LoadScene("LevelThree");
+                break;
+            case "LevelFour":
+                SceneManager.LoadScene("LevelFour");
+                break;
+        }
     }
 }

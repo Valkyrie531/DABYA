@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3284404058049804538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.68, y: 4.7, z: -2.47}
+  m_LocalPosition: {x: -5.68, y: 4.7, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,7 +97,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  speedUpgrade: 0
   health: 0
+  healthUpgrade: 1000
   baseDamage: 1
   healthBar: {fileID: 0}
 --- !u!114 &3284404058049804537

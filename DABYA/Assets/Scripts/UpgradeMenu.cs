@@ -7,15 +7,13 @@ using UnityEngine.UI;
 public class UpgradeMenu : MonoBehaviour
 {
     public Player levelPlayer;
-    public GameObject goldErrorPosition;
-    public GameObject goldError;
+    public GoldNotice goldError;
     public Monster monster;
     public SpeedMonster speedMonster;
     public TankMonster tankMonster;
     private bool minReached;
 
     public GameObject upgradeMenuUI;
-    //public Text defaultMonNumTxt;
     private decimal defaultMonSpeed = 10;
     public Text defaultMonSpeedTxt;
     private int defaultMonHealth= 100;
@@ -73,7 +71,6 @@ public class UpgradeMenu : MonoBehaviour
 
     public bool OpenUpgrades ()
     {
-        Debug.Log("TEST");
         upgradeMenuUI.SetActive(true);
         Time.timeScale = 0f;
         return true;
@@ -84,18 +81,6 @@ public class UpgradeMenu : MonoBehaviour
         upgradeMenuUI.SetActive(false);
         Time.timeScale = 1f;
     }
-
-    /* public void AddDefaultMonster()
-     {
-         defaultMonNum++;
-         defaultMonNumTxt.text = defaultMonNum.ToString();
-     }
-
-     public void RemoveDefaultMonster()
-     {
-         defaultMonNum--;
-         defaultMonNumTxt.text = defaultMonNum.ToString();
-     }*/
 
     private void Start()
     {
@@ -111,19 +96,6 @@ public class UpgradeMenu : MonoBehaviour
         tankSpeedDowngradeTxt.text = tankSpeedDowngrade.ToString() + "g";
         tankHealthUpgradeTxt.text = tankHealthUpgrade.ToString() + "g";
         tankHealthDowngradeTxt.text = tankHealthDowngrade.ToString() + "g";
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        /*if(Monster.FindObjectOfType(typeof(Monster)) == null)
-        {
-            OpenUpgrades();
-        }
-        else
-        {
-            Play();
-        }*/
     }
 
     //the following similarly name functions change the text to be the same as the value of the stats
@@ -323,21 +295,13 @@ public class UpgradeMenu : MonoBehaviour
     {
         if (cost > levelPlayer.getMoney())
         {
-            NotEnoughGoldPopUp();
+            goldError.NotEnoughGoldPopUp();
             return false;
         }
         else
         {
             return true;
         }
-    }
-
-    void NotEnoughGoldPopUp()
-    {
-        GameObject goldErrorPopup = Instantiate(goldError, goldErrorPosition.transform.position, goldErrorPosition.transform.rotation);
-        goldErrorPopup.transform.SetParent(goldErrorPosition.transform.parent);
-        goldErrorPopup.SetActive(true);
-        Destroy(goldErrorPopup, goldErrorPopup.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
     }
 
     void UpdateCost(string code, bool min)
