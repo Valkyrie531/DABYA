@@ -3,6 +3,7 @@
 public class Base : MonoBehaviour
 {
     public LevelManager levelManager;
+    public PermaUpgrades upgrades;
 
     public int startHealth = 20;
 
@@ -51,6 +52,6 @@ public class Base : MonoBehaviour
     //when the base is first created
     void Start()
     {
-        health = startHealth;
+        health = startHealth - upgrades.GetBaseHealthDowngrade();
     }
 }

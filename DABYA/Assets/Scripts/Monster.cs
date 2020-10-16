@@ -14,12 +14,15 @@ public class Monster : MonoBehaviour
     private readonly float startSpeed = 10f;
     public float speed;
     public float speedUpgrade = 0f;
+    public float permaSpeedUpgrade = 0f;
 
     private readonly float startHealth = 100;
     public float health;
     public float healthUpgrade = 0f;
+    public float permaHealthUpgrade = 0f;
 
     private readonly int startDamage = 2;
+    public int permaDamageUpgrade = 0;
     public int baseDamage;
 
     //Future-proofing for when health bars are to be added.
@@ -106,6 +109,36 @@ public class Monster : MonoBehaviour
         {
             speedUpgrade = speedUpgrade - 0.1f;
         }
+    }
+
+    public void PremaUpgradeSpeed()
+    {
+        permaSpeedUpgrade += 0.1f;
+    }
+
+    public void PremaUpgradeHealth()
+    {
+        permaHealthUpgrade += 10f;
+    }
+
+    public void PremaUpgradeDamage()
+    {
+        permaDamageUpgrade += 1;
+    }
+
+    public float GetUpgradedSpeed()
+    {
+        return startSpeed + speedUpgrade + permaSpeedUpgrade;
+    }
+
+    public float GetUpgradedHealth()
+    {
+        return startHealth + healthUpgrade + permaHealthUpgrade;
+    }
+
+    public int GetUpgradedDamage()
+    {
+        return startDamage + permaDamageUpgrade;
     }
 
     public int getSpawnValue()

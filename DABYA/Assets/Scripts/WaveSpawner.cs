@@ -10,12 +10,13 @@ public class WaveSpawner : MonoBehaviour
     public Text countdownText;
     public UpgradeMenu summonMenu;
     public SpawnMonster spawnMonster;
+    public PermaUpgrades upgrades;
 
     private int totalWaves = 2;
     private int wavesLeft;
     private bool activeWave = false;
 
-    private float countdownLength = 30;
+    private float countdownLength;
     private float countdownFloat;
 
     public bool upgradeMenuActive = true;
@@ -25,7 +26,7 @@ public class WaveSpawner : MonoBehaviour
      */
     void Start()
     {
-
+        countdownLength = 30 + upgrades.GetUpgradeTime();
         if (!SceneManager.GetActiveScene().name.Equals("Tutorial"))
         {
             openUpgradeMenu();
