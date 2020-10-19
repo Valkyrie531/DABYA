@@ -24,14 +24,16 @@ public class LevelManager : MonoBehaviour
         levelCompleteCanvas.SetActive(true);
         levelSpawner.spawnMonster.ClearMonsters();
         Time.timeScale = 0f;
+        int levelScore = CalculateScore();
         if (levelBase.IsDestroyed())
         {
-            levelCompleteCanvas.GetComponent<LevelCompleted>().LevelSuccess();
+            levelCompleteCanvas.GetComponent<LevelCompleted>().LevelSuccess(levelScore);
         }
         else
         {
-            levelCompleteCanvas.GetComponent<LevelCompleted>().LevelFail();
+            levelCompleteCanvas.GetComponent<LevelCompleted>().LevelFail(levelScore);
         }
+        levelPlayer.ChangeCredits(levelScore/10);
     }
 
     public void FastFoward()
@@ -61,10 +63,17 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    //when started
-    void Start()
+    public int CalculateScore()
     {
+        int score = 0;
 
+        score += levelPlayer.getMoney() / 10;
+
+        score += levelSpawner.GetWavesLeft() * 50;
+
+        score -= levelSpawner.spawnMonster.GetMonstersSpawned().Count * 5;
+
+        return score;
     }
 
     //updates the text for the base health and player money
