@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,15 +10,20 @@ public class Monster : MonoBehaviour
     private LevelManager levelManager;
 
     private int monsterDeathValue = 10;
-    private readonly int monsterSpawnValue = 20;
+    private readonly int monsterSpawnValue = (int)Math.Floor(40 * DifficultySelection.spendGoldModifier);
+    private int baseUpgradeCost = 20;
+    protected float healthCostFactor;
+    protected float speedCostFactor;
 
     private readonly float startSpeed = 10f;
     public float speed;
     public float speedUpgrade = 0f;
+    protected float speedFactor = 1f;
 
     private readonly float startHealth = 100;
     public float health;
     public float healthUpgrade = 0f;
+    protected float healthFactor = 1f;
 
     private readonly int startDamage = 2;
     public int baseDamage;
@@ -27,6 +33,13 @@ public class Monster : MonoBehaviour
     public Image healthBar;
 
     private bool isDead = false;
+    private bool isSlow = false;
+
+    public Monster()
+    {
+        healthCostFactor = DifficultySelection.spendGoldModifier * healthFactor;
+        speedCostFactor = DifficultySelection.spendGoldModifier * speedFactor;
+}
 
     //As monster is spawned set health and speed to our pre-set values
     //the speed and health upgrades are for when clones are made, they enable the upgrading of monsters by adding how much the stat was
@@ -49,6 +62,8 @@ public class Monster : MonoBehaviour
         health -= amount;
 
         //healthBar.fillAmount = health / startHealth;
+
+        Debug.Log("Got hit - " + health.ToString());
 
         if (health <= 0 && !isDead)
         {
@@ -76,10 +91,43 @@ public class Monster : MonoBehaviour
         Destroy(gameObject);
     }
 
+    /* Slows down monster movement speed.
+     * 
+     */
+    public void Slow(float duration)
+    {
+        if (!isSlow)
+        {
+            isSlow = true;
+            speed *= 0.5f;
+            StartCoroutine(SlowTime(duration));
+        }
+    }
+
+    /* Coroutine to check how long monster is slowed for.
+     * 
+     */
+    public IEnumerator SlowTime(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        speed *= 2;
+        isSlow = false;
+    }
+
     //Allows for the level manager to be set for the monster for when it is spawned
     public void SetLevelManager(LevelManager manager)
     {
         levelManager = manager;
+    }
+
+    public int GetHealthCost()
+    {
+        return (int)Math.Floor(baseUpgradeCost * healthCostFactor);
+    }
+
+    public int GetSpeedCost()
+    {
+        return (int)Math.Floor(baseUpgradeCost * speedCostFactor);
     }
 
     public void UpgradeSpeed()//upgrades the health of the monster by increasing the value of the speedUpgrade variable

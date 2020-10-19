@@ -7,15 +7,13 @@ using UnityEngine.UI;
 public class UpgradeMenu : MonoBehaviour
 {
     public Player levelPlayer;
-    public GameObject goldErrorPosition;
-    public GameObject goldError;
+    public GoldNotice goldError;
     public Monster monster;
     public SpeedMonster speedMonster;
     public TankMonster tankMonster;
     private bool minReached;
 
     public GameObject upgradeMenuUI;
-    //public Text defaultMonNumTxt;
     private decimal defaultMonSpeed = 10;
     public Text defaultMonSpeedTxt;
     private int defaultMonHealth= 100;
@@ -28,22 +26,22 @@ public class UpgradeMenu : MonoBehaviour
     public Text tankMonSpeedTxt;
     private int tankMonHealth = 200;
     public Text tankMonHealthTxt;
-    
+
     //speed upgrade values and text for all monsters
     [HideInInspector]
-    public int defaultSpeedUpgrade = 20;
+    public int defaultSpeedUpgrade;
     public Text defaultSpeedUpgradeTxt;
     [HideInInspector]
     public int defaultSpeedDowngrade = 0;
     public Text defaultSpeedDowngradeTxt;
     [HideInInspector]
-    public int speedSpeedUpgrade = 10;
+    public int speedSpeedUpgrade;
     public Text speedSpeedUpgradeTxt;
     [HideInInspector]
     public int speedSpeedDowngrade = 0;
     public Text speedSpeedDowngradeTxt;
     [HideInInspector]
-    public int tankSpeedUpgrade = 30;
+    public int tankSpeedUpgrade;
     public Text tankSpeedUpgradeTxt;
     [HideInInspector]
     public int tankSpeedDowngrade = 0;
@@ -51,19 +49,19 @@ public class UpgradeMenu : MonoBehaviour
 
     //health upgrade values and text for all monsters
     [HideInInspector]
-    public int defaultHealthUpgrade = 20;
+    public int defaultHealthUpgrade;
     public Text defaultHealthUpgradeTxt;
     [HideInInspector]
     public int defaultHealthDowngrade = 0;
     public Text defaultHealthDowngradeTxt;
     [HideInInspector]
-    public int speedHealthUpgrade = 30;
+    public int speedHealthUpgrade;
     public Text speedHealthUpgradeTxt;
     [HideInInspector]
     public int speedHealthDowngrade = 0;
     public Text speedHealthDowngradeTxt;
     [HideInInspector]
-    public int tankHealthUpgrade = 10;
+    public int tankHealthUpgrade;
     public Text tankHealthUpgradeTxt;
     [HideInInspector]
     public int tankHealthDowngrade = 0;
@@ -73,7 +71,6 @@ public class UpgradeMenu : MonoBehaviour
 
     public bool OpenUpgrades ()
     {
-        Debug.Log("TEST");
         upgradeMenuUI.SetActive(true);
         Time.timeScale = 0f;
         return true;
@@ -85,20 +82,15 @@ public class UpgradeMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    /* public void AddDefaultMonster()
-     {
-         defaultMonNum++;
-         defaultMonNumTxt.text = defaultMonNum.ToString();
-     }
-
-     public void RemoveDefaultMonster()
-     {
-         defaultMonNum--;
-         defaultMonNumTxt.text = defaultMonNum.ToString();
-     }*/
-
     private void Start()
     {
+        defaultSpeedUpgrade = monster.GetSpeedCost();
+        speedSpeedUpgrade = speedMonster.GetSpeedCost();
+        tankSpeedUpgrade = tankMonster.GetSpeedCost();
+        defaultHealthUpgrade = monster.GetHealthCost();
+        speedHealthUpgrade = speedMonster.GetHealthCost();
+        tankHealthUpgrade = tankMonster.GetHealthCost();
+
         defaultSpeedUpgradeTxt.text = defaultSpeedUpgrade.ToString() + "g";
         defaultSpeedDowngradeTxt.text = defaultSpeedDowngrade.ToString() + "g";
         defaultHealthUpgradeTxt.text = defaultHealthUpgrade.ToString() + "g";
@@ -111,19 +103,6 @@ public class UpgradeMenu : MonoBehaviour
         tankSpeedDowngradeTxt.text = tankSpeedDowngrade.ToString() + "g";
         tankHealthUpgradeTxt.text = tankHealthUpgrade.ToString() + "g";
         tankHealthDowngradeTxt.text = tankHealthDowngrade.ToString() + "g";
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        /*if(Monster.FindObjectOfType(typeof(Monster)) == null)
-        {
-            OpenUpgrades();
-        }
-        else
-        {
-            Play();
-        }*/
     }
 
     //the following similarly name functions change the text to be the same as the value of the stats
@@ -323,21 +302,13 @@ public class UpgradeMenu : MonoBehaviour
     {
         if (cost > levelPlayer.getMoney())
         {
-            NotEnoughGoldPopUp();
+            goldError.NotEnoughGoldPopUp();
             return false;
         }
         else
         {
             return true;
         }
-    }
-
-    void NotEnoughGoldPopUp()
-    {
-        GameObject goldErrorPopup = Instantiate(goldError, goldErrorPosition.transform.position, goldErrorPosition.transform.rotation);
-        goldErrorPopup.transform.SetParent(goldErrorPosition.transform.parent);
-        goldErrorPopup.SetActive(true);
-        Destroy(goldErrorPopup, goldErrorPopup.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
     }
 
     void UpdateCost(string code, bool min)

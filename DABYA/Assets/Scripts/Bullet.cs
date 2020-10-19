@@ -9,7 +9,7 @@ using UnityEngine;
  */
 public class Bullet : MonoBehaviour
 {
-    private Transform target;
+    protected Transform target;
 
     public float speed = 60f;
     private float damage;
@@ -19,9 +19,7 @@ public class Bullet : MonoBehaviour
         target = _target;
     }
 
-
-
-    void Update ()
+    public void Update ()
     {
         if (target == null)
         {
@@ -42,13 +40,13 @@ public class Bullet : MonoBehaviour
 
     }
 
-    void HitTarget()
+    public virtual void HitTarget()
     {
         Damage(target);
         Destroy(gameObject);
     }
 
-    void Damage(Transform monster)
+    public void Damage(Transform monster)
     {
         Monster m = monster.GetComponent<Monster>();
 

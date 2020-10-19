@@ -11,6 +11,15 @@ public class SpeedMonster : Monster
 
     private readonly int startDamage = 1;
 
+    public SpeedMonster()
+    {
+        healthFactor = 1.5f;
+        speedFactor = 0.5f;
+
+        healthCostFactor = DifficultySelection.spendGoldModifier * healthFactor;
+        speedCostFactor = DifficultySelection.spendGoldModifier * speedFactor;
+    }
+
     //Future-proofing for when health bars are to be added.
 //    [Header("Unity Stuff")]
 //    public Image healthBar;
