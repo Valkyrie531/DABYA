@@ -12,18 +12,23 @@ public class Tower : MonoBehaviour
 
     [Header("Tower Setting")]
     public float range = 5f;
-    protected float fireRate= 1f;
-    public float fireCountdown= 0f;
-    public float fireDamage = 40f;
+    protected float fireRate = 1f;
+    private float fireCountdown = 0f;
+    protected float fireDamage = 25f;
     [Header("Unity Stuff")]
     public string enemyTag = "Enemy";
     public GameObject bulletPrefab;
     public Transform firePoint;
 
+
+    public Tower()
+    {
+        fireDamage *= DifficultySelection.towerStatModifier;
+    }
+
     /* start game with updating target after each 0.1s.
      * 
      */
-
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.1f);

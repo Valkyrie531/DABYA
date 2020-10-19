@@ -26,22 +26,22 @@ public class UpgradeMenu : MonoBehaviour
     public Text tankMonSpeedTxt;
     private int tankMonHealth = 200;
     public Text tankMonHealthTxt;
-    
+
     //speed upgrade values and text for all monsters
     [HideInInspector]
-    public int defaultSpeedUpgrade = 20;
+    public int defaultSpeedUpgrade;
     public Text defaultSpeedUpgradeTxt;
     [HideInInspector]
     public int defaultSpeedDowngrade = 0;
     public Text defaultSpeedDowngradeTxt;
     [HideInInspector]
-    public int speedSpeedUpgrade = 10;
+    public int speedSpeedUpgrade;
     public Text speedSpeedUpgradeTxt;
     [HideInInspector]
     public int speedSpeedDowngrade = 0;
     public Text speedSpeedDowngradeTxt;
     [HideInInspector]
-    public int tankSpeedUpgrade = 30;
+    public int tankSpeedUpgrade;
     public Text tankSpeedUpgradeTxt;
     [HideInInspector]
     public int tankSpeedDowngrade = 0;
@@ -49,19 +49,19 @@ public class UpgradeMenu : MonoBehaviour
 
     //health upgrade values and text for all monsters
     [HideInInspector]
-    public int defaultHealthUpgrade = 20;
+    public int defaultHealthUpgrade;
     public Text defaultHealthUpgradeTxt;
     [HideInInspector]
     public int defaultHealthDowngrade = 0;
     public Text defaultHealthDowngradeTxt;
     [HideInInspector]
-    public int speedHealthUpgrade = 30;
+    public int speedHealthUpgrade;
     public Text speedHealthUpgradeTxt;
     [HideInInspector]
     public int speedHealthDowngrade = 0;
     public Text speedHealthDowngradeTxt;
     [HideInInspector]
-    public int tankHealthUpgrade = 10;
+    public int tankHealthUpgrade;
     public Text tankHealthUpgradeTxt;
     [HideInInspector]
     public int tankHealthDowngrade = 0;
@@ -84,6 +84,13 @@ public class UpgradeMenu : MonoBehaviour
 
     private void Start()
     {
+        defaultSpeedUpgrade = monster.GetSpeedCost();
+        speedSpeedUpgrade = speedMonster.GetSpeedCost();
+        tankSpeedUpgrade = tankMonster.GetSpeedCost();
+        defaultHealthUpgrade = monster.GetHealthCost();
+        speedHealthUpgrade = speedMonster.GetHealthCost();
+        tankHealthUpgrade = tankMonster.GetHealthCost();
+
         defaultSpeedUpgradeTxt.text = defaultSpeedUpgrade.ToString() + "g";
         defaultSpeedDowngradeTxt.text = defaultSpeedDowngrade.ToString() + "g";
         defaultHealthUpgradeTxt.text = defaultHealthUpgrade.ToString() + "g";
