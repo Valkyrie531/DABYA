@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
     public Base levelBase;
     public Player levelPlayer;
     public WaveSpawner levelSpawner;
-    public GameObject levelCanvas;
+    public GameObject levelCompleteCanvas;
     public PauseMenu pausedMenu;
     public Text baseHealth;
     public Text playerGold;
@@ -21,17 +21,16 @@ public class LevelManager : MonoBehaviour
      */
     public void LevelCompleted()
     {
-        
-        levelCanvas.SetActive(true);
-
+        levelCompleteCanvas.SetActive(true);
+        levelSpawner.spawnMonster.ClearMonsters();
+        Time.timeScale = 0f;
         if (levelBase.IsDestroyed())
         {
-            levelCanvas.GetComponent<LevelCompleted>().LevelSuccess();
+            levelCompleteCanvas.GetComponent<LevelCompleted>().LevelSuccess();
         }
         else
         {
-            levelCanvas.GetComponent<LevelCompleted>().LevelFail();
-            levelSpawner.spawnMonster.ClearMonsters();
+            levelCompleteCanvas.GetComponent<LevelCompleted>().LevelFail();
         }
     }
 
