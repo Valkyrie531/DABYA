@@ -12,6 +12,8 @@ public class MonsterMovement : MonoBehaviour
 {
     private Transform target;
     private int waypointIndex = 0;
+    private int waypointSelector;
+    private bool alternatePaths = false;
 
     private Monster monster;
 
@@ -35,12 +37,10 @@ public class MonsterMovement : MonoBehaviour
         Vector2 dir = target.position - transform.position;
         transform.Translate(dir.normalized * monster.speed * Time.deltaTime, Space.World);
 
-        if(Vector2.Distance(transform.position, target.position) <= 0.2f)
+        if(Vector2.Distance(transform.position, target.position) <= 0.1f)
         {
             GetNextWaypoint();
         }
-
-        //monster.speed = monster.speed;
     }
 
     /*Locates next waypoint and sets it as movement target, will also
