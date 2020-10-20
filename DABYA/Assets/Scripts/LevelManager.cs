@@ -73,6 +73,8 @@ public class LevelManager : MonoBehaviour
 
         score -= levelSpawner.spawnMonster.GetMonstersSpawned().Count * 5;
 
+        score *= DifficultySelection.scoreModifier;
+
         return score;
     }
 
