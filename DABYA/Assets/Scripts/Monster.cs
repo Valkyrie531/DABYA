@@ -9,7 +9,7 @@ public class Monster : MonoBehaviour
     private LevelManager levelManager;
 
     private int monsterDeathValue = 10;
-    private readonly int monsterSpawnValue = 20;
+    private readonly int monsterSpawnValue = 40;
 
     private readonly float startSpeed = 10f;
     public float speed;
@@ -30,6 +30,7 @@ public class Monster : MonoBehaviour
     public Image healthBar;
 
     private bool isDead = false;
+    private bool isSlow = false;
 
     //As monster is spawned set health and speed to our pre-set values
     //the speed and health upgrades are for when clones are made, they enable the upgrading of monsters by adding how much the stat was
@@ -52,6 +53,8 @@ public class Monster : MonoBehaviour
         health -= amount;
 
         //healthBar.fillAmount = health / startHealth;
+
+        Debug.Log("Got hit - " + health.ToString());
 
         if (health <= 0 && !isDead)
         {
@@ -77,6 +80,29 @@ public class Monster : MonoBehaviour
         levelManager.levelSpawner.BaseHitFor(baseDamage);
         levelManager.playerMoneyAdjustor(monsterDeathValue);
         Destroy(gameObject);
+    }
+
+    /* Slows down monster movement speed.
+     * 
+     */
+    public void Slow(float duration)
+    {
+        if (!isSlow)
+        {
+            isSlow = true;
+            speed *= 0.5f;
+            StartCoroutine(SlowTime(duration));
+        }
+    }
+
+    /* Coroutine to check how long monster is slowed for.
+     * 
+     */
+    public IEnumerator SlowTime(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        speed *= 2;
+        isSlow = false;
     }
 
     //Allows for the level manager to be set for the monster for when it is spawned

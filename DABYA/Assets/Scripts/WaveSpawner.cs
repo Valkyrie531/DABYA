@@ -53,7 +53,7 @@ public class WaveSpawner : MonoBehaviour
          */
         if(wavesLeft > 0 && !activeWave && !upgradeMenuActive)
         {
-            Debug.Log("Wave" + wavesLeft);
+            //Debug.Log("Wave" + wavesLeft);
             levelManager.playerMoneyAdjustor(100);
             waveToggle();
         }
