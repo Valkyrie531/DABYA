@@ -12,7 +12,7 @@ public class LevelSelect : MonoBehaviour
 
     public void levelSelector()
     {
-        switch (EventSystem.current.currentSelectedGameObject.name)
+        switch (EventSystem.current.firstSelectedGameObject.name)
         {
             case "LevelOne":
                 SceneManager.LoadScene("LevelOne");

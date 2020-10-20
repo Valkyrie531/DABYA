@@ -12,8 +12,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Money = startMoney;
         //Need statement to get credits from database but obvs need the database implemented first
+        Money = (int)Math.Floor(startMoney * DifficultySelection.startGoldModifier);
     }
 
     /*

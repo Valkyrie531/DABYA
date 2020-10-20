@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Base : MonoBehaviour
 {
@@ -51,6 +52,6 @@ public class Base : MonoBehaviour
     //when the base is first created
     void Start()
     {
-        health = startHealth;
+        health = (int)Math.Floor(startHealth * DifficultySelection.baseHealthModifier);
     }
 }
