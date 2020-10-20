@@ -7,10 +7,12 @@ public class Player : MonoBehaviour
 {
     public static int Money;
     public int startMoney = 100;
+    public static int Credits = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        //Need statement to get credits from database but obvs need the database implemented first
         Money = (int)Math.Floor(startMoney * DifficultySelection.startGoldModifier);
     }
 
@@ -35,9 +37,9 @@ public class Player : MonoBehaviour
         Money -= moneyToSpend;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeCredits(int creditChangeInt)
     {
-
+        Credits += creditChangeInt;
+        Debug.Log("Player current credits: " + Credits);
     }
 }
