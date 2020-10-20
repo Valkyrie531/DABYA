@@ -6,7 +6,7 @@ public class IceTower : Tower
 {
     public IceTower()
     {
-        fireDamage = 10f;
+        fireDamage = 10f * DifficultySelection.towerStatModifier;
     }
 
     /* Over-ride shoot function to shoot ice bullets

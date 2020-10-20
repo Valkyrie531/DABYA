@@ -11,10 +11,20 @@ public class TankMonster : Monster
 
     private readonly int startDamage = 3;
 
+    public TankMonster()
+    {
+        healthFactor = 0.5f;
+        speedFactor = 1.5f;
+
+        healthCostFactor = DifficultySelection.spendGoldModifier * healthFactor;
+        speedCostFactor = DifficultySelection.spendGoldModifier * speedFactor;
+    }
+
     //Future-proofing for when health bars are to be added.
     //   [Header("Unity Stuff")]
     //   public Image healthBar;
     //leaving  this in but will probably remove it as the default monster should cover it
+
 
     //As monster is spawned set health and speed to our pre-set values
     void Start()
