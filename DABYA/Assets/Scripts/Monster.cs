@@ -2,24 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Monster : MonoBehaviour
 {
     [HideInInspector]
     private LevelManager levelManager;
 
-    private int monsterDeathValue = 10;
-    private readonly int monsterSpawnValue = 40;
+    private int monsterDeathValue = 10; 
+    private readonly int monsterSpawnValue = (int)Math.Floor(40 * DifficultySelection.spendGoldModifier);
+    private int baseUpgradeCost = 20;
+    protected float healthCostFactor;
+    protected float speedCostFactor;
 
     private readonly float startSpeed = 10f;
     public float speed;
     public float speedUpgrade = 0f;
     public float permaSpeedUpgrade = 0f;
+    protected float speedFactor = 1f;
 
     private readonly float startHealth = 100;
     public float health;
     public float healthUpgrade = 0f;
     public float permaHealthUpgrade = 0f;
+    protected float healthFactor = 1f;
 
     private readonly int startDamage = 2;
     public int permaDamageUpgrade = 0;
@@ -109,6 +115,16 @@ public class Monster : MonoBehaviour
     public void SetLevelManager(LevelManager manager)
     {
         levelManager = manager;
+    }
+
+    public int GetHealthCost()
+    {
+        return (int)Math.Floor(baseUpgradeCost * healthCostFactor);
+    }
+
+    public int GetSpeedCost()
+    {
+        return (int)Math.Floor(baseUpgradeCost * speedCostFactor);
     }
 
     public void UpgradeSpeed()//upgrades the health of the monster by increasing the value of the speedUpgrade variable
