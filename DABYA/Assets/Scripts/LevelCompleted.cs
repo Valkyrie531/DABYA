@@ -13,17 +13,17 @@ public class LevelCompleted : MonoBehaviour
     public Text levelScoreText;
 
     //set the success panel to active
-    public void LevelSuccess()
+    public void LevelSuccess(int score)
     {
         levelCompletionText.text = "Good job, you won!";
-        UpdateScoreText(300);
+        UpdateScoreText(score);
     }
 
     //set the fail panel to active
-    public void LevelFail()
+    public void LevelFail(int score)
     {
         levelCompletionText.text = "Oh no, you lost.";
-        UpdateScoreText(300);
+        UpdateScoreText(score);
     }
 
     public void UpdateScoreText(int score)

@@ -62,6 +62,7 @@ public class WaveSpawner : MonoBehaviour
          */
         if(wavesLeft == 0)
         {
+            wavesLeft -= 1;
             levelManager.LevelCompleted();
         }
 
@@ -113,5 +114,8 @@ public class WaveSpawner : MonoBehaviour
         levelManager.levelBase.BaseDamaged(damage);
     }
 
-
+    public int GetWavesLeft()
+    {
+        return wavesLeft;
+    }
 }
