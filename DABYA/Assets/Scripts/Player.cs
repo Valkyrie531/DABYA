@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static int Money;
-    public int startMoney = 100;
+    public int startMoney = 150;
     public static int Credits = 0;
 
     // Start is called before the first frame update

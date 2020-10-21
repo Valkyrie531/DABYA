@@ -9,6 +9,7 @@ public class DifficultySelection : MonoBehaviour
     public static float towerStatModifier = 1.0f;
     public static float baseHealthModifier = 1.0f;
     public static int scoreModifier = 2;
+    public static float upgradeCostModifier = 1.25f;
 
     public void SetEasyDifficulty()
     {
@@ -17,6 +18,7 @@ public class DifficultySelection : MonoBehaviour
         towerStatModifier = 0.5f;
         baseHealthModifier = 0.75f;
         scoreModifier = 1;
+        upgradeCostModifier = 1.1f;
     }
 
     public void SetNormalDifficulty()
@@ -35,5 +37,6 @@ public class DifficultySelection : MonoBehaviour
         towerStatModifier = 1.5f;
         baseHealthModifier = 1.25f;
         scoreModifier = 4;
+        upgradeCostModifier = 1.5f;
     }
 }

@@ -67,7 +67,7 @@ public class UpgradeMenu : MonoBehaviour
     public int tankHealthDowngrade = 0;
     public Text tankHealthDowngradeTxt;
 
-    private float upgradeCostFactor = 1.5f;
+    private float upgradeCostFactor = DifficultySelection.upgradeCostModifier;
 
     public bool OpenUpgrades ()
     {

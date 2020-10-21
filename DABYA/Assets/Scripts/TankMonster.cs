@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class TankMonster : Monster
 {
-    private readonly float startSpeed = 5f; // changes the start speed from the defaullt 10 to 5
+    private readonly float startSpeed = 7.5f; // changes the start speed from the defaullt 10 to 5
 
-    private readonly float startHealth = 200; // changes the starting health from the default 100 to 200
+    private readonly float startHealth = 150; // changes the starting health from the default 100 to 200
 
-    private readonly int startDamage = 3;
+    private readonly int startDamage = 1;
 
     public TankMonster()
     {
