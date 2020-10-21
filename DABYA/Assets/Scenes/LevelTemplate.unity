@@ -3265,6 +3265,7 @@ GameObject:
   - component: {fileID: 260784834}
   - component: {fileID: 260784833}
   - component: {fileID: 260784832}
+  - component: {fileID: 260784835}
   m_Layer: 5
   m_Name: NormalSpawnButton
   m_TagString: Untagged
@@ -3347,6 +3348,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 260784835}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Active
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1230900728}
+        m_TargetAssemblyTypeName: SpawnMonster, BaseDestructionAssembly
+        m_MethodName: DisableNormalButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &260784833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3385,6 +3410,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260784830}
   m_CullTransparentMesh: 0
+--- !u!95 &260784835
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260784830}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 245f2adaab0aa2a4b950b25675a7c147, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &261852322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18428,6 +18472,9 @@ MonoBehaviour:
   normalSpawnCostText: {fileID: 1034090476}
   tankSpawnCostText: {fileID: 1750738841}
   speedSpawnCostText: {fileID: 1470317005}
+  normalButton: {fileID: 260784832}
+  speedButton: {fileID: 1971917483}
+  tankButton: {fileID: 2145310235}
 --- !u!213 &1234925689
 Sprite:
   m_ObjectHideFlags: 0
@@ -28623,6 +28670,7 @@ GameObject:
   - component: {fileID: 1971917485}
   - component: {fileID: 1971917484}
   - component: {fileID: 1971917483}
+  - component: {fileID: 1971917486}
   m_Layer: 5
   m_Name: SpeedSpawnButton
   m_TagString: Untagged
@@ -28705,6 +28753,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1971917486}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Active
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1230900728}
+        m_TargetAssemblyTypeName: SpawnMonster, BaseDestructionAssembly
+        m_MethodName: DisableSpeedButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1971917484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28743,6 +28815,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971917481}
   m_CullTransparentMesh: 0
+--- !u!95 &1971917486
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971917481}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 245f2adaab0aa2a4b950b25675a7c147, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!213 &1972864490
 Sprite:
   m_ObjectHideFlags: 0
@@ -31755,6 +31846,7 @@ GameObject:
   - component: {fileID: 2145310237}
   - component: {fileID: 2145310236}
   - component: {fileID: 2145310235}
+  - component: {fileID: 2145310238}
   m_Layer: 5
   m_Name: TankSpawnButton
   m_TagString: Untagged
@@ -31837,6 +31929,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2145310238}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Active
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1230900728}
+        m_TargetAssemblyTypeName: SpawnMonster, BaseDestructionAssembly
+        m_MethodName: DisableTankButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2145310236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31875,6 +31991,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145310233}
   m_CullTransparentMesh: 0
+--- !u!95 &2145310238
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145310233}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 245f2adaab0aa2a4b950b25675a7c147, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2146985875
 MonoBehaviour:
   m_ObjectHideFlags: 0
