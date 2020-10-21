@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,6 +25,8 @@ public class MonsterMovement : MonoBehaviour
         monster = GetComponent<Monster>();
 
         target = Waypoints.points[waypointIndex];
+        
+        //if statement where if WaypointsPath1 or WaypointsPath2 exist then alternatePaths = true
     }
 
     /* Main driver for monster movement. 
@@ -44,14 +46,32 @@ public class MonsterMovement : MonoBehaviour
     }
 
     /*Locates next waypoint and sets it as movement target, will also
-     * identify if final waypoint has been reached.
+     * identify if final waypoint has been reached. If final waypoint is
+     * reached checks to see if alernate paths are available and if so
+     * sets alternate path as new target.
      */
     void GetNextWaypoint()
     {
         if (waypointIndex >= Waypoints.points.Length - 1)
         {
-            EndPath();
-            return;
+            if (alternatePaths = true)
+            {
+                waypointIndex = 0;
+                switch (waypointSelector)
+                {
+                    case 1:
+                        target = WaypointsPath1.points[waypointIndex];
+                        break;
+                    case 2:
+                        target = WaypointsPath2.points[waypointIndex];
+                        break;
+                }
+            }
+            else
+            {
+                EndPath();
+                return;
+            }
         }
 
         waypointIndex++;
