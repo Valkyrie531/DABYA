@@ -11,9 +11,10 @@ public class WaveSpawner : MonoBehaviour
     public UpgradeMenu summonMenu;
     public SpawnMonster spawnMonster;
 
-    private int totalWaves = 2;
+    private int totalWaves = 3;
     private int wavesLeft;
     private bool activeWave = false;
+    private int waveTopUp = 150;
 
     private float countdownLength = 30;
     private float countdownFloat;
@@ -53,7 +54,6 @@ public class WaveSpawner : MonoBehaviour
         if(wavesLeft > 0 && !activeWave && !upgradeMenuActive)
         {
             //Debug.Log("Wave" + wavesLeft);
-            levelManager.playerMoneyAdjustor(100);
             waveToggle();
         }
 
@@ -85,6 +85,7 @@ public class WaveSpawner : MonoBehaviour
     void openUpgradeMenu()
     {
         upgradeMenuActive = true;
+        levelManager.playerMoneyAdjustor(waveTopUp);
         summonMenu.OpenUpgrades();
     }
 

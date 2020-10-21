@@ -5,7 +5,7 @@ public class Base : MonoBehaviour
 {
     public LevelManager levelManager;
 
-    public int startHealth = 20;
+    private int startHealth = 30;
 
     [HideInInspector]
     private int health;

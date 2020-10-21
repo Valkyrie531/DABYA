@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,8 +15,12 @@ public class SpawnMonster : MonoBehaviour
     public Text normalSpawnCostText;
     public Text tankSpawnCostText;
     public Text speedSpawnCostText;
+    public GameObject normalButton;
+    public GameObject speedButton;
+    public GameObject tankButton;
 
     private List<GameObject> monstersSpawned = new List<GameObject>();
+    private float cooldownTime = 1f;
 
     /* Resets all attribute upgrades when level is started.
      * 
@@ -48,6 +53,8 @@ public class SpawnMonster : MonoBehaviour
             spawned = Instantiate(basicMonster, spawnPoint.transform.position, spawnPoint.transform.rotation);
             spawned.GetComponent<Monster>().SetLevelManager(levelManager);
             monstersSpawned.Add(spawned);
+            normalButton.GetComponent<Animator>().SetTrigger("Active");
+            DisableNormalButton();
         }
     }
 
@@ -63,6 +70,8 @@ public class SpawnMonster : MonoBehaviour
             spawned = Instantiate(speedMonster, spawnPoint.transform.position, spawnPoint.transform.rotation);
             spawned.GetComponent<SpeedMonster>().SetLevelManager(levelManager);
             monstersSpawned.Add(spawned);
+            speedButton.GetComponent<Animator>().SetTrigger("Active");
+            DisableSpeedButton();
         }
     }
 
@@ -78,6 +87,8 @@ public class SpawnMonster : MonoBehaviour
             spawned = Instantiate(tankMonster, spawnPoint.transform.position, spawnPoint.transform.rotation);
             spawned.GetComponent<TankMonster>().SetLevelManager(levelManager);
             monstersSpawned.Add(spawned);
+            tankButton.GetComponent<Animator>().SetTrigger("Active");
+            DisableTankButton();
         }
     }
 
@@ -121,5 +132,28 @@ public class SpawnMonster : MonoBehaviour
     public List<GameObject> GetMonstersSpawned()
     {
         return monstersSpawned;
+    }
+    public void DisableNormalButton()
+    {
+        normalButton.GetComponent<Button>().interactable = false;
+        StartCoroutine(SpawnCooldown(normalButton.GetComponent<Button>()));
+    }
+
+    public void DisableSpeedButton()
+    {
+        speedButton.GetComponent<Button>().interactable = false;
+        StartCoroutine(SpawnCooldown(speedButton.GetComponent<Button>()));
+    }
+
+    public void DisableTankButton()
+    {
+        tankButton.GetComponent<Button>().interactable = false;
+        StartCoroutine(SpawnCooldown(tankButton.GetComponent<Button>()));
+    }
+
+    public IEnumerator SpawnCooldown(Button spawnButton)
+    {
+        yield return new WaitForSeconds(cooldownTime);
+        spawnButton.interactable = true;
     }
 }
