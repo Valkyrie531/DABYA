@@ -14,12 +14,8 @@ public class SpawnMonster : MonoBehaviour
     public Text normalSpawnCostText;
     public Text tankSpawnCostText;
     public Text speedSpawnCostText;
-    public Button normalButton;
-    public Button speedButton;
-    public Button tankButton;
 
     private List<GameObject> monstersSpawned = new List<GameObject>();
-    private float cooldownTime = 1f;
 
     /* Resets all attribute upgrades when level is started.
      * 
@@ -125,29 +121,5 @@ public class SpawnMonster : MonoBehaviour
     public List<GameObject> GetMonstersSpawned()
     {
         return monstersSpawned;
-    }
-
-    public void DisableNormalButton()
-    {
-        normalButton.interactable = false;
-        StartCoroutine(SpawnCooldown(normalButton));
-    }
-
-    public void DisableSpeedButton()
-    {
-        speedButton.interactable = false;
-        StartCoroutine(SpawnCooldown(speedButton));
-    }
-
-    public void DisableTankButton()
-    {
-        tankButton.interactable = false;
-        StartCoroutine(SpawnCooldown(tankButton));
-    }
-
-    public IEnumerator SpawnCooldown(Button spawnButton)
-    {
-        yield return new WaitForSeconds(cooldownTime);
-        spawnButton.interactable = true;
     }
 }
