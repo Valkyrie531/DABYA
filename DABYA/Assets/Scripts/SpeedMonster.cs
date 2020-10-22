@@ -9,9 +9,9 @@ public class SpeedMonster : Monster
     {
         healthFactor = 1.5f;
         speedFactor = 0.5f;
-        startDamage = 1;
-        startHealth = 50;
-        startSpeed = 15f;
+        startDamage = 3;
+        startHealth = 75;
+        startSpeed = 12.5f;
 
         healthCostFactor = DifficultySelection.spendGoldModifier * healthFactor;
         speedCostFactor = DifficultySelection.spendGoldModifier * speedFactor;

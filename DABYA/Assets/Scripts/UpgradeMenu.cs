@@ -103,6 +103,13 @@ public class UpgradeMenu : MonoBehaviour
         speedHealthUpgrade = speedMonster.GetHealthCost();
         tankHealthUpgrade = tankMonster.GetHealthCost();
 
+        defaultMonSpeedTxt.text = defaultMonSpeed.ToString();
+        defaultMonHealthTxt.text = defaultMonHealth.ToString();
+        speedMonSpeedTxt.text = speedMonSpeed.ToString();
+        speedMonHealthTxt.text = speedMonHealth.ToString();
+        tankMonSpeedTxt.text = tankMonSpeed.ToString();
+        tankMonHealthTxt.text = tankMonHealth.ToString();
+
         defaultSpeedUpgradeTxt.text = defaultSpeedUpgrade.ToString() + "g";
         defaultSpeedDowngradeTxt.text = defaultSpeedDowngrade.ToString() + "g";
         defaultHealthUpgradeTxt.text = defaultHealthUpgrade.ToString() + "g";

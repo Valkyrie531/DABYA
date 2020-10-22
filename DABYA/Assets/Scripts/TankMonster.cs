@@ -9,9 +9,9 @@ public class TankMonster : Monster
     {
         healthFactor = 0.5f;
         speedFactor = 1.5f;
-        startDamage = 3;
-        startHealth = 200;
-        startSpeed = 5f;
+        startDamage = 1;
+        startHealth = 150;
+        startSpeed = 7.5f;
 
         healthCostFactor = DifficultySelection.spendGoldModifier * healthFactor;
         speedCostFactor = DifficultySelection.spendGoldModifier * speedFactor;
