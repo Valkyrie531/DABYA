@@ -23805,6 +23805,56 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!1 &1269465537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1269465539}
+  - component: {fileID: 1269465538}
+  m_Layer: 0
+  m_Name: PermanenetUpgrades
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1269465538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269465537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9494e5a523770934ca7f704b2c891432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  user: {fileID: 0}
+  defaultMon: {fileID: -8177383791609306768, guid: f04b6cecfbae24342b8185067c57d0b0, type: 3}
+  speedMon: {fileID: 3284404058049804536, guid: ba10f37cb89868641bac9191ca8bb309, type: 3}
+  tankMon: {fileID: 660522741825098068, guid: 8073bfed81f4a0448b29f3bc5fd3fccf, type: 3}
+  baseHealthCounterTxt: {fileID: 0}
+  timeUpgradeCounterTxt: {fileID: 0}
+  creditTxt: {fileID: 0}
+--- !u!4 &1269465539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269465537}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 408.76218, y: 217.72798, z: -109.595146}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1273207550
 GameObject:
   m_ObjectHideFlags: 0
@@ -32507,6 +32557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 387995073}
+  upgrades: {fileID: 1269465538}
   startHealth: 10
 --- !u!212 &1842551930
 SpriteRenderer:
@@ -36017,6 +36068,7 @@ MonoBehaviour:
   countdownText: {fileID: 1729198492}
   summonMenu: {fileID: 935116573}
   spawnMonster: {fileID: 1345152531}
+  upgrades: {fileID: 1269465538}
   upgradeMenuActive: 1
 --- !u!213 &2032984585
 Sprite:

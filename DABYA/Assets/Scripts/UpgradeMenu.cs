@@ -14,17 +14,17 @@ public class UpgradeMenu : MonoBehaviour
     private bool minReached;
 
     public GameObject upgradeMenuUI;
-    private decimal defaultMonSpeed = 10;
+    private decimal defaultMonSpeed;
     public Text defaultMonSpeedTxt;
-    private int defaultMonHealth= 100;
+    private int defaultMonHealth;
     public Text defaultMonHealthTxt;
-    private decimal speedMonSpeed = 15;
+    private decimal speedMonSpeed;
     public Text speedMonSpeedTxt;
-    private int speedMonHealth = 50;
+    private int speedMonHealth;
     public Text speedMonHealthTxt;
-    private decimal tankMonSpeed = 5;
+    private decimal tankMonSpeed;
     public Text tankMonSpeedTxt;
-    private int tankMonHealth = 200;
+    private int tankMonHealth;
     public Text tankMonHealthTxt;
 
     //speed upgrade values and text for all monsters
@@ -84,6 +84,18 @@ public class UpgradeMenu : MonoBehaviour
 
     private void Start()
     {
+        /*initialising the initial stat values to diplay
+         * 
+         */
+        defaultMonSpeed = Convert.ToDecimal(monster.GetUpgradedSpeed());
+        defaultMonHealth = Convert.ToInt16(monster.GetUpgradedHealth());
+        speedMonSpeed = Convert.ToDecimal(speedMonster.GetUpgradedSpeed());
+        speedMonHealth = Convert.ToInt16(speedMonster.GetUpgradedHealth());
+        tankMonSpeed = Convert.ToDecimal(tankMonster.GetUpgradedSpeed());
+        tankMonHealth = Convert.ToInt16(tankMonster.GetUpgradedHealth());
+
+
+        //
         defaultSpeedUpgrade = monster.GetSpeedCost();
         speedSpeedUpgrade = speedMonster.GetSpeedCost();
         tankSpeedUpgrade = tankMonster.GetSpeedCost();

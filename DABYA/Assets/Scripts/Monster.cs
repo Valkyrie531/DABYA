@@ -12,22 +12,22 @@ public class Monster : MonoBehaviour
     private int monsterDeathValue = 10; 
     private readonly int monsterSpawnValue = (int)Math.Floor(40 * DifficultySelection.spendGoldModifier);
     private int baseUpgradeCost = 20;
-    protected float healthCostFactor;
-    protected float speedCostFactor;
+    protected float healthCostFactor = 1;
+    protected float speedCostFactor = 1;
 
-    private readonly float startSpeed = 10f;
+    protected float startSpeed = 10f;
     public float speed;
     public float speedUpgrade = 0f;
     public float permaSpeedUpgrade = 0f;
     protected float speedFactor = 1f;
 
-    private readonly float startHealth = 100;
+    protected float startHealth = 100;
     public float health;
     public float healthUpgrade = 0f;
     public float permaHealthUpgrade = 0f;
     protected float healthFactor = 1f;
 
-    private readonly int startDamage = 2;
+    protected int startDamage = 2;
     public int permaDamageUpgrade = 0;
     public int baseDamage;
 

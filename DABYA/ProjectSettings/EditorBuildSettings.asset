@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 18507b83d977bcb45b5ceeac72cc8bd3
   - enabled: 1
+    path: Assets/Scenes/PermaUpgradeScreen.unity
+    guid: e569d66eb461cda4d81e73b705eab8c8
+  - enabled: 1
     path: Assets/Scenes/LevelSelect.unity
     guid: 4d1d984849c34c64aa422185d28bd20b
   - enabled: 1

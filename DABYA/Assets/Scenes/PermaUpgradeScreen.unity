@@ -193,7 +193,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Increase Speed
+  m_Text: Increase Speed - 50c
 --- !u!222 &1852081
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Increase Wave Time
+  m_Text: Increase Wave Time - 100c
 --- !u!222 &138611884
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -430,7 +430,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Increase Speed
+  m_Text: Increase Speed - 50c
 --- !u!222 &251133821
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -584,7 +584,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Increase Damage
+  m_Text: Increase Damage - 50c
 --- !u!222 &318376252
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -629,7 +629,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -229, y: 15}
+  m_AnchoredPosition: {x: -229, y: -10}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &347354128
@@ -675,9 +675,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -8177383791609306768, guid: f04b6cecfbae24342b8185067c57d0b0, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: PremaUpgradeSpeed
+      - m_Target: {fileID: 392345276}
+        m_TargetAssemblyTypeName: PermaUpgrades, BaseDestructionAssembly
+        m_MethodName: UpgradeDefaultMosterSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -795,7 +795,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Increase Damage
+  m_Text: Increase Damage - 50c
 --- !u!222 &357159690
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -851,6 +851,10 @@ RectTransform:
   - {fileID: 2025385862}
   - {fileID: 879140843}
   - {fileID: 1420049125}
+  - {fileID: 1602484323}
+  - {fileID: 1931247043}
+  - {fileID: 1578057865}
+  - {fileID: 745921166}
   m_Father: {fileID: 856312872}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -909,8 +913,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9494e5a523770934ca7f704b2c891432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  user: {fileID: 1879682318}
+  defaultMon: {fileID: -8177383791609306768, guid: f04b6cecfbae24342b8185067c57d0b0, type: 3}
+  speedMon: {fileID: 3284404058049804536, guid: ba10f37cb89868641bac9191ca8bb309, type: 3}
+  tankMon: {fileID: 660522741825098068, guid: 8073bfed81f4a0448b29f3bc5fd3fccf, type: 3}
   baseHealthCounterTxt: {fileID: 51058280}
   timeUpgradeCounterTxt: {fileID: 2031888060}
+  creditTxt: {fileID: 1602484324}
 --- !u!1 &482558887
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,7 +990,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Increase Speed
+  m_Text: Increase Speed - 50c
 --- !u!222 &482558890
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1074,7 +1083,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 392345276}
         m_TargetAssemblyTypeName: PermaUpgrades, BaseDestructionAssembly
-        m_MethodName: toMainMenu
+        m_MethodName: ToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1158,7 +1167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 232, y: 76}
+  m_AnchoredPosition: {x: 231, y: 25}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &694481172
@@ -1204,9 +1213,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3284404058049804536, guid: ba10f37cb89868641bac9191ca8bb309, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: PremaUpgradeHealth
+      - m_Target: {fileID: 392345276}
+        m_TargetAssemblyTypeName: PermaUpgrades, BaseDestructionAssembly
+        m_MethodName: UpgradeSpeedMosterHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1290,7 +1299,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -229, y: 76}
+  m_AnchoredPosition: {x: -229, y: 25}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &703834688
@@ -1336,9 +1345,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -8177383791609306768, guid: f04b6cecfbae24342b8185067c57d0b0, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: PremaUpgradeHealth
+      - m_Target: {fileID: 392345276}
+        m_TargetAssemblyTypeName: PermaUpgrades, BaseDestructionAssembly
+        m_MethodName: UpgradeDefaultMosterHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1385,6 +1394,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703834686}
+  m_CullTransparentMesh: 0
+--- !u!1 &745921165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 745921166}
+  - component: {fileID: 745921168}
+  - component: {fileID: 745921167}
+  m_Layer: 5
+  m_Name: DefaultIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &745921166
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745921165}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 392345273}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -228.57, y: 97}
+  m_SizeDelta: {x: 48.4682, y: 48.4682}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &745921167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745921165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 8cc4c418d226f344491f3e756032842f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 1
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &745921168
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745921165}
   m_CullTransparentMesh: 0
 --- !u!1 &856312868
 GameObject:
@@ -1521,7 +1605,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 15}
+  m_AnchoredPosition: {x: 0, y: -10}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &879140844
@@ -1567,9 +1651,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 660522741825098068, guid: 8073bfed81f4a0448b29f3bc5fd3fccf, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: PremaUpgradeSpeed
+      - m_Target: {fileID: 392345276}
+        m_TargetAssemblyTypeName: PermaUpgrades, BaseDestructionAssembly
+        m_MethodName: UpgradeTankMosterSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1849,7 +1933,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0, y: -47}
+  m_AnchoredPosition: {x: -9, y: -33.808}
   m_SizeDelta: {x: 356.1942, y: 47.615387}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &992687449
@@ -2019,7 +2103,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Increase Damage
+  m_Text: Increase Damage - 50c
 --- !u!222 &1001734793
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2098,7 +2182,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Increase Health
+  m_Text: Increase Health - 50c
 --- !u!222 &1056317183
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2177,7 +2261,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lower Base Health
+  m_Text: Lower Base Health - 100c
 --- !u!222 &1356124528
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2351,9 +2435,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 660522741825098068, guid: 8073bfed81f4a0448b29f3bc5fd3fccf, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: PremaUpgradeDamage
+      - m_Target: {fileID: 392345276}
+        m_TargetAssemblyTypeName: PermaUpgrades, BaseDestructionAssembly
+        m_MethodName: UpgradeTankMosterDamage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2697,7 +2781,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Increase Health
+  m_Text: Increase Health - 50c
 --- !u!222 &1566026313
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2705,6 +2789,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566026310}
+  m_CullTransparentMesh: 0
+--- !u!1 &1578057864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1578057865}
+  - component: {fileID: 1578057867}
+  - component: {fileID: 1578057866}
+  m_Layer: 5
+  m_Name: SpeedIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1578057865
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578057864}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 392345273}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 238.8, y: 89.9}
+  m_SizeDelta: {x: 64.00907, y: 62.71402}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1578057866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578057864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ba24c3dcab5f2e0439b9c28045a3ae7a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 1
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1578057867
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578057864}
   m_CullTransparentMesh: 0
 --- !u!1 &1584726630
 GameObject:
@@ -2788,9 +2947,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -8177383791609306768, guid: f04b6cecfbae24342b8185067c57d0b0, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: PremaUpgradeDamage
+      - m_Target: {fileID: 392345276}
+        m_TargetAssemblyTypeName: PermaUpgrades, BaseDestructionAssembly
+        m_MethodName: UpgradeDefaultMosterDamage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2837,6 +2996,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584726630}
+  m_CullTransparentMesh: 0
+--- !u!1 &1602484322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1602484323}
+  - component: {fileID: 1602484325}
+  - component: {fileID: 1602484324}
+  m_Layer: 5
+  m_Name: CreditText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1602484323
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602484322}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 392345273}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -93, y: -25}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1602484324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602484322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.7825674, b: 0.3254717, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 26
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Credits
+--- !u!222 &1602484325
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602484322}
   m_CullTransparentMesh: 0
 --- !u!1 &1686520108
 GameObject:
@@ -2949,7 +3187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 232, y: 15}
+  m_AnchoredPosition: {x: 231, y: -10}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1733573246
@@ -2995,9 +3233,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3284404058049804536, guid: ba10f37cb89868641bac9191ca8bb309, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: DowngradeSpeed
+      - m_Target: {fileID: 392345276}
+        m_TargetAssemblyTypeName: PermaUpgrades, BaseDestructionAssembly
+        m_MethodName: UpgradeSpeedMosterSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3177,6 +3415,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759914104}
   m_CullTransparentMesh: 0
+--- !u!1 &1879682317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1879682319}
+  - component: {fileID: 1879682318}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1879682318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879682317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c567fb54f115d48a88c92667f37ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMoney: 100
+--- !u!4 &1879682319
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879682317}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.23260958, y: 0.89973485, z: -36.440315}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1895682892
 GameObject:
   m_ObjectHideFlags: 0
@@ -3247,7 +3529,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Increase Health
+  m_Text: Increase Health - 50c
 --- !u!222 &1895682895
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3292,7 +3574,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 232, y: -46}
+  m_AnchoredPosition: {x: 231, y: -46}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1898925516
@@ -3338,9 +3620,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3284404058049804536, guid: ba10f37cb89868641bac9191ca8bb309, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: PremaUpgradeDamage
+      - m_Target: {fileID: 392345276}
+        m_TargetAssemblyTypeName: PermaUpgrades, BaseDestructionAssembly
+        m_MethodName: UpgradeSpeedMosterDamage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3388,6 +3670,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1898925514}
   m_CullTransparentMesh: 0
+--- !u!1 &1931247042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1931247043}
+  - component: {fileID: 1931247045}
+  - component: {fileID: 1931247044}
+  m_Layer: 5
+  m_Name: TankIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1931247043
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931247042}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 392345273}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 97}
+  m_SizeDelta: {x: 48.4682, y: 48.4682}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1931247044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931247042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 4dba13e18df89824b9862f4cc0a18844, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 1
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1931247045
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931247042}
+  m_CullTransparentMesh: 0
 --- !u!1 &2025385861
 GameObject:
   m_ObjectHideFlags: 0
@@ -3424,7 +3781,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 76}
+  m_AnchoredPosition: {x: 0, y: 25}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2025385863
@@ -3470,9 +3827,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 660522741825098068, guid: 8073bfed81f4a0448b29f3bc5fd3fccf, type: 3}
-        m_TargetAssemblyTypeName: Monster, BaseDestructionAssembly
-        m_MethodName: PremaUpgradeHealth
+      - m_Target: {fileID: 392345276}
+        m_TargetAssemblyTypeName: PermaUpgrades, BaseDestructionAssembly
+        m_MethodName: UpgradeTankMosterHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

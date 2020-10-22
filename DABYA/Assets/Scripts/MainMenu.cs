@@ -9,6 +9,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("LevelSelect");
     }
 
+    public void OpenUpgrades()
+    {
+        SceneManager.LoadScene("PermaUpgradeScreen");
+    }
+
     //completely closes the game
     public void closeGame()
     {

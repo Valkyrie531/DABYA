@@ -6,12 +6,25 @@ using UnityEngine.UI;
 
 public class PermaUpgrades : MonoBehaviour
 {
+    public Player user;
+    public Monster defaultMon;
+    public SpeedMonster speedMon;
+    public TankMonster tankMon;
+
     private static float timerUpgrade = 0;
     private float timeUpgradeCounter = 0;
+    private int largeCost = 100;
+    private int smallCost = 50;
     private static int baseHealthDowngrade = 0;
     private float baseHealthCounter = 0;
     public Text baseHealthCounterTxt;
     public Text timeUpgradeCounterTxt;
+    public Text creditTxt;
+
+    private void Start()
+    {
+        ChangeCreditTxt();
+    }
 
     public void ToMainMenu()
     {
@@ -22,10 +35,15 @@ public class PermaUpgrades : MonoBehaviour
     {
         if(timeUpgradeCounter<10)
         {
-            timeUpgradeCounter++;
-            timerUpgrade += 5f;
-            timeUpgradeCounterTxt.text = (timeUpgradeCounterTxt) + "/10";
+            if (checkCredits(largeCost))
+            {
+                timeUpgradeCounter++;
+                timerUpgrade += 5f;
+                timeUpgradeCounterTxt.text = (timeUpgradeCounter) + "/10";
+                user.ChangeCredits(-largeCost);
+            }
         }
+        ChangeCreditTxt();
     }
 
     public float GetUpgradeTime()
@@ -37,14 +55,124 @@ public class PermaUpgrades : MonoBehaviour
     {
         if(baseHealthCounter<10)
         {
-            baseHealthCounter++;
-            baseHealthDowngrade++;
-            baseHealthCounterTxt.text = (baseHealthCounter) + "/10";
+            if(checkCredits(largeCost))
+            {
+                baseHealthCounter++;
+                baseHealthDowngrade++;
+                baseHealthCounterTxt.text = (baseHealthCounter) + "/10";
+                user.ChangeCredits(-largeCost);
+            }
         }
+        ChangeCreditTxt();
     }
 
     public int GetBaseHealthDowngrade()
     {
         return baseHealthDowngrade;
+    }
+
+    public bool checkCredits(int cost)
+    {
+        bool isTrue = false;
+        if(user.GetCredits() >= cost)
+        {
+            isTrue = true;
+        }
+        return isTrue;
+    }
+
+    public void UpgradeDefaultMosterSpeed()
+    {
+        if(checkCredits(smallCost))
+        {
+            defaultMon.PremaUpgradeSpeed();
+            user.ChangeCredits(-smallCost);
+        }
+        ChangeCreditTxt();
+    }
+
+    public void UpgradeDefaultMosterHealth()
+    {
+        if (checkCredits(smallCost))
+        {
+            defaultMon.PremaUpgradeHealth();
+            user.ChangeCredits(-smallCost);
+        }
+        ChangeCreditTxt();
+    }
+
+    public void UpgradeDefaultMosterDamage()
+    {
+        if (checkCredits(smallCost))
+        {
+            defaultMon.PremaUpgradeDamage();
+            user.ChangeCredits(-smallCost);
+        }
+        ChangeCreditTxt();
+    }
+
+    public void UpgradeSpeedMosterSpeed()
+    {
+        if (checkCredits(smallCost))
+        {
+            speedMon.PremaUpgradeSpeed();
+            user.ChangeCredits(-smallCost);
+        }
+        ChangeCreditTxt();
+    }
+
+    public void UpgradeSpeedMosterHealth()
+    {
+        if (checkCredits(smallCost))
+        {
+            speedMon.PremaUpgradeHealth();
+            user.ChangeCredits(-smallCost);
+        }
+        ChangeCreditTxt();
+    }
+
+    public void UpgradeSpeedMosterDamage()
+    {
+        if (checkCredits(smallCost))
+        {
+            speedMon.PremaUpgradeDamage();
+            user.ChangeCredits(-smallCost);
+        }
+        ChangeCreditTxt();
+    }
+
+    public void UpgradeTankMosterSpeed()
+    {
+        if (checkCredits(smallCost))
+        {
+            tankMon.PremaUpgradeSpeed();
+            user.ChangeCredits(-smallCost);
+        }
+        ChangeCreditTxt();
+    }
+
+    public void UpgradeTankMosterHealth()
+    {
+        if (checkCredits(smallCost))
+        {
+            tankMon.PremaUpgradeHealth();
+            user.ChangeCredits(-smallCost);
+        }
+        ChangeCreditTxt();
+    }
+
+    public void UpgradeTankMosterDamage()
+    {
+        if (checkCredits(smallCost))
+        {
+            tankMon.PremaUpgradeDamage();
+            user.ChangeCredits(-smallCost);
+        }
+        ChangeCreditTxt();
+    }
+
+    public void ChangeCreditTxt()
+    {
+        creditTxt.text = "Credits: " + user.GetCredits();
     }
 }
