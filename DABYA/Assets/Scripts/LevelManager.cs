@@ -25,6 +25,7 @@ public class LevelManager : MonoBehaviour
         levelSpawner.spawnMonster.ClearMonsters();
         Time.timeScale = 0f;
         int levelScore = CalculateScore();
+        AudioManager.instance.PlayMenuMusic();
         if (levelBase.IsDestroyed())
         {
             levelCompleteCanvas.GetComponent<LevelCompleted>().LevelSuccess(levelScore);

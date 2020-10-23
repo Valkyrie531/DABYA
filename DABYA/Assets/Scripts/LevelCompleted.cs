@@ -33,6 +33,7 @@ public class LevelCompleted : MonoBehaviour
 
     public void ReplayLevel()
     {
+        AudioManager.instance.PlayGameMusic();
         string currentScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentScene);
     }
