@@ -4,6 +4,7 @@ using UnityEngine;
 public class Base : MonoBehaviour
 {
     public LevelManager levelManager;
+    public PermaUpgrades upgrades;
 
     private int startHealth = 30;
 
@@ -53,5 +54,6 @@ public class Base : MonoBehaviour
     void Start()
     {
         health = (int)Math.Floor(startHealth * DifficultySelection.baseHealthModifier);
+        health -= upgrades.GetBaseHealthDowngrade();
     }
 }
