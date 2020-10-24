@@ -23,7 +23,10 @@ public class PermaUpgrades : MonoBehaviour
 
     private void Start()
     {
-        ChangeCreditTxt();
+        if(SceneManager.GetActiveScene().Equals(SceneManager.GetSceneByName("PermaUpgradeScreen")))
+        {
+            ChangeCreditTxt();
+        }
     }
 
     public void ToMainMenu()
