@@ -43,9 +43,9 @@ public class Monster : MonoBehaviour
     //upgraded by to the starting speed/health
     void Start()
     {
-        speed = startSpeed + speedUpgrade;
-        health = startHealth + healthUpgrade;
-        baseDamage = startDamage;
+        speed = startSpeed + speedUpgrade + permaSpeedUpgrade;
+        health = startHealth + healthUpgrade + permaHealthUpgrade;
+        baseDamage = startDamage + permaDamageUpgrade;
     }
 
     /*
