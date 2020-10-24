@@ -98,8 +98,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   speedUpgrade: 0
+  permaSpeedUpgrade: 0
   health: 0
   healthUpgrade: 0
+  permaHealthUpgrade: 0
+  permaDamageUpgrade: 0
   baseDamage: 0
   healthBar: {fileID: 0}
 --- !u!114 &-5466923653580991334

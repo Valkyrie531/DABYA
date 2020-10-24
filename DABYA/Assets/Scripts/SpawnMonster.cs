@@ -27,9 +27,9 @@ public class SpawnMonster : MonoBehaviour
      */
     private void Start()
     {
-        basicMonster.GetComponent<Monster>().Reset();
-        speedMonster.GetComponent<SpeedMonster>().Reset();
-        tankMonster.GetComponent<TankMonster>().Reset();
+        //basicMonster.GetComponent<Monster>().Reset();
+       // speedMonster.GetComponent<SpeedMonster>().Reset();
+       // tankMonster.GetComponent<TankMonster>().Reset();
 
         UpdateMonsterPrices();
     }

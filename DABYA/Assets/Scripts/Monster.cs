@@ -18,17 +18,17 @@ public class Monster : MonoBehaviour
     protected float startSpeed = 10f;
     public float speed;
     public float speedUpgrade = 0f;
-    public float permaSpeedUpgrade = 0f;
+    protected static float permaSpeedUpgrade = 0f;
     protected float speedFactor = 1f;
 
     protected float startHealth = 100;
     public float health;
     public float healthUpgrade = 0f;
-    public float permaHealthUpgrade = 0f;
+    protected static float permaHealthUpgrade = 0f;
     protected float healthFactor = 1f;
 
     protected int startDamage = 2;
-    public int permaDamageUpgrade = 0;
+    protected static int permaDamageUpgrade = 0;
     public int baseDamage;
 
     //Future-proofing for when health bars are to be added.
@@ -160,6 +160,7 @@ public class Monster : MonoBehaviour
 
     public void PremaUpgradeHealth()
     {
+        Debug.Log("yeet");
         permaHealthUpgrade += 10f;
     }
 
@@ -188,11 +189,11 @@ public class Monster : MonoBehaviour
         return monsterSpawnValue;
     }
 
-    public void Reset()//since the prefab is altered, the values for the upgrad evariables need to be reset to default (0)
-    {
+   /* public void Reset()//since the prefab is altered, the values for the upgrad evariables need to be reset to default (0)
+   {
         speedUpgrade = 0f;
         healthUpgrade = 0f;
-    }
+   */ 
 
     public bool minHealth()
     {

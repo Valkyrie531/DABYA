@@ -26,9 +26,9 @@ public class TankMonster : Monster
     //As monster is spawned set health and speed to our pre-set values
     void Start()
     {
-        speed = startSpeed + speedUpgrade;
-        health = startHealth + healthUpgrade;
-        baseDamage = startDamage;
+        speed = startSpeed + speedUpgrade + permaSpeedUpgrade;
+        health = startHealth + healthUpgrade + permaHealthUpgrade;
+        baseDamage = startDamage + permaDamageUpgrade;
     }
 
     //Left in in case update is needed for some reason in the future.

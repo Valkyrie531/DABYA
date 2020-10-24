@@ -11813,10 +11813,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9494e5a523770934ca7f704b2c891432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user: {fileID: 0}
-  defaultMon: {fileID: 0}
-  speedMon: {fileID: 0}
-  tankMon: {fileID: 0}
+  user: {fileID: 1741129368}
+  defaultMon: {fileID: -8177383791609306768, guid: f04b6cecfbae24342b8185067c57d0b0, type: 3}
+  speedMon: {fileID: 3284404058049804536, guid: ba10f37cb89868641bac9191ca8bb309, type: 3}
+  tankMon: {fileID: 660522741825098068, guid: 8073bfed81f4a0448b29f3bc5fd3fccf, type: 3}
   baseHealthCounterTxt: {fileID: 0}
   timeUpgradeCounterTxt: {fileID: 0}
   creditTxt: {fileID: 0}

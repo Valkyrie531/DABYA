@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public static int Money;
 
     public int startMoney = 150;
-    public static int Credits = 0;
+    public static int Credits = 1000;
 
     // Start is called before the first frame update
     void Start()

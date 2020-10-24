@@ -114,66 +114,6 @@ public class PermaUpgrades : MonoBehaviour
         ChangeCreditTxt();
     }
 
-    public void UpgradeSpeedMosterSpeed()
-    {
-        if (checkCredits(smallCost))
-        {
-            speedMon.PremaUpgradeSpeed();
-            user.ChangeCredits(-smallCost);
-        }
-        ChangeCreditTxt();
-    }
-
-    public void UpgradeSpeedMosterHealth()
-    {
-        if (checkCredits(smallCost))
-        {
-            speedMon.PremaUpgradeHealth();
-            user.ChangeCredits(-smallCost);
-        }
-        ChangeCreditTxt();
-    }
-
-    public void UpgradeSpeedMosterDamage()
-    {
-        if (checkCredits(smallCost))
-        {
-            speedMon.PremaUpgradeDamage();
-            user.ChangeCredits(-smallCost);
-        }
-        ChangeCreditTxt();
-    }
-
-    public void UpgradeTankMosterSpeed()
-    {
-        if (checkCredits(smallCost))
-        {
-            tankMon.PremaUpgradeSpeed();
-            user.ChangeCredits(-smallCost);
-        }
-        ChangeCreditTxt();
-    }
-
-    public void UpgradeTankMosterHealth()
-    {
-        if (checkCredits(smallCost))
-        {
-            tankMon.PremaUpgradeHealth();
-            user.ChangeCredits(-smallCost);
-        }
-        ChangeCreditTxt();
-    }
-
-    public void UpgradeTankMosterDamage()
-    {
-        if (checkCredits(smallCost))
-        {
-            tankMon.PremaUpgradeDamage();
-            user.ChangeCredits(-smallCost);
-        }
-        ChangeCreditTxt();
-    }
-
     public void ChangeCreditTxt()
     {
         creditTxt.text = "Credits: " + user.GetCredits();
