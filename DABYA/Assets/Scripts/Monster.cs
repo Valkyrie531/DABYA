@@ -61,7 +61,7 @@ public class Monster : MonoBehaviour
     {
         health -= amount;
 
-        //healthBar.fillAmount = health / startHealth;
+        //healthBar.fillAmount = health / (startHealth + healthUpgrade);
 
         Debug.Log("Got hit - " + health.ToString());
 

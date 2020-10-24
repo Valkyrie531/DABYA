@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /*
@@ -12,8 +13,12 @@ public class MonsterMovement : MonoBehaviour
 {
     private Transform target;
     private int waypointIndex = 0;
-    private int waypointSelector;
+    private int waypointSelector = 1;
     private bool alternatePaths = false;
+    private Waypoints waypointStartPath;
+    private Waypoints waypointsAlternatePath;
+    private Waypoints currentWaypointPath;
+    private Waypoints[] waypointsList;
 
     private Monster monster;
 
@@ -24,9 +29,36 @@ public class MonsterMovement : MonoBehaviour
     {
         monster = GetComponent<Monster>();
 
-        target = Waypoints.points[waypointIndex];
-        
+        waypointsList = FindObjectsOfType<Waypoints>();
+
+        if (waypointsList.Length == 1)
+            waypointStartPath = FindObjectsOfType<Waypoints>()[0];
+        else
+            for (int i = 0; i < waypointsList.Length; i++)
+            {
+                if (waypointsList[i].name == "WaypointsStartPath")
+                    currentWaypointPath = waypointsList[i];
+                else
+                    i++;
+            }
+
+        target = currentWaypointPath.GetPoints()[waypointIndex];
+
+        for (int i = 0; i < waypointsList.Length; i++)
+        {
+            Debug.Log(waypointsList[i].name);
+            for (int j = 0; j < waypointsList[i].GetPoints().Length; j++)
+                Debug.Log(waypointsList[i].GetPoints()[j].name);
+        }
         //if statement where if WaypointsPath1 or WaypointsPath2 exist then alternatePaths = true
+        if(GameObject.Find("WaypointsPath1"))
+        {
+            if (waypointsList[0].name != "WaypointsStartPath")
+                waypointsAlternatePath = waypointsList[0];
+            else
+                waypointsAlternatePath = waypointsList[1];
+            alternatePaths = true;
+        }
     }
 
     /* Main driver for monster movement. 
@@ -52,20 +84,12 @@ public class MonsterMovement : MonoBehaviour
      */
     void GetNextWaypoint()
     {
-        if (waypointIndex >= Waypoints.points.Length - 1)
+        if (waypointIndex >= currentWaypointPath.GetPoints().Length - 1)
         {
-            if (alternatePaths = true)
+            if (alternatePaths == true)
             {
-                waypointIndex = 0;
-                switch (waypointSelector)
-                {
-                    case 1:
-                        target = WaypointsPath1.points[waypointIndex];
-                        break;
-                    case 2:
-                        target = WaypointsPath2.points[waypointIndex];
-                        break;
-                }
+                //ConfirmWaypointDirection();
+                ChooseNewPath(waypointSelector);
             }
             else
             {
@@ -74,8 +98,21 @@ public class MonsterMovement : MonoBehaviour
             }
         }
 
-        waypointIndex++;
-        target = Waypoints.points[waypointIndex];
+        waypointIndex++; 
+        target = currentWaypointPath.GetPoints()[waypointIndex];
+    }
+
+    void ChooseNewPath(int pathSelected)
+    {
+        string wpPathString = "WaypointsPath" + pathSelected.ToString();
+        for (int i = 0; i < waypointsList.Length; i++)
+        {
+            if (waypointsList[i].name == wpPathString)
+                currentWaypointPath = waypointsList[i];
+        }
+        for (int i = 0; i < currentWaypointPath.GetPoints().Length; i++)
+        waypointIndex = 0;
+        alternatePaths = false;
     }
 
     /*Destroys monster game object once it reaches the final way-point

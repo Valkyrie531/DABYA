@@ -9,9 +9,16 @@ public class Waypoints : MonoBehaviour
     void Awake()
     {
         points = new Transform[transform.childCount];
+        //Debug.Log(transform.name);
         for (int i = 0; i < points.Length; i++)
         {
             points[i] = transform.GetChild(i);
+            //Debug.Log(points[i].name + " " + points[i].position);
         }
+    }
+
+    public Transform[] GetPoints()
+    {
+        return points;
     }
 }
