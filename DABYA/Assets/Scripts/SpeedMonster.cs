@@ -13,6 +13,8 @@ public class SpeedMonster : Monster
         startHealth = 75;
         startSpeed = 12.5f;
 
+        deathSound = "SpeedDead";
+
         healthCostFactor = DifficultySelection.spendGoldModifier * healthFactor;
         speedCostFactor = DifficultySelection.spendGoldModifier * speedFactor;
     }

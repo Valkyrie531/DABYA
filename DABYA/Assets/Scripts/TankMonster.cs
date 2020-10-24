@@ -13,6 +13,8 @@ public class TankMonster : Monster
         startHealth = 150;
         startSpeed = 7.5f;
 
+        deathSound = "TankDead";
+
         healthCostFactor = DifficultySelection.spendGoldModifier * healthFactor;
         speedCostFactor = DifficultySelection.spendGoldModifier * speedFactor;
     }

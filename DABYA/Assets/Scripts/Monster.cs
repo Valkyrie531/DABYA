@@ -38,6 +38,8 @@ public class Monster : MonoBehaviour
     private bool isDead = false;
     private bool isSlow = false;
 
+    protected String deathSound = "NormalDead";
+
     //As monster is spawned set health and speed to our pre-set values
     //the speed and health upgrades are for when clones are made, they enable the upgrading of monsters by adding how much the stat was
     //upgraded by to the starting speed/health
@@ -56,6 +58,8 @@ public class Monster : MonoBehaviour
      */
     public void TakeDamage(float amount)
     {
+        //AudioManager.instance.Play(hitSound);
+
         health -= amount;
 
         //healthBar.fillAmount = health / startHealth;
@@ -71,6 +75,7 @@ public class Monster : MonoBehaviour
     //Destroys the monster game object, killing the monster.
     void Die()
     {
+        AudioManager.instance.Play(deathSound);
         isDead = true;
         levelManager.playerMoneyAdjustor(monsterDeathValue);
         Destroy(gameObject);

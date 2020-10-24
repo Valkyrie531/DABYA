@@ -2692,6 +2692,42 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: TankSpawn
+    clip: {fileID: 8300000, guid: ded7a26b35179d646b87dd2185df2ef7, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TankDead
+    clip: {fileID: 8300000, guid: 41bfcb5bd1f04f640b95a291fdd63784, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: NormalSpawn
+    clip: {fileID: 8300000, guid: 40bf484730290b749a1c3668625b53ef, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: NormalDead
+    clip: {fileID: 8300000, guid: 35b85b7ac3a279f49bed8d2679096ccd, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SpeedSpawn
+    clip: {fileID: 8300000, guid: 672cd91e8ac57234fb9841e4b3254c3f, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SpeedDead
+    clip: {fileID: 8300000, guid: 88544a1b7f77f7441858a38e033351f6, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   - name: 
     clip: {fileID: 0}
     volume: 1
