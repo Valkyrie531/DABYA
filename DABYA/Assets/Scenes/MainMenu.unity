@@ -2644,6 +2644,54 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: MenuOne
+    clip: {fileID: 8300000, guid: 446b02dea4e21084eac72256e3146e65, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: MenuTwo
+    clip: {fileID: 8300000, guid: 1d5bb7fde686de64592d85931823f99e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: MenuThree
+    clip: {fileID: 8300000, guid: 32f3ab043ee591a4591e7c5a4198028c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: MenuFour
+    clip: {fileID: 8300000, guid: 5919524edea5b86479ac7ffda16aa602, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: GameOne
+    clip: {fileID: 8300000, guid: d7f6d6f16cfd20d4cacac1dad52669a1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: GameTwo
+    clip: {fileID: 8300000, guid: 643a1b1e9c857164280bbbb491fcfb7b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: GameThree
+    clip: {fileID: 8300000, guid: 7152bb8526403704bb562c34984a4fb6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: GameFour
+    clip: {fileID: 8300000, guid: 2aaf04583d5c6d540acf39c77214afd5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   - name: 
     clip: {fileID: 0}
     volume: 1

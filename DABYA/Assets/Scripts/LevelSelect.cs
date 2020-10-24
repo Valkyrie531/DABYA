@@ -12,6 +12,7 @@ public class LevelSelect : MonoBehaviour
 
     public void levelSelector()
     {
+        AudioManager.instance.PlayGameMusic();
         switch (EventSystem.current.firstSelectedGameObject.name)
         {
             case "LevelOne":
