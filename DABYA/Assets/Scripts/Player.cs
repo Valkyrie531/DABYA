@@ -6,8 +6,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static int Money;
+
     public int startMoney = 150;
-    public static int Credits = 0;
+    public static int Credits = 1000;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,11 @@ public class Player : MonoBehaviour
     public void spendMoney(int moneyToSpend)
     {
         Money -= moneyToSpend;
+    }
+
+    public int GetCredits()
+    {
+        return Credits;
     }
 
     public void ChangeCredits(int creditChangeInt)

@@ -8,6 +8,11 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
+    private String[] menuMusic = {"MenuOne", "MenuTwo", "MenuThree", "MenuFour"};
+    private String[] gameMusic = {"GameOne", "GameTwo", "GameThree", "GameFour" };
+    private System.Random rand = new System.Random();
+    private String currentlyPlaying = null;
+
     private void Awake()
     {
         if (instance == null)
@@ -32,6 +37,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        PlayMenuMusic();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -44,6 +54,47 @@ public class AudioManager : MonoBehaviour
         if (s != null)
         {
             s.source.PlayOneShot(s.clip);
+        }
+    }
+
+    public void PlayMenuMusic()
+    {
+        if (currentlyPlaying != null)
+        {
+            StopPlaying(currentlyPlaying);
+        }
+
+        String name = menuMusic[rand.Next(menuMusic.Length)];
+        Sound s = Array.Find(sounds, sound => sound.name.Equals(name));
+        if (s != null)
+        {
+            currentlyPlaying = name;
+            s.source.Play();
+        }
+    }
+
+    public void PlayGameMusic()
+    {
+        if (currentlyPlaying != null)
+        {
+            StopPlaying(currentlyPlaying);
+        }
+
+        String name = gameMusic[rand.Next(gameMusic.Length)];
+        Sound s = Array.Find(sounds, sound => sound.name.Equals(name));
+        if (s != null)
+        {
+            currentlyPlaying = name;
+            s.source.Play();
+        }
+    }
+
+    public void StopPlaying(String name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name.Equals(name));
+        if (s != null)
+        {
+            s.source.Stop();
         }
     }
 }

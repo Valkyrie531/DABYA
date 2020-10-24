@@ -1,31 +1,34 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Monster : MonoBehaviour
 {
     [HideInInspector]
     private LevelManager levelManager;
 
-    private int monsterDeathValue = 10;
+    private int monsterDeathValue = 10; 
     private readonly int monsterSpawnValue = (int)Math.Floor(40 * DifficultySelection.spendGoldModifier);
     private int baseUpgradeCost = 20;
-    protected float healthCostFactor;
-    protected float speedCostFactor;
+    protected float healthCostFactor = 1;
+    protected float speedCostFactor = 1;
 
-    private readonly float startSpeed = 10f;
+    protected float startSpeed = 10f;
     public float speed;
     public float speedUpgrade = 0f;
+    protected static float permaSpeedUpgrade = 0f;
     protected float speedFactor = 1f;
 
-    private readonly float startHealth = 100;
+    protected float startHealth = 100;
     public float health;
     public float healthUpgrade = 0f;
+    protected static float permaHealthUpgrade = 0f;
     protected float healthFactor = 1f;
 
-    private readonly int startDamage = 2;
+    protected int startDamage = 2;
+    protected static int permaDamageUpgrade = 0;
     public int baseDamage;
 
     //Future-proofing for when health bars are to be added.
@@ -35,20 +38,14 @@ public class Monster : MonoBehaviour
     private bool isDead = false;
     private bool isSlow = false;
 
-    public Monster()
-    {
-        healthCostFactor = DifficultySelection.spendGoldModifier * healthFactor;
-        speedCostFactor = DifficultySelection.spendGoldModifier * speedFactor;
-}
-
     //As monster is spawned set health and speed to our pre-set values
     //the speed and health upgrades are for when clones are made, they enable the upgrading of monsters by adding how much the stat was
     //upgraded by to the starting speed/health
     void Start()
     {
-        speed = startSpeed + speedUpgrade;
-        health = startHealth + healthUpgrade;
-        baseDamage = startDamage;
+        speed = startSpeed + speedUpgrade + permaSpeedUpgrade;
+        health = startHealth + healthUpgrade + permaHealthUpgrade;
+        baseDamage = startDamage + permaDamageUpgrade;
     }
 
     /*
@@ -156,16 +153,47 @@ public class Monster : MonoBehaviour
         }
     }
 
+    public void PremaUpgradeSpeed()
+    {
+        permaSpeedUpgrade += 0.1f;
+    }
+
+    public void PremaUpgradeHealth()
+    {
+        Debug.Log("yeet");
+        permaHealthUpgrade += 10f;
+    }
+
+    public void PremaUpgradeDamage()
+    {
+        permaDamageUpgrade += 1;
+    }
+
+    public float GetUpgradedSpeed()
+    {
+        return startSpeed + speedUpgrade + permaSpeedUpgrade;
+    }
+
+    public float GetUpgradedHealth()
+    {
+        return startHealth + healthUpgrade + permaHealthUpgrade;
+    }
+
+    public int GetUpgradedDamage()
+    {
+        return startDamage + permaDamageUpgrade;
+    }
+
     public int getSpawnValue()
     {
         return monsterSpawnValue;
     }
 
-    public void Reset()//since the prefab is altered, the values for the upgrad evariables need to be reset to default (0)
-    {
+   /* public void Reset()//since the prefab is altered, the values for the upgrad evariables need to be reset to default (0)
+   {
         speedUpgrade = 0f;
         healthUpgrade = 0f;
-    }
+   */ 
 
     public bool minHealth()
     {

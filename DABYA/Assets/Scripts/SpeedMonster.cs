@@ -5,16 +5,13 @@ using UnityEngine.UI;
 
 public class SpeedMonster : Monster
 {
-    private readonly float startSpeed = 12.5f; // changes the start speed from the defaullt 10 to 15
-
-    private readonly float startHealth = 75; // changes the starting health from the default 100 to 50
-
-    private readonly int startDamage = 3;
-
     public SpeedMonster()
     {
         healthFactor = 1.5f;
         speedFactor = 0.5f;
+        startDamage = 3;
+        startHealth = 75;
+        startSpeed = 12.5f;
 
         healthCostFactor = DifficultySelection.spendGoldModifier * healthFactor;
         speedCostFactor = DifficultySelection.spendGoldModifier * speedFactor;
@@ -28,9 +25,9 @@ public class SpeedMonster : Monster
     //As monster is spawned set health and speed to our pre-set values
     void Start()
     {
-        speed = startSpeed + speedUpgrade;
-        health = startHealth + healthUpgrade;
-        baseDamage = startDamage;
+        speed = startSpeed + speedUpgrade + permaSpeedUpgrade;
+        health = startHealth + healthUpgrade + permaHealthUpgrade;
+        baseDamage = startDamage + permaDamageUpgrade;
     }
 
     //Left in in case update is needed for some reason in the future.
