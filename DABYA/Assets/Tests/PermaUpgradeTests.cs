@@ -16,7 +16,7 @@ namespace Tests
         public void SetUp()
         {
             SceneManager.LoadScene("LevelOne");
-            //testMonster = Transform.FindObjectOfType<Monster>();
+            testMonster = Transform.FindObjectOfType<Monster>();
         }
 
         [UnityTest]

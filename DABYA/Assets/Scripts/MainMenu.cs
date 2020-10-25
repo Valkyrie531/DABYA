@@ -14,6 +14,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("PermaUpgradeScreen");
     }
 
+    public void OpenSkins()
+    {
+        SceneManager.LoadScene("SkinShop");
+    }
+
     //completely closes the game
     public void closeGame()
     {
