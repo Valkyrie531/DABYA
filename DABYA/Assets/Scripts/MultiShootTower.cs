@@ -28,6 +28,7 @@ public class MultiShootTower : Tower
 
     public override void Shoot()
     {
+        AudioManager.instance.Play("MultiBullet");
         StartCoroutine(ShootMulti());
     }
 

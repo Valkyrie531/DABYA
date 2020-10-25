@@ -39,7 +39,10 @@ public class PauseMenu : MonoBehaviour
 
     public void ToMainMenu()
     {
+        gameIsPaused = false;
+        AudioManager.instance.PlayMenuMusic();
         SceneManager.LoadScene("MainMenu");
+        gameIsPaused = false;
     }
 
     public void Pause()

@@ -90,9 +90,10 @@ public class Tower : MonoBehaviour
 
     public virtual void Shoot()
     {
-       GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-       Bullet bullet = bulletGo.GetComponent<Bullet>();
-
+        AudioManager.instance.Play("NormalBullet");
+        GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGo.GetComponent<Bullet>();
+        
         if (bullet != null)
             bullet.setDamage(fireDamage);
             bullet.Seek(target);
