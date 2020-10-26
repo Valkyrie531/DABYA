@@ -62,6 +62,32 @@ public class SkinShop : MonoBehaviour
     void Start()
     {
         ChangeCreditTxt();
+
+        if(dSkin2Unlocked)
+        {
+            RemovePurchaseButton(purchaseDSkin2Btn);
+        }
+        if (dSkin3Unlocked)
+        {
+            RemovePurchaseButton(purchaseDSkin3Btn);
+        }
+        if (sSkin2Unlocked)
+        {
+            RemovePurchaseButton(purchaseSSkin2Btn);
+        }
+        if (sSkin3Unlocked)
+        {
+            RemovePurchaseButton(purchaseSSkin3Btn);
+        }
+        if (tSkin2Unlocked)
+        {
+            RemovePurchaseButton(purchaseTSkin2Btn);
+        }
+        if (tSkin3Unlocked)
+        {
+            RemovePurchaseButton(purchaseTSkin3Btn);
+        }
+
         if (dSkin1Equipped)
         {
             equipDSkin1Txt.text = "Equipped";
