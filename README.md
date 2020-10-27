@@ -17,6 +17,8 @@ Use Unity 2020.1.2f1 to open and edit.
 
 To create an exe, click on File on the ribbon and select Build And Run and select a file location to save the exe. Open the exe to run the game.
 
+Alternatively the exe is located in the \GZE\ folder (GZE for Great Zoo Escape!) and should run standalone with only the GZE folder.
+
 ## Usage
 
 Uses mouse controls - only left clicks required.
