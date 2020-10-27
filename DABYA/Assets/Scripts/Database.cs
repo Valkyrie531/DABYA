@@ -50,6 +50,22 @@ public class Database : MonoBehaviour
         
     }
 
+    public void levelscore(int levelid, int userid, int score)
+    {
+        using (IDbConnection dbconn = new SqliteConnection(conn))
+        {
+            dbconn.Open();
+
+            using (IDbCommand dbcmd = dbconn.CreateCommand())
+            {
+                string sqlQuery = String.Format("INSERT INTO Level(levelid,userid,score) VALUES(\"{0}\",\"{1}\",\"{2}\" )", levelid, userid, score);
+                dbcmd.CommandText = sqlQuery;
+                dbcmd.ExecuteScalar();
+                dbconn.Close();
+
+            }
+        }
+    }
 
     public void updateUpgradeTable(int userId, int upgradeId, int upgradeVal, int upgradeCount)
     {
