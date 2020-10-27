@@ -27,6 +27,15 @@ public class LevelSelect : MonoBehaviour
             case "LevelFour":
                 SceneManager.LoadScene("LevelFour");
                 break;
+            case "LevelFive":
+                SceneManager.LoadScene("LevelFive");
+                break;
+            case "LevelSix":
+                SceneManager.LoadScene("LevelSix");
+                break;
+            case "LevelSeven":
+                SceneManager.LoadScene("LevelSeven");
+                break;
         }
     }
 }

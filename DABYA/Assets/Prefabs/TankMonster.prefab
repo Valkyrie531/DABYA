@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 660522741825098069}
   - component: {fileID: 660522741825098068}
   - component: {fileID: 660522741825098075}
+  - component: {fileID: 92752532}
   m_Layer: 0
   m_Name: TankMonster
   m_TagString: Enemy
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4dba13e18df89824b9862f4cc0a18844, type: 3}
+  m_Sprite: {fileID: 3435098016531214708, guid: cc67a7b38b12a41429f37921aabd2a61, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,11 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   speedUpgrade: 0
-  permaSpeedUpgrade: 0
   health: 0
   healthUpgrade: 0
-  permaHealthUpgrade: 0
-  permaDamageUpgrade: 0
   baseDamage: 1
   healthBar: {fileID: 0}
 --- !u!114 &660522741825098075
@@ -117,3 +115,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3bec7e59921ed4b8e2f48f9338b6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &92752532
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660522741825098074}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a84252b88a9b2842941f81574ddc907, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
