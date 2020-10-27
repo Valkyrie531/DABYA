@@ -31,12 +31,12 @@ Please make sure to update tests as appropriate.
 ## Roadmap
 
 November 2020:
-Addition of skins for zookeepers as well as more skins for the animals
-Multiple paths with new levels to make use of multiple path technology
+* Addition of skins for zookeepers as well as more skins for the animals
+* Multiple paths with new levels to make use of multiple path technology
 
 December 2020:
-Adding support for mobile and keyboard input
-More exciting things
+* Adding support for mobile and keyboard input
+* More exciting things
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
