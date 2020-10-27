@@ -13,6 +13,11 @@ public class AudioManager : MonoBehaviour
     private String[] gameMusic = {"GameOne", "GameTwo", "GameThree", "GameFour" };
     private String currentlyPlaying = null;
 
+    /* When the game is started make the instance of the audio manager this instance
+     * if no current instance exists. This instance will persist throughout the game
+     * 
+     * for each sound in the sound array set up variables as set in the audio manager 
+     */
     private void Awake()
     {
         if (instance == null)
@@ -37,11 +42,18 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    /*
+     * When the game is started, play the menu music
+     */
     private void Start()
     {
         PlayMenuMusic();
     }
 
+    /* 
+     * play sound effect
+     * 
+     */
     public void Play(String name)
     {
         Sound s = Array.Find(sounds, sound => sound.name.Equals(name));
@@ -51,6 +63,10 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    /*
+     * play menu music
+     * 
+     */
     public void PlayMenuMusic()
     {
         if (currentlyPlaying != null)
@@ -67,6 +83,10 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    /*
+     * play game music
+     * 
+     */
     public void PlayGameMusic()
     {
         if (currentlyPlaying != null)
@@ -83,6 +103,10 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+
+    /*
+     * if there is music currently playing, stop playing it
+     */
     public void StopPlaying(String name)
     {
         Sound s = Array.Find(sounds, sound => sound.name.Equals(name));
