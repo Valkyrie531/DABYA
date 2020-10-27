@@ -4,12 +4,12 @@ The Great Zoo Escape is a reverse tower defense game made in Unity using C#. As 
 
 ## Features
 
-A tutorial to guide players through the game
-Multiple levels to choose from
-Various difficulty levels to make things easier or much harder
-Animated sprites
-Multiple types of tower (Zookeeper) to play against
-Permanent upgrades that affect your animals across levels
+* A tutorial to guide players through the game
+* Multiple levels to choose from
+* Various difficulty levels to make things easier or much harder
+* Animated sprites
+* Multiple types of tower (Zookeeper) to play against
+* Permanent upgrades that affect your animals across levels
 
 ## Installation
 
