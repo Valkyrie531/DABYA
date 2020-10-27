@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,6 +48,7 @@ public class SpawnMonster : MonoBehaviour
     {
         if (CheckMoney(basicMonster.GetComponent<Monster>().getSpawnValue()))
         {
+            AudioManager.instance.Play("NormalSpawn");
             GameObject spawned;
             spawned = Instantiate(basicMonster, spawnPoint.transform.position, spawnPoint.transform.rotation);
             spawned.GetComponent<Monster>().SetLevelManager(levelManager);
@@ -66,6 +66,7 @@ public class SpawnMonster : MonoBehaviour
     {
         if (CheckMoney(speedMonster.GetComponent<SpeedMonster>().getSpawnValue()))
         {
+            AudioManager.instance.Play("SpeedSpawn");
             GameObject spawned;
             spawned = Instantiate(speedMonster, spawnPoint.transform.position, spawnPoint.transform.rotation);
             spawned.GetComponent<SpeedMonster>().SetLevelManager(levelManager);
@@ -83,6 +84,7 @@ public class SpawnMonster : MonoBehaviour
     {
         if (CheckMoney(tankMonster.GetComponent<TankMonster>().getSpawnValue()))
         {
+            AudioManager.instance.Play("TankSpawn");
             GameObject spawned;
             spawned = Instantiate(tankMonster, spawnPoint.transform.position, spawnPoint.transform.rotation);
             spawned.GetComponent<TankMonster>().SetLevelManager(levelManager);

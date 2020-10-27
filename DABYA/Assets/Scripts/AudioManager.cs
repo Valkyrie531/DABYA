@@ -8,9 +8,9 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
+    private System.Random rand = new System.Random();
     private String[] menuMusic = {"MenuOne", "MenuTwo", "MenuThree", "MenuFour"};
     private String[] gameMusic = {"GameOne", "GameTwo", "GameThree", "GameFour" };
-    private System.Random rand = new System.Random();
     private String currentlyPlaying = null;
 
     private void Awake()
@@ -40,12 +40,6 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         PlayMenuMusic();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void Play(String name)
