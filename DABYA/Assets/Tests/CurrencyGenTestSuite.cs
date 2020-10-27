@@ -23,7 +23,7 @@ public class CurrencyGenTestSuite
 
         levelManager = Transform.FindObjectOfType<LevelManager>();
 
-        playerMoney = levelManager.levelPlayer.getMoney();
+        playerMoney = levelManager.levelPlayer.GetMoney();
 
         Assert.NotZero(playerMoney);
         yield return null;
@@ -36,11 +36,11 @@ public class CurrencyGenTestSuite
 
         levelManager = Transform.FindObjectOfType<LevelManager>();
 
-        expected = levelManager.levelPlayer.getMoney() + 100;
+        expected = levelManager.levelPlayer.GetMoney() + 100;
 
-        levelManager.playerMoneyAdjustor(100);
+        levelManager.PlayerMoneyAdjustor(100);
 
-        Assert.AreEqual(expected, levelManager.levelPlayer.getMoney());
+        Assert.AreEqual(expected, levelManager.levelPlayer.GetMoney());
         yield return null;
     }
 
@@ -51,13 +51,13 @@ public class CurrencyGenTestSuite
 
         levelManager = Transform.FindObjectOfType<LevelManager>();
 
-        original = levelManager.levelPlayer.getMoney();
+        original = levelManager.levelPlayer.GetMoney();
 
-        levelManager.levelSpawner.closeUpgradeMenu();
+        levelManager.levelSpawner.CloseUpgradeMenu();
 
         yield return new WaitForSeconds(1f);
 
-        Assert.AreNotEqual(original, levelManager.levelPlayer.getMoney());
+        Assert.AreNotEqual(original, levelManager.levelPlayer.GetMoney());
         yield return null;
     }
 

@@ -26,6 +26,9 @@ public class LevelCompleted : MonoBehaviour
         UpdateScoreText(score);
     }
 
+    /* Updates score and sets the level completion text to advise
+     * user of the score they achieved on that level.
+     */
     public void UpdateScoreText(int score)
     {
         levelScoreText.text = "You scored " + score.ToString() + " points in that level!";

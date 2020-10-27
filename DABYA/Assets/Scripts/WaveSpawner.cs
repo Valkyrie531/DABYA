@@ -30,7 +30,7 @@ public class WaveSpawner : MonoBehaviour
         countdownLength = 30 + upgrades.GetUpgradeTime();
         if (!SceneManager.GetActiveScene().name.Equals("Tutorial"))
         {
-            openUpgradeMenu();
+            OpenUpgradeMenu();
         }
         wavesLeft = totalWaves;
         countdownFloat = countdownLength;
@@ -55,7 +55,7 @@ public class WaveSpawner : MonoBehaviour
         if(wavesLeft > 0 && !activeWave && !upgradeMenuActive)
         {
             //Debug.Log("Wave" + wavesLeft);
-            waveToggle();
+            WaveToggle();
         }
 
         /*
@@ -76,21 +76,21 @@ public class WaveSpawner : MonoBehaviour
             if (wavesLeft > 0)
             {
                 spawnMonster.ClearMonsters();
-                openUpgradeMenu();
+                OpenUpgradeMenu();
             }
             countdownFloat = countdownLength;
-            waveToggle();
+            WaveToggle();
         }
     }
 
-    void openUpgradeMenu()
+    void OpenUpgradeMenu()
     {
         upgradeMenuActive = true;
-        levelManager.playerMoneyAdjustor(waveTopUp);
+        levelManager.PlayerMoneyAdjustor(waveTopUp);
         summonMenu.OpenUpgrades();
     }
 
-    public void closeUpgradeMenu()
+    public void CloseUpgradeMenu()
     {
         upgradeMenuActive = false;
         summonMenu.Play();
@@ -99,7 +99,7 @@ public class WaveSpawner : MonoBehaviour
     /*
      * Boolean toggle to determine if there is currently a wave on the board.
      */
-    void waveToggle()
+    void WaveToggle()
     {
         if (activeWave)
             activeWave = false;

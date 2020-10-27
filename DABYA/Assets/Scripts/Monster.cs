@@ -69,7 +69,7 @@ public class Monster : MonoBehaviour
     {
         AudioManager.instance.Play(deathSound);
         isDead = true;
-        levelManager.playerMoneyAdjustor(monsterDeathValue);
+        levelManager.PlayerMoneyAdjustor(monsterDeathValue);
         Destroy(gameObject);
     }
 
@@ -81,7 +81,7 @@ public class Monster : MonoBehaviour
     public void DamageBase()
     {
         levelManager.levelSpawner.BaseHitFor(baseDamage);
-        levelManager.playerMoneyAdjustor(monsterDeathValue);
+        levelManager.PlayerMoneyAdjustor(monsterDeathValue);
         Destroy(gameObject);
     }
 
@@ -136,7 +136,7 @@ public class Monster : MonoBehaviour
 
     public void DowngradeHealth()//downgrades the health of the monster by decreasing the value of the healthUpgrade variable
     {
-        if (!minHealth())
+        if (!MinHealth())
         {
             healthUpgrade = healthUpgrade - 10;
         }
@@ -144,23 +144,26 @@ public class Monster : MonoBehaviour
 
     public void DowngradeSpeed()//downgrades the speed of the monster by decreasing the value of the speedUpgrade variable
     {
-        if (!minSpeed())
+        if (!MinSpeed())
         {
             speedUpgrade = speedUpgrade - 0.1f;
         }
     }
 
+    //permanently upgrades the speed of monsters
     public void PremaUpgradeSpeed()
     {
         permaSpeedUpgrade += 0.1f;
     }
 
+    //permanently upgrades health of monsters
     public void PremaUpgradeHealth()
     {
         Debug.Log("yeet");
         permaHealthUpgrade += 10f;
     }
 
+    //permanently upgrade damage dealt by monsters
     public void PremaUpgradeDamage()
     {
         permaDamageUpgrade += 1;
@@ -181,7 +184,7 @@ public class Monster : MonoBehaviour
         return startDamage + permaDamageUpgrade;
     }
 
-    public int getSpawnValue()
+    public int GetSpawnValue()
     {
         return monsterSpawnValue;
     }
@@ -192,7 +195,7 @@ public class Monster : MonoBehaviour
         healthUpgrade = 0f;
    */ 
 
-    public bool minHealth()
+    public bool MinHealth()
     {
         if (healthUpgrade > 0.0f)
         {
@@ -204,7 +207,7 @@ public class Monster : MonoBehaviour
         }
     }
 
-    public bool minSpeed()
+    public bool MinSpeed()
     {
         if (speedUpgrade > 0.05f)
         {

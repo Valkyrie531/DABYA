@@ -56,19 +56,22 @@ public class LevelManager : MonoBehaviour
     /*
       * Adjusts money for player object in level
       */
-    public void playerMoneyAdjustor(int adjustment)
+    public void PlayerMoneyAdjustor(int adjustment)
     {
         if (!pausedMenu.getPaused())
         {
-			levelPlayer.gainMoney(adjustment);
+			levelPlayer.GainMoney(adjustment);
         }
     }
 
+    /* Calculates player score based on how well they performed in the level.
+     * Returns an int which is the score they received.
+     */
     public int CalculateScore()
     {
         int score = 0;
 
-        score += levelPlayer.getMoney() / 10;
+        score += levelPlayer.GetMoney() / 10;
 
         score += levelSpawner.GetWavesLeft() * 50;
 
@@ -87,7 +90,7 @@ public class LevelManager : MonoBehaviour
             counter += 1;
             if ((counter % 200) == 0)
             {
-                playerMoneyAdjustor(5);
+                PlayerMoneyAdjustor(5);
             }
         }
 
@@ -96,6 +99,6 @@ public class LevelManager : MonoBehaviour
             gameSpeed = 1;
         }
         baseHealth.text = levelBase.GetHealth().ToString() + " Health";
-        playerGold.text = levelPlayer.getMoney().ToString() + " Gold available.";
+        playerGold.text = levelPlayer.GetMoney().ToString() + " Gold available.";
     }
 }

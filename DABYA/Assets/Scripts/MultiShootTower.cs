@@ -42,7 +42,7 @@ public class MultiShootTower : Tower
         Bullet Bullet = bulletGo.GetComponent<Bullet>();
 
         if (Bullet != null)
-            Bullet.setDamage(fireDamage);
+            Bullet.SetDamage(fireDamage);
         Bullet.Seek(target);
 
     }

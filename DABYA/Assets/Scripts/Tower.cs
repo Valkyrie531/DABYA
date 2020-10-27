@@ -31,9 +31,7 @@ public class Tower : MonoBehaviour
      */
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.1f);
-
-        
+        InvokeRepeating("UpdateTarget", 0f, 0.1f);        
     }
 
     /* locate the nearest monster as the target.
@@ -58,7 +56,6 @@ public class Tower : MonoBehaviour
             }
         }
 
-
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
@@ -67,13 +64,8 @@ public class Tower : MonoBehaviour
         {
             target = null;
         }
-
-
     }
 
-    /* 
-    *  
-    */
     void Update()
     {
         fireCountdown -= Time.deltaTime;
@@ -96,7 +88,7 @@ public class Tower : MonoBehaviour
         Bullet bullet = bulletGo.GetComponent<Bullet>();
         
         if (bullet != null)
-            bullet.setDamage(fireDamage);
+            bullet.SetDamage(fireDamage);
             bullet.Seek(target);
     }
 

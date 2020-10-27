@@ -11,6 +11,11 @@ public class DifficultySelection : MonoBehaviour
     public static int scoreModifier = 2;
     public static float upgradeCostModifier = 1.25f;
 
+
+    /* 
+     * set difficulty to easy to make it easier for the player to complete a level
+     * 
+     */
     public void SetEasyDifficulty()
     {
         startGoldModifier = 1.5f;
@@ -21,6 +26,10 @@ public class DifficultySelection : MonoBehaviour
         upgradeCostModifier = 1.1f;
     }
 
+    /* 
+     * set difficulty to normal to give the player some challenge to complete a level
+     * 
+     */
     public void SetNormalDifficulty()
     {
         startGoldModifier = 1.0f;
@@ -30,6 +39,10 @@ public class DifficultySelection : MonoBehaviour
         scoreModifier = 2;
     }
 
+    /*
+     * set difficulty to hard to make it extremely difficult for the player to complete a level
+     * 
+     */
     public void SetHardDifficulty()
     {
         startGoldModifier = 0.5f;

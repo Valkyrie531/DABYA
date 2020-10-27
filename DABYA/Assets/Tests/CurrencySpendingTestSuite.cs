@@ -24,9 +24,9 @@ public class CurrencySpendingTestSuite
         player = Transform.FindObjectOfType<Player>();
         upgradeMenu = Transform.FindObjectOfType<UpgradeMenu>();
 
-        expectedGold = player.getMoney() - upgradeMenu.defaultHealthUpgrade;
+        expectedGold = player.GetMoney() - upgradeMenu.defaultHealthUpgrade;
         upgradeMenu.IncreaseDefaultMonHealth();
-        actualGold = player.getMoney();
+        actualGold = player.GetMoney();
 
         Assert.AreEqual(expectedGold, actualGold, 0.1f);
         yield return null;
@@ -39,9 +39,9 @@ public class CurrencySpendingTestSuite
         upgradeMenu = Transform.FindObjectOfType<UpgradeMenu>();
 
         upgradeMenu.IncreaseDefaultMonHealth();
-        expectedGold = player.getMoney() + upgradeMenu.defaultHealthDowngrade;
+        expectedGold = player.GetMoney() + upgradeMenu.defaultHealthDowngrade;
         upgradeMenu.DecreaseDefaultMonHealth();
-        actualGold = player.getMoney();
+        actualGold = player.GetMoney();
 
         Assert.AreEqual(expectedGold, actualGold, 0.1f);
         yield return null;
@@ -53,9 +53,9 @@ public class CurrencySpendingTestSuite
         player = Transform.FindObjectOfType<Player>();
         upgradeMenu = Transform.FindObjectOfType<UpgradeMenu>();
 
-        expectedGold = player.getMoney() - upgradeMenu.defaultSpeedUpgrade;
+        expectedGold = player.GetMoney() - upgradeMenu.defaultSpeedUpgrade;
         upgradeMenu.IncreaseDefaultMonSpeed();
-        actualGold = player.getMoney();
+        actualGold = player.GetMoney();
 
         Assert.AreEqual(expectedGold, actualGold, 0.1f);
         yield return null;
@@ -68,9 +68,9 @@ public class CurrencySpendingTestSuite
         upgradeMenu = Transform.FindObjectOfType<UpgradeMenu>();
 
         upgradeMenu.IncreaseDefaultMonSpeed();
-        expectedGold = player.getMoney() + upgradeMenu.defaultSpeedDowngrade;
+        expectedGold = player.GetMoney() + upgradeMenu.defaultSpeedDowngrade;
         upgradeMenu.DecreaseDefaultMonSpeed();
-        actualGold = player.getMoney();
+        actualGold = player.GetMoney();
 
         Assert.AreEqual(expectedGold, actualGold, 0.1f);
         yield return null;
@@ -82,9 +82,9 @@ public class CurrencySpendingTestSuite
         player = Transform.FindObjectOfType<Player>();
         upgradeMenu = Transform.FindObjectOfType<UpgradeMenu>();
 
-        expectedGold = player.getMoney() - upgradeMenu.speedHealthUpgrade;
+        expectedGold = player.GetMoney() - upgradeMenu.speedHealthUpgrade;
         upgradeMenu.IncreaseSpeedMonHealth();
-        actualGold = player.getMoney();
+        actualGold = player.GetMoney();
 
         Assert.AreEqual(expectedGold, actualGold, 0.1f);
         yield return null;
@@ -97,9 +97,9 @@ public class CurrencySpendingTestSuite
         upgradeMenu = Transform.FindObjectOfType<UpgradeMenu>();
 
         upgradeMenu.IncreaseSpeedMonHealth();
-        expectedGold = player.getMoney() + upgradeMenu.speedHealthDowngrade;
+        expectedGold = player.GetMoney() + upgradeMenu.speedHealthDowngrade;
         upgradeMenu.DecreaseSpeedMonHealth();
-        actualGold = player.getMoney();
+        actualGold = player.GetMoney();
 
         Assert.AreEqual(expectedGold, actualGold, 0.1f);
         yield return null;
@@ -111,9 +111,9 @@ public class CurrencySpendingTestSuite
         player = Transform.FindObjectOfType<Player>();
         upgradeMenu = Transform.FindObjectOfType<UpgradeMenu>();
 
-        expectedGold = player.getMoney() - upgradeMenu.speedSpeedUpgrade;
+        expectedGold = player.GetMoney() - upgradeMenu.speedSpeedUpgrade;
         upgradeMenu.IncreaseSpeedMonSpeed();
-        actualGold = player.getMoney();
+        actualGold = player.GetMoney();
 
         Assert.AreEqual(expectedGold, actualGold, 0.1f);
         yield return null;
@@ -126,9 +126,9 @@ public class CurrencySpendingTestSuite
         upgradeMenu = Transform.FindObjectOfType<UpgradeMenu>();
 
         upgradeMenu.IncreaseSpeedMonSpeed();
-        expectedGold = player.getMoney() + upgradeMenu.speedSpeedDowngrade;
+        expectedGold = player.GetMoney() + upgradeMenu.speedSpeedDowngrade;
         upgradeMenu.DecreaseSpeedMonSpeed();
-        actualGold = player.getMoney();
+        actualGold = player.GetMoney();
 
         Assert.AreEqual(expectedGold, actualGold, 0.1f);
         yield return null;
@@ -140,9 +140,9 @@ public class CurrencySpendingTestSuite
         player = Transform.FindObjectOfType<Player>();
         upgradeMenu = Transform.FindObjectOfType<UpgradeMenu>();
 
-        expectedGold = player.getMoney() - upgradeMenu.tankHealthUpgrade;
+        expectedGold = player.GetMoney() - upgradeMenu.tankHealthUpgrade;
         upgradeMenu.IncreaseTankMonHealth();
-        actualGold = player.getMoney();
+        actualGold = player.GetMoney();
 
         Assert.AreEqual(expectedGold, actualGold, 0.1f);
         yield return null;
@@ -155,9 +155,9 @@ public class CurrencySpendingTestSuite
         upgradeMenu = Transform.FindObjectOfType<UpgradeMenu>();
 
         upgradeMenu.IncreaseTankMonHealth();
-        expectedGold = player.getMoney() + upgradeMenu.tankHealthDowngrade;
+        expectedGold = player.GetMoney() + upgradeMenu.tankHealthDowngrade;
         upgradeMenu.DecreaseTankMonHealth();
-        actualGold = player.getMoney();
+        actualGold = player.GetMoney();
 
         Assert.AreEqual(expectedGold, actualGold, 0.1f);
         yield return null;
@@ -169,9 +169,9 @@ public class CurrencySpendingTestSuite
         player = Transform.FindObjectOfType<Player>();
         upgradeMenu = Transform.FindObjectOfType<UpgradeMenu>();
 
-        expectedGold = player.getMoney() - upgradeMenu.tankSpeedUpgrade;
+        expectedGold = player.GetMoney() - upgradeMenu.tankSpeedUpgrade;
         upgradeMenu.IncreaseTankMonSpeed();
-        actualGold = player.getMoney();
+        actualGold = player.GetMoney();
 
         Assert.AreEqual(expectedGold, actualGold, 0.1f);
         yield return null;
@@ -184,9 +184,9 @@ public class CurrencySpendingTestSuite
         upgradeMenu = Transform.FindObjectOfType<UpgradeMenu>();
 
         upgradeMenu.IncreaseTankMonSpeed();
-        expectedGold = player.getMoney() + upgradeMenu.tankSpeedDowngrade;
+        expectedGold = player.GetMoney() + upgradeMenu.tankSpeedDowngrade;
         upgradeMenu.DecreaseTankMonSpeed();
-        actualGold = player.getMoney();
+        actualGold = player.GetMoney();
 
         Assert.AreEqual(expectedGold, actualGold, 0.1f);
         yield return null;
