@@ -24650,6 +24650,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2613377786014214843, guid: 206bd16b00192c347bef95ccbf0d15f1, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2613377786014214845, guid: 206bd16b00192c347bef95ccbf0d15f1, type: 3}
       propertyPath: m_Name
       value: Tower
@@ -32160,6 +32164,10 @@ PrefabInstance:
     - target: {fileID: 2613377786014214842, guid: 206bd16b00192c347bef95ccbf0d15f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2613377786014214843, guid: 206bd16b00192c347bef95ccbf0d15f1, type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2613377786014214845, guid: 206bd16b00192c347bef95ccbf0d15f1, type: 3}
       propertyPath: m_Name
