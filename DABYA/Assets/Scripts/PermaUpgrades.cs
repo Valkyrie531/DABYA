@@ -82,12 +82,8 @@ public class PermaUpgrades : MonoBehaviour
         return baseHealthDowngrade;
     }
 
-<<<<<<< Updated upstream
     //checks if the user can afford the upgrade
-    public bool checkCredits(int cost)
-=======
     public bool CheckCredits(int cost)
->>>>>>> Stashed changes
     {
         bool isTrue = false;
         if(user.GetCredits() >= cost)
