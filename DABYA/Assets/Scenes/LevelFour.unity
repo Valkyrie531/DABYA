@@ -12781,7 +12781,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2024388983}
         m_TargetAssemblyTypeName: WaveSpawner, BaseDestructionAssembly
-        m_MethodName: closeUpgradeMenu
+        m_MethodName: CloseUpgradeMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

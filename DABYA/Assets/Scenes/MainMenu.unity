@@ -1358,10 +1358,7 @@ MonoBehaviour:
 
     Alex Winterton
 
-    Yang Yanfeng
-
-    Denish
-    Chand'
+    Yang Yanfeng'
 --- !u!222 &889622476
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1773,8 +1770,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1945952690}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: closeGame
+        m_TargetAssemblyTypeName: MainMenu, BaseDestructionAssembly
+        m_MethodName: CloseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2547,8 +2544,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1945952690}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: openLevelSelect
+        m_TargetAssemblyTypeName: MainMenu, BaseDestructionAssembly
+        m_MethodName: OpenLevelSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

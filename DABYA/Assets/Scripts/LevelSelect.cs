@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class LevelSelect : MonoBehaviour
 {
     //changes the scene from the level selection screen to the main menu screen
-    public void ReturnToMainMeun()
+    public void ReturnToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
