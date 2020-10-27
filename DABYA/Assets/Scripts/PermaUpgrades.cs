@@ -42,7 +42,7 @@ public class PermaUpgrades : MonoBehaviour
     {
         if(timeUpgradeCounter<10)
         {
-            if (checkCredits(largeCost))
+            if (CheckCredits(largeCost))
             {
                 timeUpgradeCounter++;
                 timerUpgrade += 5f;
@@ -66,7 +66,7 @@ public class PermaUpgrades : MonoBehaviour
     {
         if(baseHealthCounter<10)
         {
-            if(checkCredits(largeCost))
+            if(CheckCredits(largeCost))
             {
                 baseHealthCounter++;
                 baseHealthDowngrade++;
@@ -82,8 +82,12 @@ public class PermaUpgrades : MonoBehaviour
         return baseHealthDowngrade;
     }
 
+<<<<<<< Updated upstream
     //checks if the user can afford the upgrade
     public bool checkCredits(int cost)
+=======
+    public bool CheckCredits(int cost)
+>>>>>>> Stashed changes
     {
         bool isTrue = false;
         if(user.GetCredits() >= cost)
@@ -98,7 +102,7 @@ public class PermaUpgrades : MonoBehaviour
      */
     public void UpgradeDefaultMosterSpeed()
     {
-        if(checkCredits(smallCost))
+        if(CheckCredits(smallCost))
         {
             defaultMon.PremaUpgradeSpeed();
             user.ChangeCredits(-smallCost);
@@ -111,7 +115,7 @@ public class PermaUpgrades : MonoBehaviour
      */
     public void UpgradeDefaultMosterHealth()
     {
-        if (checkCredits(smallCost))
+        if (CheckCredits(smallCost))
         {
             defaultMon.PremaUpgradeHealth();
             user.ChangeCredits(-smallCost);
@@ -124,7 +128,7 @@ public class PermaUpgrades : MonoBehaviour
      */
     public void UpgradeDefaultMosterDamage()
     {
-        if (checkCredits(smallCost))
+        if (CheckCredits(smallCost))
         {
             defaultMon.PremaUpgradeDamage();
             user.ChangeCredits(-smallCost);

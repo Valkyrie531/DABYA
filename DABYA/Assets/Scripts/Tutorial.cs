@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class Tutorial : MonoBehaviour
 {
     
-    public void openLevelSelect()
+    public void OpenLevelSelect()
     {
         SceneManager.LoadScene("LevelSelect");
     }
 
-    public void openMainMenu()
+    public void OpenMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }

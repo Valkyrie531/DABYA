@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     /*
      * Returns player money value as an int.
      */
-    public int getMoney()
+    public int GetMoney()
     {
         return Money;
     }
@@ -28,12 +28,12 @@ public class Player : MonoBehaviour
     /*
      * Changes player money value, only accepts int.
      */
-    public void gainMoney(int moneyToAdd)
+    public void GainMoney(int moneyToAdd)
     {
         Money += moneyToAdd;
     }
 
-    public void spendMoney(int moneyToSpend)
+    public void SpendMoney(int moneyToSpend)
     {
         Money -= moneyToSpend;
     }

@@ -20,7 +20,7 @@ public class IceTower : Tower
         IceBullet iceBullet = bulletGo.GetComponent<IceBullet>();
 
         if (iceBullet != null)
-            iceBullet.setDamage(fireDamage);
+            iceBullet.SetDamage(fireDamage);
             iceBullet.Seek(target);
     }
 }

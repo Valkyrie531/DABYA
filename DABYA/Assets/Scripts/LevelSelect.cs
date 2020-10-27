@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 public class LevelSelect : MonoBehaviour
 {
     //changes the scene from the level selection screen to the main menu screen
-    public void returnToMainMeun()
+    public void ReturnToMainMeun()
     {
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void levelSelector()
+    public void LevelSelector()
     {
         AudioManager.instance.PlayGameMusic();
         switch (EventSystem.current.firstSelectedGameObject.name)

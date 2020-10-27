@@ -21,7 +21,7 @@ public class MonsterTestSuite
     {
         levelManager = Transform.FindObjectOfType<LevelManager>();
 
-        levelManager.levelSpawner.closeUpgradeMenu();
+        levelManager.levelSpawner.CloseUpgradeMenu();
 
         yield return new WaitForSeconds(0.1f);
 
@@ -37,7 +37,7 @@ public class MonsterTestSuite
     {
         levelManager = Transform.FindObjectOfType<LevelManager>();
 
-        levelManager.levelSpawner.closeUpgradeMenu();
+        levelManager.levelSpawner.CloseUpgradeMenu();
 
         yield return new WaitForSeconds(0.1f);
 
@@ -54,7 +54,7 @@ public class MonsterTestSuite
     {
         levelManager = Transform.FindObjectOfType<LevelManager>();
 
-        levelManager.levelSpawner.closeUpgradeMenu();
+        levelManager.levelSpawner.CloseUpgradeMenu();
 
         yield return new WaitForSeconds(0.1f);
 

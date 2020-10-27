@@ -35,9 +35,9 @@ public class SpawnMonster : MonoBehaviour
 
     private void UpdateMonsterPrices()
     {
-        normalSpawnCostText.text = (basicMonster.GetComponent<Monster>().getSpawnValue().ToString() + "g");
-        tankSpawnCostText.text = (tankMonster.GetComponent<TankMonster>().getSpawnValue().ToString() + "g");
-        speedSpawnCostText.text = (speedMonster.GetComponent<SpeedMonster>().getSpawnValue().ToString() + "g");
+        normalSpawnCostText.text = (basicMonster.GetComponent<Monster>().GetSpawnValue().ToString() + "g");
+        tankSpawnCostText.text = (tankMonster.GetComponent<TankMonster>().GetSpawnValue().ToString() + "g");
+        speedSpawnCostText.text = (speedMonster.GetComponent<SpeedMonster>().GetSpawnValue().ToString() + "g");
     }
 
     /* Instantiating (spawning) of basic monster after checking
@@ -46,7 +46,7 @@ public class SpawnMonster : MonoBehaviour
      */
     public void InstantiateBasic()
     {
-        if (CheckMoney(basicMonster.GetComponent<Monster>().getSpawnValue()))
+        if (CheckMoney(basicMonster.GetComponent<Monster>().GetSpawnValue()))
         {
             AudioManager.instance.Play("NormalSpawn");
             GameObject spawned;
@@ -64,7 +64,7 @@ public class SpawnMonster : MonoBehaviour
      */
     public void InstantiateSpeed()
     {
-        if (CheckMoney(speedMonster.GetComponent<SpeedMonster>().getSpawnValue()))
+        if (CheckMoney(speedMonster.GetComponent<SpeedMonster>().GetSpawnValue()))
         {
             AudioManager.instance.Play("SpeedSpawn");
             GameObject spawned;
@@ -82,7 +82,7 @@ public class SpawnMonster : MonoBehaviour
      */
     public void InstantiateTank()
     {
-        if (CheckMoney(tankMonster.GetComponent<TankMonster>().getSpawnValue()))
+        if (CheckMoney(tankMonster.GetComponent<TankMonster>().GetSpawnValue()))
         {
             AudioManager.instance.Play("TankSpawn");
             GameObject spawned;
@@ -101,14 +101,14 @@ public class SpawnMonster : MonoBehaviour
      */
     private bool CheckMoney(int cost)
     {
-        if (cost > levelManager.levelPlayer.getMoney())
+        if (cost > levelManager.levelPlayer.GetMoney())
         {
             goldError.NotEnoughGoldPopUp();
             return false;
         }
         else
         {
-            levelManager.playerMoneyAdjustor(-cost);
+            levelManager.PlayerMoneyAdjustor(-cost);
             return true;
         }
     }
