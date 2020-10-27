@@ -22,6 +22,7 @@ public class MultiShootTower : Tower
         for (int i = 0; i < noOfShots; i++)
         {
             MakeBullet();
+            transform.GetComponent<Animator>().SetTrigger("ShootBullet");
             yield return new WaitForSeconds(0.25f);
         }
     }

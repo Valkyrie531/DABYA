@@ -16,6 +16,7 @@ public class IceTower : Tower
     public override void Shoot()
     {
         AudioManager.instance.Play("IceBullet");
+        transform.GetComponent<Animator>().SetTrigger("ShootBullet");
         GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         IceBullet iceBullet = bulletGo.GetComponent<IceBullet>();
 
