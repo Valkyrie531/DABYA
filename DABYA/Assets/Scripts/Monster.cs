@@ -31,10 +31,6 @@ public class Monster : MonoBehaviour
     protected static int permaDamageUpgrade = 0;
     public int baseDamage;
 
-    //Future-proofing for when health bars are to be added.
-    [Header("Unity Stuff")]
-    public Image healthBar;
-
     private bool isDead = false;
     private bool isSlow = false;
 
@@ -57,10 +53,6 @@ public class Monster : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
-
-        //healthBar.fillAmount = health / startHealth;
-
-        Debug.Log("Got hit - " + health.ToString());
 
         if (health <= 0 && !isDead)
         {
