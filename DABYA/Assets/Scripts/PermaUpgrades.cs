@@ -29,11 +29,15 @@ public class PermaUpgrades : MonoBehaviour
         }
     }
 
+    //takes the user back to the main menu
     public void ToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
 
+    /* Upgrades the time limit for each wave
+     * 
+     */
     public void UpgradeTime()
     {
         if(timeUpgradeCounter<10)
@@ -49,11 +53,15 @@ public class PermaUpgrades : MonoBehaviour
         ChangeCreditTxt();
     }
 
+    //returns the upgrade value
     public float GetUpgradeTime()
     {
         return timerUpgrade;
     }
 
+    /*Decreases the health of the base
+     * 
+     */
     public void LowerBaseHealth()
     {
         if(baseHealthCounter<10)
@@ -68,12 +76,13 @@ public class PermaUpgrades : MonoBehaviour
         }
         ChangeCreditTxt();
     }
-
+    //reutrns the amount of health to remove from the base
     public int GetBaseHealthDowngrade()
     {
         return baseHealthDowngrade;
     }
 
+    //checks if the user can afford the upgrade
     public bool checkCredits(int cost)
     {
         bool isTrue = false;
@@ -84,6 +93,9 @@ public class PermaUpgrades : MonoBehaviour
         return isTrue;
     }
 
+    /*upgrades the speed of all monsters
+     * 
+     */
     public void UpgradeDefaultMosterSpeed()
     {
         if(checkCredits(smallCost))
@@ -94,6 +106,9 @@ public class PermaUpgrades : MonoBehaviour
         ChangeCreditTxt();
     }
 
+    /*upgrades all monsters health
+     * 
+     */
     public void UpgradeDefaultMosterHealth()
     {
         if (checkCredits(smallCost))
@@ -104,6 +119,9 @@ public class PermaUpgrades : MonoBehaviour
         ChangeCreditTxt();
     }
 
+    /*Increases the damage of all monster
+     * 
+     */
     public void UpgradeDefaultMosterDamage()
     {
         if (checkCredits(smallCost))
@@ -114,6 +132,7 @@ public class PermaUpgrades : MonoBehaviour
         ChangeCreditTxt();
     }
 
+    //update the text saying how many credits the user has
     public void ChangeCreditTxt()
     {
         creditTxt.text = "Credits: " + user.GetCredits();

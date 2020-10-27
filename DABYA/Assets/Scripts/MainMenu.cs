@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("LevelSelect");
     }
 
+    //opens the permanent upgrade menu
     public void OpenUpgrades()
     {
         SceneManager.LoadScene("PermaUpgradeScreen");

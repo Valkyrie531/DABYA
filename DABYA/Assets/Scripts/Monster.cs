@@ -158,17 +158,20 @@ public class Monster : MonoBehaviour
         }
     }
 
+    //permanently upgrades the speed of monsters
     public void PremaUpgradeSpeed()
     {
         permaSpeedUpgrade += 0.1f;
     }
 
+    //permanently upgrades health of monsters
     public void PremaUpgradeHealth()
     {
         Debug.Log("yeet");
         permaHealthUpgrade += 10f;
     }
 
+    //permanently upgrade damage dealt by monsters
     public void PremaUpgradeDamage()
     {
         permaDamageUpgrade += 1;
