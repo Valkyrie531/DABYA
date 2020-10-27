@@ -51,6 +51,22 @@ public class Database : MonoBehaviour
     }
 
 
+    public void updateUpgradeTable(int userId, int upgradeId, int upgradeVal, int upgradeCount)
+    {
+        using (IDbConnection dbconn = new SqliteConnection(conn))
+        {
+            dbconn.Open();
+
+            using (IDbCommand dbcmd = dbconn.CreateCommand())
+            {
+                string query = "UPDATE Upgrade SET VALUE = " + upgradeVal + ", COUNT = " + upgradeCount + " WHERE USERID = " + userId + " AND UPGRADEID = " + upgradeCount +";";
+                dbcmd.CommandText = query;
+                dbcmd.ExecuteScalar();
+                dbconn.Close();
+            }
+        }
+    }
+
         public void EnterName() 
     {
         Debug.Log("Enter the name:" + enterName.text);
