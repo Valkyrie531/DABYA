@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7136970037260763587}
   - component: {fileID: 7136970037260763584}
   - component: {fileID: 7136970037260763585}
+  - component: {fileID: 488768311}
   m_Layer: 0
   m_Name: IceTower
   m_TagString: Untagged
@@ -73,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 184814201a0723941a4a1586d70bf9ba, type: 3}
-  m_Color: {r: 0, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -7560686652973308433, guid: 0b27eac4446ba4d4f9725e67e7d294cf, type: 3}
+  m_Color: {r: 0, g: 0.44655728, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,11 +98,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 5
-  fireCountdown: 0
-  fireDamage: 10
   enemyTag: Enemy
   bulletPrefab: {fileID: 9178720586304747794, guid: 25081c79222207346b09a61f0312c6f0, type: 3}
   firePoint: {fileID: 7136970038764467315}
+--- !u!95 &488768311
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7136970037260763598}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e22939bceadb3bc45aa3027c0bfbed75, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7136970038764467312
 GameObject:
   m_ObjectHideFlags: 0
